@@ -1,0 +1,4343 @@
+{
+  "schema": "genova.vr/1",
+  "title": "Inside the Beating Heart",
+  "language": "en",
+  "summary": "Explore the heart’s four chambers and one-way valves, then follow blood through the heart, lungs and body. Watch a heartbeat unfold and finish with a short quiz about how this double-loop pump works.",
+  "assets": [
+    {
+      "id": "human_heart_cutaway",
+      "brief": "An anatomically accurate, friendly human heart with a removable front wall exposing four chambers, the septum, four articulated valves and major vessel openings. Use muted red muscle, cream valve leaflets and subtly textured chamber walls. Upright anatomical orientation, apex pointing down toward the person's left; approximately fist-sized, with thicker left ventricular muscle.",
+      "file": "models/human_heart_cutaway.glb"
+    },
+    {
+      "id": "paired_human_lungs",
+      "brief": "A pair of anatomically proportioned human lungs with a central trachea, branching main bronchi and short pulmonary vessel connections. The right lung has three lobes; the left has two and a cardiac notch. Soft pink, lightly mottled surfaces and pale airway cartilage; clean educational style. Upright anatomical orientation, roughly 25 centimetres tall.",
+      "file": "models/paired_human_lungs.glb"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "meet_the_heart",
+      "title": "Meet Your Four-Chamber Pump",
+      "sky": {
+        "color": [
+          0.035,
+          0.055,
+          0.09
+        ]
+      },
+      "nodes": [
+        {
+          "id": "scene_root",
+          "kind": "sphere",
+          "pos": [
+            0,
+            1.9,
+            -7.5
+          ],
+          "scale": 0.01,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "pickable": false
+        },
+        {
+          "id": "lungs",
+          "kind": "model",
+          "asset": "paired_human_lungs",
+          "parent": "scene_root",
+          "pos": [
+            0,
+            0.25,
+            -0.45
+          ],
+          "scale": 1.15,
+          "lit": true,
+          "label": "Lungs",
+          "model": "models/paired_human_lungs.glb"
+        },
+        {
+          "id": "small_heart",
+          "kind": "model",
+          "asset": "human_heart_cutaway",
+          "parent": "scene_root",
+          "pos": [
+            0.22,
+            -0.1,
+            4.7
+          ],
+          "scale": 0.42,
+          "lit": true,
+          "label": "Heart",
+          "model": "models/human_heart_cutaway.glb"
+        },
+        {
+          "id": "size_comparison",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            1.8,
+            -0.1,
+            4.7
+          ],
+          "scale": 0.42,
+          "color": [
+            0.88,
+            0.73,
+            0.5
+          ],
+          "lit": true,
+          "label": "Fist-sized comparison"
+        },
+        {
+          "id": "large_heart",
+          "kind": "model",
+          "asset": "human_heart_cutaway",
+          "parent": "scene_root",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.55,
+          "lit": true,
+          "label": "Enlarged heart cutaway",
+          "visible": false,
+          "model": "models/human_heart_cutaway.glb"
+        },
+        {
+          "id": "right_orientation",
+          "kind": "quad",
+          "parent": "scene_root",
+          "pos": [
+            -2.45,
+            1.05,
+            0.15
+          ],
+          "scale": 0.28,
+          "label": "Person's right",
+          "visible": false
+        },
+        {
+          "id": "left_orientation",
+          "kind": "quad",
+          "parent": "scene_root",
+          "pos": [
+            2.45,
+            1.05,
+            0.15
+          ],
+          "scale": 0.28,
+          "label": "Person's left",
+          "visible": false
+        },
+        {
+          "id": "right_atrium",
+          "kind": "sphere",
+          "parent": "large_heart",
+          "pos": [
+            -0.66,
+            0.45,
+            0.62
+          ],
+          "scale": 0.09,
+          "color": [
+            0.25,
+            0.65,
+            1
+          ],
+          "lit": false,
+          "label": "Right atrium",
+          "visible": false
+        },
+        {
+          "id": "left_atrium",
+          "kind": "sphere",
+          "parent": "large_heart",
+          "pos": [
+            0.55,
+            0.55,
+            0.62
+          ],
+          "scale": 0.09,
+          "color": [
+            1,
+            0.4,
+            0.3
+          ],
+          "lit": false,
+          "label": "Left atrium",
+          "visible": false
+        },
+        {
+          "id": "right_ventricle",
+          "kind": "sphere",
+          "parent": "large_heart",
+          "pos": [
+            -0.48,
+            -0.55,
+            0.66
+          ],
+          "scale": 0.09,
+          "color": [
+            0.25,
+            0.65,
+            1
+          ],
+          "lit": false,
+          "label": "Right ventricle",
+          "visible": false
+        },
+        {
+          "id": "left_ventricle",
+          "kind": "sphere",
+          "parent": "large_heart",
+          "pos": [
+            0.57,
+            -0.62,
+            0.66
+          ],
+          "scale": 0.09,
+          "color": [
+            1,
+            0.4,
+            0.3
+          ],
+          "lit": false,
+          "label": "Left ventricle",
+          "visible": false
+        },
+        {
+          "id": "septum_marker",
+          "kind": "sphere",
+          "parent": "large_heart",
+          "pos": [
+            0.04,
+            -0.32,
+            0.69
+          ],
+          "scale": 0.065,
+          "stretch": [
+            1,
+            5,
+            0.6
+          ],
+          "color": [
+            1,
+            0.86,
+            0.3,
+            0.65
+          ],
+          "lit": false,
+          "label": "Septum",
+          "visible": false
+        },
+        {
+          "id": "right_wall_bar",
+          "kind": "box",
+          "parent": "scene_root",
+          "pos": [
+            -2.3,
+            -0.5,
+            0.1
+          ],
+          "scale": 0.2,
+          "stretch": [
+            0.55,
+            3,
+            0.55
+          ],
+          "color": [
+            0.35,
+            0.65,
+            0.9
+          ],
+          "lit": true,
+          "label": "Right ventricular wall",
+          "visible": false
+        },
+        {
+          "id": "left_wall_bar",
+          "kind": "box",
+          "parent": "scene_root",
+          "pos": [
+            2.3,
+            -0.5,
+            0.1
+          ],
+          "scale": 0.2,
+          "stretch": [
+            1.5,
+            3,
+            0.55
+          ],
+          "color": [
+            0.9,
+            0.38,
+            0.32
+          ],
+          "lit": true,
+          "label": "Thicker left ventricular wall",
+          "visible": false
+        },
+        {
+          "id": "tricuspid_marker",
+          "kind": "sphere",
+          "parent": "large_heart",
+          "pos": [
+            -0.58,
+            0.02,
+            0.74
+          ],
+          "scale": 0.075,
+          "color": [
+            1,
+            0.9,
+            0.65
+          ],
+          "lit": false,
+          "label": "Tricuspid valve",
+          "visible": false
+        },
+        {
+          "id": "mitral_marker",
+          "kind": "sphere",
+          "parent": "large_heart",
+          "pos": [
+            0.5,
+            0.08,
+            0.74
+          ],
+          "scale": 0.075,
+          "color": [
+            1,
+            0.9,
+            0.65
+          ],
+          "lit": false,
+          "label": "Mitral valve",
+          "visible": false
+        },
+        {
+          "id": "pulmonary_marker",
+          "kind": "sphere",
+          "parent": "large_heart",
+          "pos": [
+            -0.28,
+            0.8,
+            0.76
+          ],
+          "scale": 0.075,
+          "color": [
+            1,
+            0.9,
+            0.65
+          ],
+          "lit": false,
+          "label": "Pulmonary valve",
+          "visible": false
+        },
+        {
+          "id": "aortic_marker",
+          "kind": "sphere",
+          "parent": "large_heart",
+          "pos": [
+            0.25,
+            0.92,
+            0.72
+          ],
+          "scale": 0.075,
+          "color": [
+            1,
+            0.9,
+            0.65
+          ],
+          "lit": false,
+          "label": "Aortic valve",
+          "visible": false
+        },
+        {
+          "id": "valve_detail",
+          "kind": "torus",
+          "parent": "scene_root",
+          "pos": [
+            0,
+            0,
+            0.3
+          ],
+          "scale": 1.05,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            0.72,
+            0.28,
+            0.3
+          ],
+          "lit": true,
+          "label": "Simplified valve opening",
+          "visible": false
+        },
+        {
+          "id": "detail_caption",
+          "kind": "quad",
+          "parent": "scene_root",
+          "pos": [
+            2.7,
+            1.9,
+            0.3
+          ],
+          "scale": 0.28,
+          "label": "Enlarged schematic, not to scale",
+          "visible": false
+        },
+        {
+          "id": "left_flap",
+          "kind": "box",
+          "parent": "scene_root",
+          "pos": [
+            -0.39,
+            0,
+            0.32
+          ],
+          "scale": 0.5,
+          "stretch": [
+            0.78,
+            1.35,
+            0.1
+          ],
+          "color": [
+            0.95,
+            0.88,
+            0.69
+          ],
+          "lit": true,
+          "label": "Valve flap",
+          "visible": false
+        },
+        {
+          "id": "right_flap",
+          "kind": "box",
+          "parent": "scene_root",
+          "pos": [
+            0.39,
+            0,
+            0.32
+          ],
+          "scale": 0.5,
+          "stretch": [
+            0.78,
+            1.35,
+            0.1
+          ],
+          "color": [
+            0.95,
+            0.88,
+            0.69
+          ],
+          "lit": true,
+          "label": "Valve flap",
+          "visible": false
+        },
+        {
+          "id": "blood_dot_one",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0,
+            0,
+            -1
+          ],
+          "scale": 0.075,
+          "color": [
+            0.9,
+            0.16,
+            0.2
+          ],
+          "lit": false,
+          "label": "Forward blood flow",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                0,
+                0,
+                -1
+              ],
+              [
+                0,
+                0,
+                0.3
+              ],
+              [
+                0,
+                0,
+                1.7
+              ]
+            ],
+            "seconds": 4,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "blood_dot_two",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0,
+            0,
+            -1
+          ],
+          "scale": 0.075,
+          "color": [
+            0.9,
+            0.16,
+            0.2
+          ],
+          "lit": false,
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                0,
+                0,
+                -1
+              ],
+              [
+                0,
+                0,
+                0.3
+              ],
+              [
+                0,
+                0,
+                1.7
+              ]
+            ],
+            "seconds": 4,
+            "loop": "loop",
+            "phase": 0.33
+          }
+        },
+        {
+          "id": "blood_dot_three",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0,
+            0,
+            -1
+          ],
+          "scale": 0.075,
+          "color": [
+            0.9,
+            0.16,
+            0.2
+          ],
+          "lit": false,
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                0,
+                0,
+                -1
+              ],
+              [
+                0,
+                0,
+                0.3
+              ],
+              [
+                0,
+                0,
+                1.7
+              ]
+            ],
+            "seconds": 4,
+            "loop": "loop",
+            "phase": 0.66
+          }
+        }
+      ],
+      "steps": [
+        {
+          "text": "Your heart is a muscular pump between your lungs, slightly to your left. Roughly the size of your fist, it moves blood carrying oxygen and nutrients day and night.",
+          "highlight": "small_heart",
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ],
+            "focus": "small_heart",
+            "seconds": 3
+          },
+          "cues": [
+            {
+              "phrase": "your lungs",
+              "highlight": "lungs",
+              "at": 2.29
+            },
+            {
+              "phrase": "size of your fist",
+              "highlight": "size_comparison",
+              "at": 3.91
+            }
+          ],
+          "audio": "audio/meet_the_heart_00.wav",
+          "duration": 8.05
+        },
+        {
+          "text": "This cutaway is enlarged, not life-sized. Imagine a person facing you: their right is on your left. The open front lets us see inside.",
+          "highlight": "large_heart",
+          "hide": [
+            "small_heart",
+            "lungs",
+            "size_comparison"
+          ],
+          "show": [
+            "large_heart"
+          ],
+          "camera": {
+            "focus": "large_heart",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "person facing you",
+              "show": [
+                "right_orientation",
+                "left_orientation"
+              ],
+              "at": 3.03
+            },
+            {
+              "phrase": "their right",
+              "highlight": "right_orientation",
+              "at": 4.08
+            }
+          ],
+          "audio": "audio/meet_the_heart_01.wav",
+          "duration": 7.63
+        },
+        {
+          "text": "Four chambers: the right atrium and left atrium receive returning blood. Below, the right ventricle and left ventricle pump blood out.",
+          "highlight": "large_heart",
+          "hide": [
+            "right_orientation",
+            "left_orientation"
+          ],
+          "camera": {
+            "focus": "large_heart",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "right atrium",
+              "show": [
+                "right_atrium"
+              ],
+              "highlight": "right_atrium",
+              "at": 0.99
+            },
+            {
+              "phrase": "left atrium",
+              "show": [
+                "left_atrium"
+              ],
+              "highlight": "left_atrium",
+              "at": 1.88
+            },
+            {
+              "phrase": "right ventricle",
+              "show": [
+                "right_ventricle"
+              ],
+              "highlight": "right_ventricle",
+              "at": 5.42
+            },
+            {
+              "phrase": "left ventricle",
+              "show": [
+                "left_ventricle"
+              ],
+              "highlight": "left_ventricle",
+              "at": 5.97
+            }
+          ],
+          "audio": "audio/meet_the_heart_02.wav",
+          "duration": 7.11
+        },
+        {
+          "text": "The septum is a muscular dividing wall. In a healthy heart, it keeps oxygen-poor blood on the right from mixing directly with oxygen-rich blood on the left.",
+          "highlight": "septum_marker",
+          "show": [
+            "septum_marker"
+          ],
+          "hide": [
+            "right_atrium",
+            "left_atrium",
+            "right_ventricle",
+            "left_ventricle"
+          ],
+          "camera": {
+            "focus": "large_heart",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "audio": "audio/meet_the_heart_03.wav",
+          "duration": 7.95
+        },
+        {
+          "text": "The right ventricle pumps to nearby lungs. The left ventricle pumps around the body; its thicker wall makes greater pressure. The bars compare thickness, not scale.",
+          "highlight": "right_ventricle",
+          "show": [
+            "right_ventricle",
+            "right_wall_bar"
+          ],
+          "hide": [
+            "septum_marker"
+          ],
+          "camera": {
+            "focus": "large_heart",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "left ventricle",
+              "show": [
+                "left_ventricle",
+                "left_wall_bar"
+              ],
+              "highlight": "left_ventricle",
+              "at": 2.31
+            },
+            {
+              "phrase": "thicker wall",
+              "highlight": "left_wall_bar",
+              "at": 4.42
+            }
+          ],
+          "audio": "audio/meet_the_heart_04.wav",
+          "duration": 8.54
+        },
+        {
+          "text": "Four valves guide one-way flow. Tricuspid and mitral valves sit between atria and ventricles. Pulmonary and aortic valves guard the ventricular exits.",
+          "highlight": "large_heart",
+          "hide": [
+            "right_ventricle",
+            "left_ventricle",
+            "right_wall_bar",
+            "left_wall_bar"
+          ],
+          "camera": {
+            "focus": "large_heart",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "Tricuspid",
+              "show": [
+                "tricuspid_marker"
+              ],
+              "highlight": "tricuspid_marker",
+              "at": 1.63
+            },
+            {
+              "phrase": "mitral",
+              "show": [
+                "mitral_marker"
+              ],
+              "highlight": "mitral_marker",
+              "at": 2.43
+            },
+            {
+              "phrase": "Pulmonary",
+              "show": [
+                "pulmonary_marker"
+              ],
+              "highlight": "pulmonary_marker",
+              "at": 5.12
+            },
+            {
+              "phrase": "aortic",
+              "show": [
+                "aortic_marker"
+              ],
+              "highlight": "aortic_marker",
+              "at": 5.84
+            }
+          ],
+          "audio": "audio/meet_the_heart_05.wav",
+          "duration": 8.33
+        },
+        {
+          "text": "In this simplified valve, muscle pressure pushes blood forward. Flaps open, then close against reverse pressure. Valves guide flow; they do not pull blood.",
+          "highlight": "valve_detail",
+          "hide": [
+            "large_heart",
+            "tricuspid_marker",
+            "mitral_marker",
+            "pulmonary_marker",
+            "aortic_marker"
+          ],
+          "show": [
+            "valve_detail",
+            "detail_caption",
+            "left_flap",
+            "right_flap"
+          ],
+          "camera": {
+            "focus": "valve_detail",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "Flaps open",
+              "highlight": "left_flap",
+              "set": [
+                {
+                  "node": "left_flap",
+                  "position": [
+                    -0.85,
+                    0,
+                    0.32
+                  ],
+                  "seconds": 0.5
+                },
+                {
+                  "node": "right_flap",
+                  "position": [
+                    0.85,
+                    0,
+                    0.32
+                  ],
+                  "seconds": 0.5
+                }
+              ],
+              "at": 2.92
+            },
+            {
+              "phrase": "then",
+              "show": [
+                "blood_dot_one",
+                "blood_dot_two",
+                "blood_dot_three"
+              ],
+              "highlight": "blood_dot_one",
+              "at": 5.62
+            },
+            {
+              "phrase": "close against reverse pressure",
+              "hide": [
+                "blood_dot_one",
+                "blood_dot_two",
+                "blood_dot_three"
+              ],
+              "highlight": "left_flap",
+              "set": [
+                {
+                  "node": "left_flap",
+                  "position": [
+                    -0.39,
+                    0,
+                    0.32
+                  ],
+                  "seconds": 0.5
+                },
+                {
+                  "node": "right_flap",
+                  "position": [
+                    0.39,
+                    0,
+                    0.32
+                  ],
+                  "seconds": 0.5
+                }
+              ],
+              "at": 5.72
+            },
+            {
+              "phrase": "they do not pull",
+              "hide": [
+                "valve_detail",
+                "detail_caption",
+                "left_flap",
+                "right_flap"
+              ],
+              "show": [
+                "large_heart"
+              ],
+              "highlight": "large_heart",
+              "at": 6.88
+            }
+          ],
+          "audio": "audio/meet_the_heart_06.wav",
+          "duration": 8.32,
+          "sfx": {
+            "prompt": "Single muffled heartbeat, low lub followed by softer dub",
+            "audio": "audio/meet_the_heart_sfx06.mp3",
+            "volume": 0.3,
+            "delay": 4.0
+          }
+        }
+      ],
+      "music": "heart_discovery"
+    },
+    {
+      "id": "follow_the_blood",
+      "title": "Follow the Two Blood Loops",
+      "sky": {
+        "color": [
+          0.025,
+          0.045,
+          0.08
+        ]
+      },
+      "nodes": [
+        {
+          "id": "scene_root",
+          "kind": "sphere",
+          "pos": [
+            0,
+            1.6,
+            -7
+          ],
+          "scale": 0.01,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "pickable": false
+        },
+        {
+          "id": "overview",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.01,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "pickable": false
+        },
+        {
+          "id": "heart",
+          "kind": "model",
+          "asset": "human_heart_cutaway",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.5,
+          "lit": true,
+          "label": "Heart",
+          "model": "models/human_heart_cutaway.glb"
+        },
+        {
+          "id": "lungs",
+          "kind": "model",
+          "asset": "paired_human_lungs",
+          "parent": "overview",
+          "pos": [
+            -3,
+            0.6,
+            -0.2
+          ],
+          "scale": 1.15,
+          "lit": true,
+          "label": "Lungs",
+          "model": "models/paired_human_lungs.glb"
+        },
+        {
+          "id": "body",
+          "kind": "box",
+          "parent": "overview",
+          "pos": [
+            3,
+            -0.1,
+            0
+          ],
+          "scale": 0.65,
+          "stretch": [
+            0.7,
+            1.25,
+            0.08
+          ],
+          "color": [
+            0.55,
+            0.65,
+            0.72
+          ],
+          "lit": false,
+          "label": "Body"
+        },
+        {
+          "id": "body_head",
+          "kind": "sphere",
+          "parent": "body",
+          "pos": [
+            0,
+            1.05,
+            0
+          ],
+          "scale": 0.27,
+          "stretch": [
+            1,
+            1,
+            0.18
+          ],
+          "color": [
+            0.55,
+            0.65,
+            0.72
+          ],
+          "lit": false
+        },
+        {
+          "id": "body_arm_left",
+          "kind": "box",
+          "parent": "body",
+          "pos": [
+            -0.65,
+            0.05,
+            0
+          ],
+          "scale": 0.4,
+          "stretch": [
+            0.25,
+            1.6,
+            0.1
+          ],
+          "rot": [
+            0,
+            0,
+            -0.25
+          ],
+          "color": [
+            0.55,
+            0.65,
+            0.72
+          ],
+          "lit": false
+        },
+        {
+          "id": "body_arm_right",
+          "kind": "box",
+          "parent": "body",
+          "pos": [
+            0.65,
+            0.05,
+            0
+          ],
+          "scale": 0.4,
+          "stretch": [
+            0.25,
+            1.6,
+            0.1
+          ],
+          "rot": [
+            0,
+            0,
+            0.25
+          ],
+          "color": [
+            0.55,
+            0.65,
+            0.72
+          ],
+          "lit": false
+        },
+        {
+          "id": "body_leg_left",
+          "kind": "box",
+          "parent": "body",
+          "pos": [
+            -0.24,
+            -1.2,
+            0
+          ],
+          "scale": 0.45,
+          "stretch": [
+            0.28,
+            1.4,
+            0.1
+          ],
+          "color": [
+            0.55,
+            0.65,
+            0.72
+          ],
+          "lit": false
+        },
+        {
+          "id": "body_leg_right",
+          "kind": "box",
+          "parent": "body",
+          "pos": [
+            0.24,
+            -1.2,
+            0
+          ],
+          "scale": 0.45,
+          "stretch": [
+            0.28,
+            1.4,
+            0.1
+          ],
+          "color": [
+            0.55,
+            0.65,
+            0.72
+          ],
+          "lit": false
+        },
+        {
+          "id": "oxygen_legend",
+          "kind": "quad",
+          "parent": "scene_root",
+          "pos": [
+            -2.5,
+            2.1,
+            0
+          ],
+          "scale": 0.3,
+          "label": "Blue: less oxygen | Red: more oxygen",
+          "lit": false
+        },
+        {
+          "id": "blue_sample",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            -1.1,
+            1.8,
+            0.5
+          ],
+          "scale": 0.13,
+          "color": [
+            0.12,
+            0.45,
+            1
+          ],
+          "lit": false,
+          "label": "Lower oxygen"
+        },
+        {
+          "id": "red_sample",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            1.1,
+            1.8,
+            0.5
+          ],
+          "scale": 0.13,
+          "color": [
+            1,
+            0.16,
+            0.12
+          ],
+          "lit": false,
+          "label": "Higher oxygen"
+        },
+        {
+          "id": "right_atrium",
+          "kind": "sphere",
+          "parent": "overview",
+          "pos": [
+            -0.55,
+            0.5,
+            1.1
+          ],
+          "scale": 0.13,
+          "color": [
+            0.12,
+            0.45,
+            1,
+            0.65
+          ],
+          "lit": false,
+          "label": "Right atrium",
+          "visible": false
+        },
+        {
+          "id": "right_ventricle",
+          "kind": "sphere",
+          "parent": "overview",
+          "pos": [
+            -0.45,
+            -0.55,
+            1.1
+          ],
+          "scale": 0.15,
+          "color": [
+            0.12,
+            0.45,
+            1,
+            0.65
+          ],
+          "lit": false,
+          "label": "Right ventricle",
+          "visible": false
+        },
+        {
+          "id": "left_atrium",
+          "kind": "sphere",
+          "parent": "overview",
+          "pos": [
+            0.55,
+            0.5,
+            1.1
+          ],
+          "scale": 0.13,
+          "color": [
+            1,
+            0.16,
+            0.12,
+            0.65
+          ],
+          "lit": false,
+          "label": "Left atrium",
+          "visible": false
+        },
+        {
+          "id": "left_ventricle",
+          "kind": "sphere",
+          "parent": "overview",
+          "pos": [
+            0.55,
+            -0.6,
+            1.1
+          ],
+          "scale": 0.15,
+          "color": [
+            1,
+            0.16,
+            0.12,
+            0.65
+          ],
+          "lit": false,
+          "label": "Left ventricle",
+          "visible": false
+        },
+        {
+          "id": "tricuspid_valve",
+          "kind": "torus",
+          "parent": "overview",
+          "pos": [
+            -1.9,
+            -1.3,
+            1.25
+          ],
+          "scale": 0.13,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            1,
+            0.9,
+            0.65
+          ],
+          "lit": false,
+          "label": "Tricuspid valve",
+          "visible": false
+        },
+        {
+          "id": "pulmonary_valve",
+          "kind": "torus",
+          "parent": "overview",
+          "pos": [
+            -0.2,
+            0.95,
+            1.25
+          ],
+          "scale": 0.12,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            1,
+            0.9,
+            0.65
+          ],
+          "lit": false,
+          "label": "Pulmonary valve",
+          "visible": false
+        },
+        {
+          "id": "mitral_valve",
+          "kind": "torus",
+          "parent": "overview",
+          "pos": [
+            0.55,
+            0,
+            1.25
+          ],
+          "scale": 0.13,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            1,
+            0.9,
+            0.65
+          ],
+          "lit": false,
+          "label": "Mitral valve",
+          "visible": false
+        },
+        {
+          "id": "aortic_valve",
+          "kind": "torus",
+          "parent": "overview",
+          "pos": [
+            0.25,
+            1.3,
+            1.25
+          ],
+          "scale": 0.12,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            1,
+            0.9,
+            0.65
+          ],
+          "lit": false,
+          "label": "Aortic valve",
+          "visible": false
+        },
+        {
+          "id": "venae_cavae",
+          "kind": "cylinder",
+          "parent": "overview",
+          "pos": [
+            0.6,
+            -1.9,
+            0.3
+          ],
+          "scale": 0.07,
+          "stretch": [
+            1,
+            25,
+            1
+          ],
+          "rot": [
+            0,
+            0,
+            1.5708
+          ],
+          "color": [
+            0.12,
+            0.35,
+            0.7,
+            0.35
+          ],
+          "lit": false,
+          "label": "Venae cavae",
+          "visible": false
+        },
+        {
+          "id": "pulmonary_arteries",
+          "kind": "cylinder",
+          "parent": "overview",
+          "pos": [
+            -1.8,
+            1.35,
+            0.4
+          ],
+          "scale": 0.07,
+          "stretch": [
+            1,
+            17,
+            1
+          ],
+          "rot": [
+            0,
+            0,
+            1.5708
+          ],
+          "color": [
+            0.12,
+            0.35,
+            0.7,
+            0.35
+          ],
+          "lit": false,
+          "label": "Pulmonary arteries",
+          "visible": false
+        },
+        {
+          "id": "pulmonary_veins",
+          "kind": "cylinder",
+          "parent": "overview",
+          "pos": [
+            -2.5,
+            -1.5,
+            0.4
+          ],
+          "scale": 0.07,
+          "stretch": [
+            1,
+            17,
+            1
+          ],
+          "rot": [
+            0,
+            0,
+            1.5708
+          ],
+          "color": [
+            0.8,
+            0.18,
+            0.16,
+            0.35
+          ],
+          "lit": false,
+          "label": "Pulmonary veins",
+          "visible": false
+        },
+        {
+          "id": "aorta",
+          "kind": "cylinder",
+          "parent": "overview",
+          "pos": [
+            1.9,
+            1.4,
+            0.4
+          ],
+          "scale": 0.08,
+          "stretch": [
+            1,
+            13,
+            1
+          ],
+          "rot": [
+            0,
+            0,
+            1.5708
+          ],
+          "color": [
+            0.8,
+            0.18,
+            0.16,
+            0.35
+          ],
+          "lit": false,
+          "label": "Aorta",
+          "visible": false
+        },
+        {
+          "id": "return_dot_one",
+          "kind": "sphere",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.09,
+          "color": [
+            0.12,
+            0.45,
+            1
+          ],
+          "lit": false,
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                3,
+                -0.7,
+                0.4
+              ],
+              [
+                2.3,
+                -1.9,
+                0.4
+              ],
+              [
+                -1.2,
+                -1.9,
+                0.4
+              ],
+              [
+                -1.2,
+                0.5,
+                1.2
+              ],
+              [
+                -0.55,
+                0.5,
+                1.2
+              ]
+            ],
+            "seconds": 9,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "return_dot_two",
+          "kind": "sphere",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.09,
+          "color": [
+            0.12,
+            0.45,
+            1
+          ],
+          "lit": false,
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                3,
+                -0.7,
+                0.4
+              ],
+              [
+                2.3,
+                -1.9,
+                0.4
+              ],
+              [
+                -1.2,
+                -1.9,
+                0.4
+              ],
+              [
+                -1.2,
+                0.5,
+                1.2
+              ],
+              [
+                -0.55,
+                0.5,
+                1.2
+              ]
+            ],
+            "seconds": 9,
+            "loop": "loop",
+            "phase": 0.5
+          }
+        },
+        {
+          "id": "lung_out_dot_one",
+          "kind": "sphere",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.09,
+          "color": [
+            0.12,
+            0.45,
+            1
+          ],
+          "lit": false,
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -0.55,
+                0.5,
+                1.2
+              ],
+              [
+                -0.55,
+                0,
+                1.35
+              ],
+              [
+                -0.45,
+                -0.55,
+                1.2
+              ],
+              [
+                -0.2,
+                0.95,
+                1.35
+              ],
+              [
+                -0.6,
+                1.35,
+                0.4
+              ],
+              [
+                -3,
+                1.35,
+                0.4
+              ],
+              [
+                -3,
+                0.6,
+                0.5
+              ]
+            ],
+            "seconds": 9,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "lung_out_dot_two",
+          "kind": "sphere",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.09,
+          "color": [
+            0.12,
+            0.45,
+            1
+          ],
+          "lit": false,
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -0.55,
+                0.5,
+                1.2
+              ],
+              [
+                -0.55,
+                0,
+                1.35
+              ],
+              [
+                -0.45,
+                -0.55,
+                1.2
+              ],
+              [
+                -0.2,
+                0.95,
+                1.35
+              ],
+              [
+                -0.6,
+                1.35,
+                0.4
+              ],
+              [
+                -3,
+                1.35,
+                0.4
+              ],
+              [
+                -3,
+                0.6,
+                0.5
+              ]
+            ],
+            "seconds": 9,
+            "loop": "loop",
+            "phase": 0.5
+          }
+        },
+        {
+          "id": "lung_return_dot_one",
+          "kind": "sphere",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.09,
+          "color": [
+            1,
+            0.16,
+            0.12
+          ],
+          "lit": false,
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -3,
+                0.6,
+                0.5
+              ],
+              [
+                -3,
+                -0.5,
+                0.4
+              ],
+              [
+                -0.6,
+                -0.5,
+                0.4
+              ],
+              [
+                0.55,
+                0.5,
+                1.2
+              ],
+              [
+                0.55,
+                0,
+                1.35
+              ],
+              [
+                0.55,
+                -0.6,
+                1.2
+              ]
+            ],
+            "seconds": 8,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "lung_return_dot_two",
+          "kind": "sphere",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.09,
+          "color": [
+            1,
+            0.16,
+            0.12
+          ],
+          "lit": false,
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -3,
+                0.6,
+                0.5
+              ],
+              [
+                -3,
+                -0.5,
+                0.4
+              ],
+              [
+                -0.6,
+                -0.5,
+                0.4
+              ],
+              [
+                0.55,
+                0.5,
+                1.2
+              ],
+              [
+                0.55,
+                0,
+                1.35
+              ],
+              [
+                0.55,
+                -0.6,
+                1.2
+              ]
+            ],
+            "seconds": 8,
+            "loop": "loop",
+            "phase": 0.5
+          }
+        },
+        {
+          "id": "body_out_dot_one",
+          "kind": "sphere",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.09,
+          "color": [
+            1,
+            0.16,
+            0.12
+          ],
+          "lit": false,
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                0.55,
+                -0.6,
+                1.2
+              ],
+              [
+                0.25,
+                1.3,
+                1.35
+              ],
+              [
+                0.9,
+                1.4,
+                0.4
+              ],
+              [
+                3,
+                1.4,
+                0.4
+              ],
+              [
+                3,
+                0,
+                0.4
+              ]
+            ],
+            "seconds": 8,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "body_out_dot_two",
+          "kind": "sphere",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.09,
+          "color": [
+            1,
+            0.16,
+            0.12
+          ],
+          "lit": false,
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                0.55,
+                -0.6,
+                1.2
+              ],
+              [
+                0.25,
+                1.3,
+                1.35
+              ],
+              [
+                0.9,
+                1.4,
+                0.4
+              ],
+              [
+                3,
+                1.4,
+                0.4
+              ],
+              [
+                3,
+                0,
+                0.4
+              ]
+            ],
+            "seconds": 8,
+            "loop": "loop",
+            "phase": 0.5
+          }
+        },
+        {
+          "id": "lung_exchange",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.01,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "air_sac",
+          "kind": "sphere",
+          "parent": "lung_exchange",
+          "pos": [
+            -1.1,
+            0.15,
+            0
+          ],
+          "scale": 1.25,
+          "color": [
+            0.95,
+            0.65,
+            0.73,
+            0.2
+          ],
+          "lit": false,
+          "label": "Air sac in the lungs"
+        },
+        {
+          "id": "lung_capillary",
+          "kind": "torus",
+          "parent": "lung_exchange",
+          "pos": [
+            0.65,
+            0.1,
+            0.15
+          ],
+          "scale": 1.25,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            0.6,
+            0.3,
+            0.55,
+            0.55
+          ],
+          "lit": false,
+          "label": "Tiny blood vessel"
+        },
+        {
+          "id": "exchange_blue",
+          "kind": "sphere",
+          "parent": "lung_exchange",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.11,
+          "color": [
+            0.12,
+            0.45,
+            1
+          ],
+          "lit": false,
+          "path": {
+            "points": [
+              [
+                1.9,
+                0.1,
+                0.25
+              ],
+              [
+                1.55,
+                -0.8,
+                0.25
+              ],
+              [
+                0.65,
+                -1.15,
+                0.25
+              ],
+              [
+                -0.25,
+                -0.8,
+                0.25
+              ],
+              [
+                -0.6,
+                0.1,
+                0.25
+              ]
+            ],
+            "seconds": 6,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "exchange_red",
+          "kind": "sphere",
+          "parent": "lung_exchange",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.11,
+          "color": [
+            1,
+            0.16,
+            0.12
+          ],
+          "lit": false,
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -0.6,
+                0.1,
+                0.25
+              ],
+              [
+                -0.25,
+                1,
+                0.25
+              ],
+              [
+                0.65,
+                1.35,
+                0.25
+              ],
+              [
+                1.55,
+                1,
+                0.25
+              ],
+              [
+                1.9,
+                0.1,
+                0.25
+              ]
+            ],
+            "seconds": 6,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "oxygen_to_blood",
+          "kind": "sphere",
+          "parent": "lung_exchange",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.07,
+          "color": [
+            1,
+            0.85,
+            0.2
+          ],
+          "lit": false,
+          "label": "Oxygen",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -1.1,
+                0.55,
+                0.3
+              ],
+              [
+                -0.8,
+                0.5,
+                0.3
+              ],
+              [
+                -0.5,
+                0.45,
+                0.3
+              ]
+            ],
+            "seconds": 3,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "carbon_dioxide_to_air",
+          "kind": "sphere",
+          "parent": "lung_exchange",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.07,
+          "color": [
+            0.65,
+            0.95,
+            0.75
+          ],
+          "lit": false,
+          "label": "Carbon dioxide",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -0.5,
+                -0.25,
+                0.3
+              ],
+              [
+                -0.8,
+                -0.3,
+                0.3
+              ],
+              [
+                -1.1,
+                -0.35,
+                0.3
+              ]
+            ],
+            "seconds": 3,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "body_exchange",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.01,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "body_capillary",
+          "kind": "cylinder",
+          "parent": "body_exchange",
+          "pos": [
+            -1.3,
+            0,
+            0
+          ],
+          "scale": 0.22,
+          "stretch": [
+            1,
+            7,
+            1
+          ],
+          "color": [
+            0.75,
+            0.3,
+            0.4,
+            0.5
+          ],
+          "lit": false,
+          "label": "Body capillary"
+        },
+        {
+          "id": "body_cell",
+          "kind": "sphere",
+          "parent": "body_exchange",
+          "pos": [
+            1.2,
+            0,
+            0
+          ],
+          "scale": 0.95,
+          "color": [
+            0.65,
+            0.55,
+            0.85,
+            0.65
+          ],
+          "lit": true,
+          "label": "Body cell"
+        },
+        {
+          "id": "cell_nucleus",
+          "kind": "sphere",
+          "parent": "body_cell",
+          "pos": [
+            0.15,
+            0,
+            0.65
+          ],
+          "scale": 0.25,
+          "color": [
+            0.35,
+            0.2,
+            0.55
+          ],
+          "lit": true
+        },
+        {
+          "id": "body_capillary_dot",
+          "kind": "sphere",
+          "parent": "body_exchange",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.11,
+          "color": [
+            1,
+            0.16,
+            0.12
+          ],
+          "lit": false,
+          "path": {
+            "points": [
+              [
+                -1.3,
+                1.4,
+                0.25
+              ],
+              [
+                -1.3,
+                0,
+                0.25
+              ],
+              [
+                -1.3,
+                -1.4,
+                0.25
+              ]
+            ],
+            "seconds": 6,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "oxygen_nutrients_to_cell",
+          "kind": "sphere",
+          "parent": "body_exchange",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.08,
+          "color": [
+            1,
+            0.85,
+            0.2
+          ],
+          "lit": false,
+          "label": "Oxygen and nutrients",
+          "path": {
+            "points": [
+              [
+                -1.1,
+                0.45,
+                0.3
+              ],
+              [
+                0,
+                0.45,
+                0.3
+              ],
+              [
+                0.5,
+                0.3,
+                0.3
+              ]
+            ],
+            "seconds": 4,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "wastes_to_blood",
+          "kind": "sphere",
+          "parent": "body_exchange",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.08,
+          "color": [
+            0.65,
+            0.95,
+            0.75
+          ],
+          "lit": false,
+          "label": "Wastes, including carbon dioxide",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                0.5,
+                -0.35,
+                0.3
+              ],
+              [
+                0,
+                -0.45,
+                0.3
+              ],
+              [
+                -1.1,
+                -0.45,
+                0.3
+              ]
+            ],
+            "seconds": 4,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "away_arrow",
+          "kind": "cone",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.16,
+          "rot": [
+            0,
+            0,
+            1.5708
+          ],
+          "color": [
+            0.2,
+            0.65,
+            1
+          ],
+          "lit": false,
+          "label": "Away from the heart",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -0.8,
+                1.35,
+                0.65
+              ],
+              [
+                -2.7,
+                1.35,
+                0.65
+              ]
+            ],
+            "seconds": 5,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "toward_arrow",
+          "kind": "cone",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.16,
+          "rot": [
+            0,
+            0,
+            -1.5708
+          ],
+          "color": [
+            1,
+            0.3,
+            0.2
+          ],
+          "lit": false,
+          "label": "Toward the heart",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -2.7,
+                -0.5,
+                0.65
+              ],
+              [
+                -0.8,
+                -0.5,
+                0.65
+              ]
+            ],
+            "seconds": 5,
+            "loop": "loop",
+            "phase": 0
+          }
+        }
+      ],
+      "steps": [
+        {
+          "text": "Follow dots representing blood. Blue means less oxygen; red means more. Real blood is always red. Sizes and distances are simplified, not to scale.",
+          "highlight": "heart",
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ],
+            "focus": "heart",
+            "seconds": 3
+          },
+          "cues": [
+            {
+              "phrase": "Blue",
+              "highlight": "blue_sample",
+              "at": 1.67
+            },
+            {
+              "phrase": "red means more",
+              "highlight": "red_sample",
+              "at": 3.3
+            }
+          ],
+          "audio": "audio/follow_the_blood_00.wav",
+          "duration": 9.2
+        },
+        {
+          "text": "Body cells have used some oxygen. Blood returns through large veins called the venae cavae, entering the right atrium, an upper heart chamber.",
+          "highlight": "body",
+          "hide": [
+            "oxygen_legend",
+            "blue_sample",
+            "red_sample"
+          ],
+          "camera": {
+            "focus": "right_atrium",
+            "seconds": 3,
+            "pos": [
+              -0.55,
+              1.93,
+              -4.7
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "Blood returns",
+              "show": [
+                "venae_cavae",
+                "return_dot_one",
+                "return_dot_two"
+              ],
+              "highlight": "venae_cavae",
+              "at": 1.83
+            },
+            {
+              "phrase": "right atrium",
+              "show": [
+                "right_atrium"
+              ],
+              "highlight": "right_atrium",
+              "at": 5.18
+            }
+          ],
+          "audio": "audio/follow_the_blood_01.wav",
+          "duration": 7.16
+        },
+        {
+          "text": "Blood crosses the tricuspid valve into the right ventricle. Its squeeze sends blood through the pulmonary valve and pulmonary arteries to the lungs.",
+          "highlight": "tricuspid_valve",
+          "show": [
+            "tricuspid_valve",
+            "lung_out_dot_one",
+            "lung_out_dot_two"
+          ],
+          "hide": [
+            "return_dot_one",
+            "return_dot_two"
+          ],
+          "camera": {
+            "focus": "heart",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.0,
+              -1.2
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "right ventricle",
+              "show": [
+                "right_ventricle"
+              ],
+              "highlight": "right_ventricle",
+              "at": 2.05
+            },
+            {
+              "phrase": "pulmonary valve",
+              "show": [
+                "pulmonary_valve"
+              ],
+              "highlight": "pulmonary_valve",
+              "at": 4.43
+            },
+            {
+              "phrase": "pulmonary arteries",
+              "show": [
+                "pulmonary_arteries"
+              ],
+              "highlight": "pulmonary_arteries",
+              "at": 5.32
+            },
+            {
+              "phrase": "lungs",
+              "highlight": "lungs",
+              "at": 6.47
+            }
+          ],
+          "audio": "audio/follow_the_blood_02.wav",
+          "duration": 7.09,
+          "sfx": {
+            "prompt": "Single muffled heartbeat, low lub followed by softer dub",
+            "audio": "audio/follow_the_blood_sfx02.mp3",
+            "volume": 0.35,
+            "delay": 3.5
+          }
+        },
+        {
+          "text": "In the lungs, oxygen crosses from air sacs into blood. Carbon dioxide crosses into air to be breathed out. Only now do our blood dots turn red.",
+          "highlight": "air_sac",
+          "hide": [
+            "overview"
+          ],
+          "show": [
+            "lung_exchange"
+          ],
+          "camera": {
+            "focus": "air_sac",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.0,
+              -1.2
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "oxygen crosses",
+              "show": [
+                "oxygen_to_blood"
+              ],
+              "highlight": "oxygen_to_blood",
+              "at": 0.55
+            },
+            {
+              "phrase": "Carbon dioxide",
+              "show": [
+                "carbon_dioxide_to_air"
+              ],
+              "highlight": "carbon_dioxide_to_air",
+              "at": 2.76
+            },
+            {
+              "phrase": "dots turn red",
+              "show": [
+                "exchange_red"
+              ],
+              "highlight": "exchange_red",
+              "at": 6.74
+            }
+          ],
+          "audio": "audio/follow_the_blood_03.wav",
+          "duration": 7.85
+        },
+        {
+          "text": "Pulmonary veins return oxygen-rich blood to the left atrium. It crosses the mitral valve into the left ventricle, returning to the heart before the body.",
+          "highlight": "pulmonary_veins",
+          "hide": [
+            "lung_exchange",
+            "lung_out_dot_one",
+            "lung_out_dot_two",
+            "right_atrium",
+            "right_ventricle",
+            "tricuspid_valve",
+            "pulmonary_valve"
+          ],
+          "show": [
+            "overview",
+            "pulmonary_veins",
+            "lung_return_dot_one",
+            "lung_return_dot_two"
+          ],
+          "camera": {
+            "focus": "heart",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.0,
+              -1.2
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "left atrium",
+              "show": [
+                "left_atrium"
+              ],
+              "highlight": "left_atrium",
+              "at": 2.52
+            },
+            {
+              "phrase": "mitral valve",
+              "show": [
+                "mitral_valve"
+              ],
+              "highlight": "mitral_valve",
+              "at": 3.9
+            },
+            {
+              "phrase": "left ventricle",
+              "show": [
+                "left_ventricle"
+              ],
+              "highlight": "left_ventricle",
+              "at": 5.0
+            }
+          ],
+          "audio": "audio/follow_the_blood_04.wav",
+          "duration": 7.82
+        },
+        {
+          "text": "The left ventricle pumps through the aortic valve into the aorta. In body capillaries, oxygen and nutrients reach cells; wastes enter blood.",
+          "highlight": "left_ventricle",
+          "hide": [
+            "lung_return_dot_one",
+            "lung_return_dot_two"
+          ],
+          "camera": {
+            "focus": "heart",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.0,
+              -1.2
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "aortic valve",
+              "show": [
+                "aortic_valve"
+              ],
+              "highlight": "aortic_valve",
+              "at": 1.74
+            },
+            {
+              "phrase": "aorta",
+              "show": [
+                "aorta",
+                "body_out_dot_one",
+                "body_out_dot_two"
+              ],
+              "highlight": "aorta",
+              "at": 2.77
+            },
+            {
+              "phrase": "body capillaries",
+              "hide": [
+                "overview"
+              ],
+              "show": [
+                "body_exchange"
+              ],
+              "highlight": "body_capillary",
+              "at": 3.42
+            },
+            {
+              "phrase": "wastes",
+              "show": [
+                "wastes_to_blood"
+              ],
+              "highlight": "wastes_to_blood",
+              "at": 6.61
+            }
+          ],
+          "audio": "audio/follow_the_blood_05.wav",
+          "duration": 7.44,
+          "sfx": {
+            "prompt": "Single muffled heartbeat, low lub followed by softer dub",
+            "audio": "audio/follow_the_blood_sfx05.mp3",
+            "volume": 0.35,
+            "delay": 0.8
+          }
+        },
+        {
+          "text": "Veins return blood to the right heart. Two connected loops repeat: heart to lungs to heart, and heart to body to heart. Both sides work together.",
+          "highlight": "heart",
+          "hide": [
+            "body_exchange",
+            "left_atrium",
+            "left_ventricle",
+            "mitral_valve",
+            "aortic_valve"
+          ],
+          "show": [
+            "overview",
+            "return_dot_one",
+            "return_dot_two",
+            "lung_out_dot_one",
+            "lung_out_dot_two",
+            "lung_return_dot_one",
+            "lung_return_dot_two",
+            "body_out_dot_one",
+            "body_out_dot_two"
+          ],
+          "camera": {
+            "focus": "heart",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.0,
+              -1.2
+            ]
+          },
+          "set": [
+            {
+              "node": "venae_cavae",
+              "opacity": 0.55,
+              "seconds": 2
+            },
+            {
+              "node": "pulmonary_arteries",
+              "opacity": 0.55,
+              "seconds": 2
+            },
+            {
+              "node": "pulmonary_veins",
+              "opacity": 0.55,
+              "seconds": 2
+            },
+            {
+              "node": "aorta",
+              "opacity": 0.55,
+              "seconds": 2
+            }
+          ],
+          "cues": [
+            {
+              "phrase": "heart to lungs",
+              "highlight": "lungs",
+              "at": 3.45
+            },
+            {
+              "phrase": "heart to body",
+              "highlight": "body",
+              "at": 4.9
+            }
+          ],
+          "audio": "audio/follow_the_blood_06.wav",
+          "duration": 7.78
+        },
+        {
+          "text": "Arteries carry blood away; veins carry it toward the heart. Pulmonary arteries carry oxygen-poor blood; pulmonary veins carry oxygen-rich blood.",
+          "highlight": "pulmonary_arteries",
+          "camera": {
+            "focus": "pulmonary_arteries",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.0,
+              -1.2
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "away",
+              "show": [
+                "away_arrow"
+              ],
+              "highlight": "away_arrow",
+              "at": 1.05
+            },
+            {
+              "phrase": "toward the heart",
+              "show": [
+                "toward_arrow"
+              ],
+              "highlight": "toward_arrow",
+              "at": 2.03
+            },
+            {
+              "phrase": "Pulmonary arteries",
+              "highlight": "pulmonary_arteries",
+              "set": [
+                {
+                  "node": "pulmonary_arteries",
+                  "opacity": 1,
+                  "seconds": 2
+                }
+              ],
+              "at": 2.9
+            },
+            {
+              "phrase": "pulmonary veins",
+              "highlight": "pulmonary_veins",
+              "set": [
+                {
+                  "node": "pulmonary_veins",
+                  "opacity": 1,
+                  "seconds": 2
+                }
+              ],
+              "at": 5.48
+            }
+          ],
+          "audio": "audio/follow_the_blood_07.wav",
+          "duration": 8.05
+        }
+      ]
+    },
+    {
+      "id": "one_heartbeat",
+      "title": "What Makes a Heartbeat?",
+      "sky": {
+        "color": [
+          0.025,
+          0.045,
+          0.075
+        ]
+      },
+      "nodes": [
+        {
+          "id": "scene_root",
+          "kind": "sphere",
+          "pos": [
+            0,
+            1.6,
+            -7
+          ],
+          "scale": 0.001,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "pickable": false
+        },
+        {
+          "id": "heart",
+          "kind": "model",
+          "asset": "human_heart_cutaway",
+          "parent": "scene_root",
+          "pos": [
+            -1.65,
+            0.1,
+            0
+          ],
+          "scale": 1.35,
+          "lit": true,
+          "label": "Heart",
+          "model": "models/human_heart_cutaway.glb"
+        },
+        {
+          "id": "diagram_caption",
+          "kind": "quad",
+          "parent": "scene_root",
+          "pos": [
+            1.7,
+            1.85,
+            0
+          ],
+          "scale": 0.28,
+          "label": "Chamber schematic • not to scale",
+          "lit": false
+        },
+        {
+          "id": "valve_legend",
+          "kind": "quad",
+          "parent": "scene_root",
+          "pos": [
+            1.7,
+            1.4,
+            0
+          ],
+          "scale": 0.25,
+          "label": "Valve markers: bright = closed, dim = open",
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "signal_legend",
+          "kind": "quad",
+          "parent": "scene_root",
+          "pos": [
+            -1.65,
+            1.85,
+            0
+          ],
+          "scale": 0.25,
+          "label": "Yellow dots represent an electrical signal",
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "right_atrium",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0.85,
+            0.65,
+            0
+          ],
+          "scale": 0.36,
+          "stretch": [
+            1.15,
+            0.8,
+            0.6
+          ],
+          "color": [
+            0.2,
+            0.45,
+            0.75
+          ],
+          "lit": true,
+          "label": "Right atrium"
+        },
+        {
+          "id": "left_atrium",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            2.35,
+            0.65,
+            0
+          ],
+          "scale": 0.36,
+          "stretch": [
+            1.15,
+            0.8,
+            0.6
+          ],
+          "color": [
+            0.8,
+            0.25,
+            0.25
+          ],
+          "lit": true,
+          "label": "Left atrium"
+        },
+        {
+          "id": "right_ventricle",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0.85,
+            -0.65,
+            0
+          ],
+          "scale": 0.46,
+          "stretch": [
+            0.95,
+            1.05,
+            0.6
+          ],
+          "color": [
+            0.2,
+            0.45,
+            0.75
+          ],
+          "lit": true,
+          "label": "Right ventricle"
+        },
+        {
+          "id": "left_ventricle",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            2.35,
+            -0.65,
+            0
+          ],
+          "scale": 0.46,
+          "stretch": [
+            0.95,
+            1.05,
+            0.6
+          ],
+          "color": [
+            0.8,
+            0.25,
+            0.25
+          ],
+          "lit": true,
+          "label": "Left ventricle"
+        },
+        {
+          "id": "tricuspid_valve",
+          "kind": "disc",
+          "parent": "scene_root",
+          "pos": [
+            0.85,
+            0,
+            0.1
+          ],
+          "scale": 0.16,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            1,
+            0.9,
+            0.65
+          ],
+          "lit": false,
+          "label": "Tricuspid valve",
+          "visible": false
+        },
+        {
+          "id": "mitral_valve",
+          "kind": "disc",
+          "parent": "scene_root",
+          "pos": [
+            2.35,
+            0,
+            0.1
+          ],
+          "scale": 0.16,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            1,
+            0.9,
+            0.65
+          ],
+          "lit": false,
+          "label": "Mitral valve",
+          "visible": false
+        },
+        {
+          "id": "pulmonary_valve",
+          "kind": "disc",
+          "parent": "scene_root",
+          "pos": [
+            0.1,
+            -0.7,
+            0.1
+          ],
+          "scale": 0.16,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            1,
+            0.9,
+            0.65
+          ],
+          "lit": false,
+          "label": "Pulmonary valve",
+          "visible": false
+        },
+        {
+          "id": "aortic_valve",
+          "kind": "disc",
+          "parent": "scene_root",
+          "pos": [
+            3.1,
+            -0.7,
+            0.1
+          ],
+          "scale": 0.16,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            1,
+            0.9,
+            0.65
+          ],
+          "lit": false,
+          "label": "Aortic valve",
+          "visible": false
+        },
+        {
+          "id": "phase_ring",
+          "kind": "disc",
+          "parent": "scene_root",
+          "pos": [
+            -3.4,
+            1.05,
+            0
+          ],
+          "scale": 0.36,
+          "inner": 0.95,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            0.65,
+            0.8,
+            1,
+            0.7
+          ],
+          "lit": false,
+          "label": "Repeating heartbeat cycle",
+          "visible": false
+        },
+        {
+          "id": "phase_dot",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            -3.04,
+            1.05,
+            0.02
+          ],
+          "scale": 0.055,
+          "color": [
+            0.7,
+            0.9,
+            1
+          ],
+          "lit": false,
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -3.04,
+                1.05,
+                0.02
+              ],
+              [
+                -3.15,
+                1.3,
+                0.02
+              ],
+              [
+                -3.4,
+                1.41,
+                0.02
+              ],
+              [
+                -3.65,
+                1.3,
+                0.02
+              ],
+              [
+                -3.76,
+                1.05,
+                0.02
+              ],
+              [
+                -3.65,
+                0.8,
+                0.02
+              ],
+              [
+                -3.4,
+                0.69,
+                0.02
+              ],
+              [
+                -3.15,
+                0.8,
+                0.02
+              ],
+              [
+                -3.04,
+                1.05,
+                0.02
+              ]
+            ],
+            "seconds": 6,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "lungs",
+          "kind": "model",
+          "asset": "paired_human_lungs",
+          "parent": "scene_root",
+          "pos": [
+            -3.9,
+            -0.35,
+            -1.5
+          ],
+          "scale": 0.62,
+          "lit": true,
+          "label": "Lungs",
+          "model": "models/paired_human_lungs.glb"
+        },
+        {
+          "id": "body_tissues",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            5.5,
+            0.1,
+            -1
+          ],
+          "scale": 0.48,
+          "stretch": [
+            0.8,
+            1.5,
+            0.6
+          ],
+          "color": [
+            0.55,
+            0.4,
+            0.55
+          ],
+          "lit": true,
+          "label": "Body tissues"
+        },
+        {
+          "id": "right_filling",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0.85,
+            0.7,
+            0.3
+          ],
+          "scale": 0.065,
+          "color": [
+            0.25,
+            0.65,
+            1
+          ],
+          "lit": false,
+          "label": "Blood filling the right ventricle",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                0.85,
+                0.7,
+                0.3
+              ],
+              [
+                0.85,
+                0,
+                0.3
+              ],
+              [
+                0.85,
+                -0.65,
+                0.3
+              ]
+            ],
+            "seconds": 3,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "left_filling",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            2.35,
+            0.7,
+            0.3
+          ],
+          "scale": 0.065,
+          "color": [
+            1,
+            0.35,
+            0.3
+          ],
+          "lit": false,
+          "label": "Blood filling the left ventricle",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                2.35,
+                0.7,
+                0.3
+              ],
+              [
+                2.35,
+                0,
+                0.3
+              ],
+              [
+                2.35,
+                -0.65,
+                0.3
+              ]
+            ],
+            "seconds": 3,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "blood_to_lungs",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0.85,
+            -0.65,
+            0.3
+          ],
+          "scale": 0.07,
+          "color": [
+            0.25,
+            0.65,
+            1
+          ],
+          "lit": false,
+          "label": "Blood to the lungs",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                0.85,
+                -0.65,
+                0.3
+              ],
+              [
+                0.1,
+                -0.7,
+                0.3
+              ],
+              [
+                -0.1,
+                -1.5,
+                -0.2
+              ],
+              [
+                -3.9,
+                -1.4,
+                -1.2
+              ],
+              [
+                -3.9,
+                -0.35,
+                -1.2
+              ]
+            ],
+            "seconds": 5,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "blood_to_body",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            2.35,
+            -0.65,
+            0.3
+          ],
+          "scale": 0.07,
+          "color": [
+            1,
+            0.35,
+            0.3
+          ],
+          "lit": false,
+          "label": "Blood to the body",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                2.35,
+                -0.65,
+                0.3
+              ],
+              [
+                3.1,
+                -0.7,
+                0.3
+              ],
+              [
+                4.15,
+                -1.2,
+                -0.7
+              ],
+              [
+                4.15,
+                0.1,
+                -0.7
+              ]
+            ],
+            "seconds": 5,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "blood_from_lungs",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            -3.9,
+            -0.35,
+            -1.2
+          ],
+          "scale": 0.07,
+          "color": [
+            1,
+            0.35,
+            0.3
+          ],
+          "lit": false,
+          "label": "Oxygen-rich blood from the lungs",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -3.9,
+                -0.35,
+                -1.2
+              ],
+              [
+                -3.5,
+                1.1,
+                -1.2
+              ],
+              [
+                -0.3,
+                1.1,
+                -1.2
+              ],
+              [
+                2.35,
+                0.65,
+                0.3
+              ]
+            ],
+            "seconds": 5,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "blood_from_body",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            4.15,
+            0.1,
+            -0.7
+          ],
+          "scale": 0.07,
+          "color": [
+            0.25,
+            0.65,
+            1
+          ],
+          "lit": false,
+          "label": "Blood returning from the body",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                4.15,
+                0.1,
+                -0.7
+              ],
+              [
+                4.15,
+                1.1,
+                -1
+              ],
+              [
+                0.85,
+                1.1,
+                -1
+              ],
+              [
+                0.85,
+                0.65,
+                0.3
+              ]
+            ],
+            "seconds": 5,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "pacemaker",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0.66,
+            0.8,
+            0.32
+          ],
+          "scale": 0.075,
+          "color": [
+            1,
+            0.85,
+            0.1
+          ],
+          "lit": false,
+          "label": "Natural pacemaker in the right atrium",
+          "visible": false
+        },
+        {
+          "id": "atrial_signal",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0.66,
+            0.8,
+            0.32
+          ],
+          "scale": 0.055,
+          "color": [
+            1,
+            0.85,
+            0.1
+          ],
+          "lit": false,
+          "label": "Electrical signal through the atria",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                0.66,
+                0.8,
+                0.32
+              ],
+              [
+                0.85,
+                0.65,
+                0.32
+              ],
+              [
+                1.6,
+                0.65,
+                0.32
+              ],
+              [
+                2.35,
+                0.65,
+                0.32
+              ]
+            ],
+            "seconds": 3,
+            "loop": "once",
+            "phase": 0
+          }
+        },
+        {
+          "id": "signal_pause",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            1.6,
+            0.1,
+            0.32
+          ],
+          "scale": 0.065,
+          "color": [
+            1,
+            0.85,
+            0.1
+          ],
+          "lit": false,
+          "label": "Brief electrical delay",
+          "visible": false
+        },
+        {
+          "id": "right_ventricular_signal",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            1.6,
+            0.1,
+            0.32
+          ],
+          "scale": 0.055,
+          "color": [
+            1,
+            0.85,
+            0.1
+          ],
+          "lit": false,
+          "label": "Electrical signal to the right ventricle",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                1.6,
+                0.1,
+                0.32
+              ],
+              [
+                1.6,
+                -1.1,
+                0.32
+              ],
+              [
+                0.85,
+                -0.9,
+                0.32
+              ],
+              [
+                0.85,
+                -0.4,
+                0.32
+              ]
+            ],
+            "seconds": 3,
+            "loop": "once",
+            "phase": 0
+          }
+        },
+        {
+          "id": "left_ventricular_signal",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            1.6,
+            0.1,
+            0.32
+          ],
+          "scale": 0.055,
+          "color": [
+            1,
+            0.85,
+            0.1
+          ],
+          "lit": false,
+          "label": "Electrical signal to the left ventricle",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                1.6,
+                0.1,
+                0.32
+              ],
+              [
+                1.6,
+                -1.1,
+                0.32
+              ],
+              [
+                2.35,
+                -0.9,
+                0.32
+              ],
+              [
+                2.35,
+                -0.4,
+                0.32
+              ]
+            ],
+            "seconds": 3,
+            "loop": "once",
+            "phase": 0
+          }
+        }
+      ],
+      "steps": [
+        {
+          "text": "A heartbeat is one repeating cycle of squeezing and relaxing. Both sides work together, without waiting for blood's whole trip. This diagram is not to scale.",
+          "highlight": "heart",
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ],
+            "focus": "heart",
+            "seconds": 3
+          },
+          "cues": [
+            {
+              "phrase": "one repeating cycle",
+              "highlight": "phase_ring",
+              "show": [
+                "phase_ring",
+                "phase_dot"
+              ],
+              "at": 0.67
+            },
+            {
+              "phrase": "squeezing",
+              "set": [
+                {
+                  "node": "right_atrium",
+                  "scale": 0.88,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "left_atrium",
+                  "scale": 0.88,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "right_ventricle",
+                  "scale": 0.88,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "left_ventricle",
+                  "scale": 0.88,
+                  "seconds": 1.5
+                }
+              ],
+              "at": 1.77
+            },
+            {
+              "phrase": "relaxing",
+              "set": [
+                {
+                  "node": "right_atrium",
+                  "scale": 1,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "left_atrium",
+                  "scale": 1,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "right_ventricle",
+                  "scale": 1,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "left_ventricle",
+                  "scale": 1,
+                  "seconds": 1.5
+                }
+              ],
+              "at": 2.47
+            }
+          ],
+          "audio": "audio/one_heartbeat_00.wav",
+          "duration": 8.21
+        },
+        {
+          "text": "During relaxation, returning blood fills the atria and flows through open tricuspid and mitral valves into the ventricles. Both atria squeeze to finish filling.",
+          "highlight": "right_atrium",
+          "show": [
+            "valve_legend",
+            "tricuspid_valve",
+            "mitral_valve",
+            "pulmonary_valve",
+            "aortic_valve"
+          ],
+          "set": [
+            {
+              "node": "tricuspid_valve",
+              "opacity": 0.2,
+              "seconds": 1
+            },
+            {
+              "node": "mitral_valve",
+              "opacity": 0.2,
+              "seconds": 1
+            }
+          ],
+          "cues": [
+            {
+              "phrase": "returning blood",
+              "show": [
+                "blood_from_body",
+                "blood_from_lungs"
+              ],
+              "highlight": "left_atrium",
+              "at": 1.02
+            },
+            {
+              "phrase": "tricuspid",
+              "highlight": "tricuspid_valve",
+              "show": [
+                "right_filling"
+              ],
+              "at": 3.74
+            },
+            {
+              "phrase": "mitral",
+              "highlight": "mitral_valve",
+              "show": [
+                "left_filling"
+              ],
+              "at": 4.45
+            },
+            {
+              "phrase": "Both atria squeeze",
+              "highlight": "right_atrium",
+              "set": [
+                {
+                  "node": "right_atrium",
+                  "scale": 0.85,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "left_atrium",
+                  "scale": 0.85,
+                  "seconds": 1.5
+                }
+              ],
+              "at": 6.17
+            }
+          ],
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "audio": "audio/one_heartbeat_01.wav",
+          "duration": 8.36
+        },
+        {
+          "text": "Both ventricles contract. Pressure closes the tricuspid and mitral valves. Higher pressure opens the pulmonary and aortic valves, sending blood to lungs and body.",
+          "highlight": "right_ventricle",
+          "hide": [
+            "blood_from_body",
+            "blood_from_lungs"
+          ],
+          "cues": [
+            {
+              "phrase": "Both ventricles contract",
+              "hide": [
+                "right_filling",
+                "left_filling"
+              ],
+              "set": [
+                {
+                  "node": "right_ventricle",
+                  "scale": 0.82,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "left_ventricle",
+                  "scale": 0.82,
+                  "seconds": 1.5
+                }
+              ],
+              "at": 0.0
+            },
+            {
+              "phrase": "Pressure closes",
+              "highlight": "tricuspid_valve",
+              "set": [
+                {
+                  "node": "tricuspid_valve",
+                  "opacity": 1,
+                  "seconds": 0.5
+                },
+                {
+                  "node": "mitral_valve",
+                  "opacity": 1,
+                  "seconds": 0.5
+                }
+              ],
+              "at": 1.4
+            },
+            {
+              "phrase": "pulmonary",
+              "highlight": "pulmonary_valve",
+              "set": [
+                {
+                  "node": "pulmonary_valve",
+                  "opacity": 0.2,
+                  "seconds": 0.5
+                }
+              ],
+              "show": [
+                "blood_to_lungs"
+              ],
+              "at": 5.36
+            },
+            {
+              "phrase": "aortic",
+              "highlight": "aortic_valve",
+              "set": [
+                {
+                  "node": "aortic_valve",
+                  "opacity": 0.2,
+                  "seconds": 0.5
+                }
+              ],
+              "show": [
+                "blood_to_body"
+              ],
+              "at": 6.08
+            }
+          ],
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "audio": "audio/one_heartbeat_02.wav",
+          "duration": 8.65
+        },
+        {
+          "text": "The ventricles relax. Pulmonary and aortic valves close, stopping backflow. When ventricular pressure falls below atrial pressure, inlet valves reopen.",
+          "highlight": "left_ventricle",
+          "cues": [
+            {
+              "phrase": "ventricles relax",
+              "set": [
+                {
+                  "node": "right_ventricle",
+                  "scale": 1,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "left_ventricle",
+                  "scale": 1,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "right_atrium",
+                  "scale": 1,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "left_atrium",
+                  "scale": 1,
+                  "seconds": 1.5
+                }
+              ],
+              "at": 0.19
+            },
+            {
+              "phrase": "valves close",
+              "highlight": "aortic_valve",
+              "hide": [
+                "blood_to_lungs",
+                "blood_to_body"
+              ],
+              "set": [
+                {
+                  "node": "pulmonary_valve",
+                  "opacity": 1,
+                  "seconds": 0.5
+                },
+                {
+                  "node": "aortic_valve",
+                  "opacity": 1,
+                  "seconds": 0.5
+                }
+              ],
+              "at": 3.21
+            },
+            {
+              "phrase": "inlet valves reopen",
+              "highlight": "mitral_valve",
+              "set": [
+                {
+                  "node": "tricuspid_valve",
+                  "opacity": 0.2,
+                  "seconds": 0.5
+                },
+                {
+                  "node": "mitral_valve",
+                  "opacity": 0.2,
+                  "seconds": 0.5
+                }
+              ],
+              "show": [
+                "right_filling",
+                "left_filling"
+              ],
+              "at": 7.67
+            }
+          ],
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "audio": "audio/one_heartbeat_03.wav",
+          "duration": 8.56
+        },
+        {
+          "text": "Lub comes mainly from vibrations as tricuspid and mitral valves close. Dub follows pulmonary and aortic valve closure. These sounds are not valves opening.",
+          "highlight": "tricuspid_valve",
+          "cues": [
+            {
+              "phrase": "Lub",
+              "hide": [
+                "right_filling",
+                "left_filling"
+              ],
+              "set": [
+                {
+                  "node": "tricuspid_valve",
+                  "opacity": 1,
+                  "seconds": 0.4
+                },
+                {
+                  "node": "mitral_valve",
+                  "opacity": 1,
+                  "seconds": 0.4
+                },
+                {
+                  "node": "right_ventricle",
+                  "scale": 0.82,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "left_ventricle",
+                  "scale": 0.82,
+                  "seconds": 1.5
+                }
+              ],
+              "at": 0.0
+            },
+            {
+              "phrase": "Dub",
+              "highlight": "pulmonary_valve",
+              "set": [
+                {
+                  "node": "pulmonary_valve",
+                  "opacity": 1,
+                  "seconds": 0.4
+                },
+                {
+                  "node": "aortic_valve",
+                  "opacity": 1,
+                  "seconds": 0.4
+                },
+                {
+                  "node": "right_ventricle",
+                  "scale": 1,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "left_ventricle",
+                  "scale": 1,
+                  "seconds": 1.5
+                }
+              ],
+              "at": 3.71
+            }
+          ],
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "audio": "audio/one_heartbeat_04.wav",
+          "duration": 8.59,
+          "sfx": {
+            "prompt": "Single muffled heartbeat, low lub followed by softer dub",
+            "audio": "audio/one_heartbeat_sfx04.mp3",
+            "volume": 0.45,
+            "delay": 0.2
+          }
+        },
+        {
+          "text": "A natural pacemaker in the right atrium starts an electrical signal. It spreads through the atria, pauses briefly, then activates the ventricles in order.",
+          "highlight": "pacemaker",
+          "show": [
+            "pacemaker",
+            "signal_legend"
+          ],
+          "hide": [
+            "phase_dot"
+          ],
+          "cues": [
+            {
+              "phrase": "through the atria",
+              "highlight": "atrial_signal",
+              "show": [
+                "atrial_signal"
+              ],
+              "set": [
+                {
+                  "node": "right_atrium",
+                  "scale": 0.85,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "left_atrium",
+                  "scale": 0.85,
+                  "seconds": 1.5
+                }
+              ],
+              "at": 3.89
+            },
+            {
+              "phrase": "pauses briefly",
+              "highlight": "signal_pause",
+              "hide": [
+                "atrial_signal"
+              ],
+              "show": [
+                "signal_pause"
+              ],
+              "at": 4.75
+            },
+            {
+              "phrase": "activates the ventricles",
+              "highlight": "left_ventricular_signal",
+              "hide": [
+                "signal_pause"
+              ],
+              "show": [
+                "right_ventricular_signal",
+                "left_ventricular_signal"
+              ],
+              "set": [
+                {
+                  "node": "right_ventricle",
+                  "scale": 0.82,
+                  "seconds": 1.5
+                },
+                {
+                  "node": "left_ventricle",
+                  "scale": 0.82,
+                  "seconds": 1.5
+                }
+              ],
+              "at": 6.29
+            }
+          ],
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "audio": "audio/one_heartbeat_05.wav",
+          "duration": 7.89
+        },
+        {
+          "text": "During exercise, your heart usually beats faster to meet your muscles' greater oxygen needs. More frequent beats help keep both blood loops moving.",
+          "highlight": "heart",
+          "hide": [
+            "atrial_signal",
+            "right_ventricular_signal",
+            "left_ventricular_signal",
+            "pacemaker",
+            "signal_legend"
+          ],
+          "show": [
+            "phase_dot",
+            "blood_to_lungs",
+            "blood_from_lungs",
+            "blood_to_body",
+            "blood_from_body"
+          ],
+          "set": [
+            {
+              "node": "right_atrium",
+              "scale": 1,
+              "seconds": 1.5
+            },
+            {
+              "node": "left_atrium",
+              "scale": 1,
+              "seconds": 1.5
+            },
+            {
+              "node": "right_ventricle",
+              "scale": 1,
+              "seconds": 1.5
+            },
+            {
+              "node": "left_ventricle",
+              "scale": 1,
+              "seconds": 1.5
+            }
+          ],
+          "cues": [
+            {
+              "phrase": "oxygen needs",
+              "highlight": "body_tissues",
+              "at": 3.87
+            },
+            {
+              "phrase": "both blood loops",
+              "highlight": "lungs",
+              "at": 5.99
+            }
+          ],
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "audio": "audio/one_heartbeat_06.wav",
+          "duration": 7.5
+        },
+        {
+          "text": "Recall the route: body, right heart, lungs, left heart, body. Lungs add oxygen; valves stop backflow. Which chamber pumps blood to the body? Take a moment to answer.",
+          "highlight": "body_tissues",
+          "hide": [
+            "phase_dot",
+            "blood_to_lungs",
+            "blood_from_lungs",
+            "blood_to_body",
+            "blood_from_body",
+            "valve_legend"
+          ],
+          "cues": [
+            {
+              "phrase": "right heart",
+              "highlight": "right_ventricle",
+              "at": 2.98
+            },
+            {
+              "phrase": "lungs",
+              "highlight": "lungs",
+              "at": 4.22
+            },
+            {
+              "phrase": "left heart",
+              "highlight": "left_ventricle",
+              "at": 5.61
+            },
+            {
+              "phrase": "valves stop backflow",
+              "highlight": "aortic_valve",
+              "at": 8.11
+            }
+          ],
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "audio": "audio/one_heartbeat_07.wav",
+          "duration": 9.18
+        }
+      ],
+      "quiz": {
+        "question": "Which chamber pumps blood to the body?",
+        "options": [
+          {
+            "label": "Left ventricle",
+            "correct": true
+          },
+          {
+            "label": "Right ventricle"
+          },
+          {
+            "label": "Left atrium"
+          }
+        ],
+        "correct": {
+          "text": "Correct! The left ventricle pumps blood through the aortic valve toward the body.",
+          "audio": "audio/one_heartbeat_correct.wav",
+          "duration": 3.99
+        },
+        "wrong": {
+          "text": "Not quite. The right ventricle pumps toward the lungs, while the atria fill the ventricles. Try again.",
+          "audio": "audio/one_heartbeat_wrong.wav",
+          "duration": 5.7
+        },
+        "audio": "audio/one_heartbeat_quiz.wav",
+        "duration": 2.0
+      }
+    }
+  ],
+  "tracks": [
+    {
+      "id": "heart_discovery",
+      "prompt": "inquisitive, friendly learning: science, how-things-work, body, machines",
+      "audio": "audio/music_heart_discovery.mp3",
+      "volume": 0.16
+    }
+  ]
+}

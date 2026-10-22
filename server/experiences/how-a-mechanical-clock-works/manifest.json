@@ -1,0 +1,1547 @@
+{
+  "schema": "genova.vr/1",
+  "title": "Inside a Mechanical Clock",
+  "language": "en",
+  "summary": "Explore a weight-driven pendulum clock to discover how stored energy, gears, and a ticking escapement work together. Follow the motion to the clock hands, investigate what keeps the clock accurate, and finish with a short quiz.",
+  "assets": [
+    {
+      "id": "clock_weight_and_drum",
+      "brief": "A weight-driven clock power assembly with a tall brass cylindrical weight, cream cord, horizontal winding drum, and steel axle in a small support frame. Use clean, accurate surfaces and realistic proportions: the weight is about three times taller than wide. The drum rotates as cord unwinds, lowering the weight vertically; its axle supplies rotation to the gear train.",
+      "file": "models/clock_weight_and_drum.glb"
+    },
+    {
+      "id": "clock_going_train",
+      "brief": "An exposed clock gear train with several brass toothed wheels, smaller steel pinions fixed to their shafts, and two narrow support plates. Wheels stand vertically with horizontal axles facing the viewer. Use clean, accurate teeth and realistic varying diameters. Meshing wheels turn oppositely; wheel-and-pinion pairs share rotation. Animate linked motion from a slow input through a once-per-hour shaft to a faster escapement output.",
+      "file": "models/clock_going_train.glb"
+    },
+    {
+      "id": "clock_anchor_escapement",
+      "brief": "A mechanical anchor escapement with a brass escape wheel, steel anchor, two clearly shaped pallet faces, pivot, and pendulum coupling. The wheel stands vertically, its axle pointing toward the viewer, with the anchor above it. Use clean, accurate proportions and visible teeth. The anchor rocks, alternately locking and releasing teeth; brief contact impulses sustain the pendulum, while the wheel advances in small steps.",
+      "file": "models/clock_anchor_escapement.glb"
+    },
+    {
+      "id": "clock_adjustable_pendulum",
+      "brief": "A clock pendulum with a slender steel rod, round brass bob, top suspension, and threaded adjustment nut beneath the bob. Hang it vertically, front facing the viewer, with roughly one metre from suspension to bob centre. Use clean, realistic surfaces and a small swing angle. The pendulum swings side to side; turning the nut raises or lowers the bob along the rod.",
+      "file": "models/clock_adjustable_pendulum.glb"
+    },
+    {
+      "id": "clock_dial_and_motion_works",
+      "brief": "A cream circular clock dial with dark numerals 1–12, black minute and hour hands, concentric shafts, and exposed brass motion-work gears behind it. Face the dial forward. A 12-tooth minute pinion drives a 36-tooth offset gear sharing a shaft with a 10-tooth pinion, which drives a 40-tooth hour gear. Animate both hands clockwise, with the shorter hour hand turning twelve times slower.",
+      "file": "models/clock_dial_and_motion_works.glb"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "power_and_gears",
+      "title": "Where Does the Power Come From?",
+      "sky": {
+        "color": [
+          0.07,
+          0.09,
+          0.13
+        ]
+      },
+      "nodes": [
+        {
+          "id": "clock_root",
+          "kind": "sphere",
+          "pos": [
+            0,
+            1.6,
+            -8
+          ],
+          "scale": 0.01,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "pickable": false
+        },
+        {
+          "id": "frame_base",
+          "kind": "box",
+          "parent": "clock_root",
+          "pos": [
+            0,
+            -2.4,
+            -0.35
+          ],
+          "scale": 1,
+          "stretch": [
+            3.6,
+            0.07,
+            0.35
+          ],
+          "color": [
+            0.22,
+            0.25,
+            0.3
+          ],
+          "lit": true,
+          "pickable": false
+        },
+        {
+          "id": "frame_left",
+          "kind": "box",
+          "parent": "clock_root",
+          "pos": [
+            -3.5,
+            0.1,
+            -0.35
+          ],
+          "scale": 1,
+          "stretch": [
+            0.06,
+            2.5,
+            0.08
+          ],
+          "color": [
+            0.22,
+            0.25,
+            0.3
+          ],
+          "lit": true,
+          "pickable": false
+        },
+        {
+          "id": "frame_right",
+          "kind": "box",
+          "parent": "clock_root",
+          "pos": [
+            3.5,
+            0.1,
+            -0.35
+          ],
+          "scale": 1,
+          "stretch": [
+            0.06,
+            2.5,
+            0.08
+          ],
+          "color": [
+            0.22,
+            0.25,
+            0.3
+          ],
+          "lit": true,
+          "pickable": false
+        },
+        {
+          "id": "frame_top",
+          "kind": "box",
+          "parent": "clock_root",
+          "pos": [
+            0,
+            2.6,
+            -0.35
+          ],
+          "scale": 1,
+          "stretch": [
+            3.6,
+            0.07,
+            0.08
+          ],
+          "color": [
+            0.22,
+            0.25,
+            0.3
+          ],
+          "lit": true,
+          "pickable": false
+        },
+        {
+          "id": "weight_assembly",
+          "kind": "model",
+          "asset": "clock_weight_and_drum",
+          "parent": "clock_root",
+          "pos": [
+            -2.15,
+            0.2,
+            0
+          ],
+          "scale": 1.1,
+          "lit": true,
+          "label": "Raised weight, cord and drum",
+          "model": "models/clock_weight_and_drum.glb"
+        },
+        {
+          "id": "gear_train",
+          "kind": "model",
+          "asset": "clock_going_train",
+          "parent": "clock_root",
+          "pos": [
+            -0.35,
+            0.65,
+            0
+          ],
+          "scale": 0.95,
+          "lit": true,
+          "label": "Gear train: wheels, pinions and shafts",
+          "model": "models/clock_going_train.glb"
+        },
+        {
+          "id": "escapement",
+          "kind": "model",
+          "asset": "clock_anchor_escapement",
+          "parent": "clock_root",
+          "pos": [
+            1.5,
+            1.05,
+            0
+          ],
+          "scale": 0.45,
+          "lit": true,
+          "label": "Escapement",
+          "model": "models/clock_anchor_escapement.glb"
+        },
+        {
+          "id": "pendulum",
+          "kind": "model",
+          "asset": "clock_adjustable_pendulum",
+          "parent": "clock_root",
+          "pos": [
+            1.5,
+            -0.45,
+            0.08
+          ],
+          "scale": 0.8,
+          "lit": true,
+          "label": "Swinging pendulum",
+          "model": "models/clock_adjustable_pendulum.glb"
+        },
+        {
+          "id": "dial",
+          "kind": "model",
+          "asset": "clock_dial_and_motion_works",
+          "parent": "clock_root",
+          "pos": [
+            2.7,
+            0.55,
+            -0.15
+          ],
+          "scale": 0.55,
+          "lit": true,
+          "label": "Clock hands and motion-work gears",
+          "model": "models/clock_dial_and_motion_works.glb"
+        },
+        {
+          "id": "gravity_arrow_stem",
+          "kind": "cylinder",
+          "parent": "clock_root",
+          "pos": [
+            -3.02,
+            0.3,
+            0.15
+          ],
+          "scale": 0.045,
+          "stretch": [
+            1,
+            7,
+            1
+          ],
+          "color": [
+            0.35,
+            0.75,
+            1
+          ],
+          "lit": false,
+          "visible": false,
+          "pickable": false
+        },
+        {
+          "id": "gravity_arrow_tip",
+          "kind": "cone",
+          "parent": "clock_root",
+          "pos": [
+            -3.02,
+            -0.15,
+            0.15
+          ],
+          "scale": 0.14,
+          "rot": [
+            0,
+            0,
+            3.14159
+          ],
+          "color": [
+            0.35,
+            0.75,
+            1
+          ],
+          "lit": false,
+          "label": "Gravity",
+          "visible": false,
+          "pickable": false
+        },
+        {
+          "id": "stored_energy_panel",
+          "kind": "quad",
+          "parent": "clock_root",
+          "pos": [
+            -2.5,
+            3.15,
+            0
+          ],
+          "scale": 0.3,
+          "color": [
+            0.08,
+            0.1,
+            0.15
+          ],
+          "lit": false,
+          "label": "Stored energy",
+          "visible": false,
+          "pickable": false
+        },
+        {
+          "id": "sped_up_panel",
+          "kind": "quad",
+          "parent": "clock_root",
+          "pos": [
+            0,
+            3.15,
+            0
+          ],
+          "scale": 0.3,
+          "color": [
+            0.08,
+            0.1,
+            0.15
+          ],
+          "lit": false,
+          "label": "Sped up",
+          "visible": false,
+          "pickable": false
+        },
+        {
+          "id": "control_panel",
+          "kind": "quad",
+          "parent": "clock_root",
+          "pos": [
+            2.5,
+            3.15,
+            0
+          ],
+          "scale": 0.3,
+          "color": [
+            0.08,
+            0.1,
+            0.15
+          ],
+          "lit": false,
+          "label": "Power needs control",
+          "visible": false,
+          "pickable": false
+        }
+      ],
+      "steps": [
+        {
+          "text": "A raised weight stores energy. Gravity pulls it down to power this clock, without a battery or motor. Parts are enlarged and spread out.",
+          "highlight": "weight_assembly",
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ],
+            "focus": "weight_assembly",
+            "seconds": 3
+          },
+          "cues": [
+            {
+              "phrase": "stores energy",
+              "show": [
+                "stored_energy_panel"
+              ],
+              "at": 0.79
+            },
+            {
+              "phrase": "Gravity",
+              "show": [
+                "gravity_arrow_stem",
+                "gravity_arrow_tip"
+              ],
+              "at": 1.54
+            }
+          ],
+          "audio": "audio/power_and_gears_00.wav",
+          "duration": 7.28
+        },
+        {
+          "text": "Motion is sped up. As the weight falls, its cord unwinds from the drum. The drum turns an axle that drives the gears.",
+          "highlight": "weight_assembly",
+          "camera": {
+            "focus": "weight_assembly",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "hide": [
+            "stored_energy_panel",
+            "gravity_arrow_stem",
+            "gravity_arrow_tip"
+          ],
+          "show": [
+            "sped_up_panel"
+          ],
+          "cues": [
+            {
+              "phrase": "weight falls",
+              "highlight": "weight_assembly",
+              "at": 1.3
+            },
+            {
+              "phrase": "cord unwinds",
+              "highlight": "weight_assembly",
+              "at": 2.28
+            },
+            {
+              "phrase": "drives the gears",
+              "highlight": "gear_train",
+              "at": 5.13
+            }
+          ],
+          "audio": "audio/power_and_gears_01.wav",
+          "duration": 6.35,
+          "sfx": {
+            "prompt": "Soft cord unwinding with a brief wooden drum creak",
+            "audio": "audio/power_and_gears_sfx01.mp3",
+            "volume": 0.3,
+            "delay": 2.5
+          }
+        },
+        {
+          "text": "Watch two touching gears. Their teeth push against each other. When one turns clockwise, its neighbour turns the opposite way.",
+          "highlight": "gear_train",
+          "camera": {
+            "focus": "gear_train",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "audio": "audio/power_and_gears_02.wav",
+          "duration": 6.61
+        },
+        {
+          "text": "A large gear driving a smaller gear makes it turn faster. A small gear driving a larger gear makes it turn more slowly. Watch the meshing pairs.",
+          "highlight": "gear_train",
+          "camera": {
+            "focus": "gear_train",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "audio": "audio/power_and_gears_03.wav",
+          "duration": 7.65
+        },
+        {
+          "text": "A large wheel and a small pinion can share one shaft, so they turn together. These linked wheels and pinions form the gear train.",
+          "highlight": "gear_train",
+          "camera": {
+            "focus": "gear_train",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "large wheel",
+              "highlight": "gear_train",
+              "at": 0.03
+            },
+            {
+              "phrase": "small pinion",
+              "highlight": "gear_train",
+              "at": 0.89
+            },
+            {
+              "phrase": "one shaft",
+              "highlight": "gear_train",
+              "at": 1.97
+            }
+          ],
+          "audio": "audio/power_and_gears_04.wav",
+          "duration": 6.51
+        },
+        {
+          "text": "The weight powers the gear train, but power alone cannot measure time. The escapement releases motion little by little. We will explore it next.",
+          "highlight": "weight_assembly",
+          "camera": {
+            "focus": "escapement",
+            "seconds": 3,
+            "pos": [
+              1.95,
+              2.4,
+              -6.32
+            ]
+          },
+          "hide": [
+            "sped_up_panel"
+          ],
+          "show": [
+            "control_panel"
+          ],
+          "cues": [
+            {
+              "phrase": "gear train",
+              "highlight": "gear_train",
+              "at": 2.07
+            },
+            {
+              "phrase": "escapement",
+              "highlight": "escapement",
+              "at": 5.76
+            }
+          ],
+          "audio": "audio/power_and_gears_05.wav",
+          "duration": 7.41,
+          "sfx": {
+            "prompt": "Two crisp mechanical escapement clicks, one second apart",
+            "audio": "audio/power_and_gears_sfx05.mp3",
+            "volume": 0.35,
+            "delay": 6.0
+          }
+        }
+      ],
+      "music": "clock_discovery"
+    },
+    {
+      "id": "escapement_and_pendulum",
+      "title": "The Tick-Tock Timekeeper",
+      "sky": {
+        "color": [
+          0.035,
+          0.05,
+          0.075
+        ]
+      },
+      "nodes": [
+        {
+          "id": "scene_root",
+          "kind": "sphere",
+          "pos": [
+            0,
+            1.6,
+            -4.5
+          ],
+          "scale": 0.001,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "pickable": false
+        },
+        {
+          "id": "power",
+          "kind": "model",
+          "asset": "clock_weight_and_drum",
+          "parent": "scene_root",
+          "pos": [
+            -4,
+            0.4,
+            -1.5
+          ],
+          "scale": 0.48,
+          "lit": true,
+          "label": "Weight and winding drum",
+          "model": "models/clock_weight_and_drum.glb"
+        },
+        {
+          "id": "gear_train",
+          "kind": "model",
+          "asset": "clock_going_train",
+          "parent": "scene_root",
+          "pos": [
+            -2.85,
+            0.4,
+            -1.5
+          ],
+          "scale": 0.5,
+          "lit": true,
+          "label": "Gear train",
+          "model": "models/clock_going_train.glb"
+        },
+        {
+          "id": "dial",
+          "kind": "model",
+          "asset": "clock_dial_and_motion_works",
+          "parent": "scene_root",
+          "pos": [
+            -1.65,
+            0.4,
+            -1.5
+          ],
+          "scale": 0.44,
+          "lit": true,
+          "label": "Clock hands",
+          "model": "models/clock_dial_and_motion_works.glb"
+        },
+        {
+          "id": "escapement",
+          "kind": "model",
+          "asset": "clock_anchor_escapement",
+          "parent": "scene_root",
+          "pos": [
+            0.65,
+            1.02,
+            0
+          ],
+          "scale": 0.58,
+          "lit": true,
+          "label": "Escape wheel and anchor",
+          "model": "models/clock_anchor_escapement.glb"
+        },
+        {
+          "id": "pendulum",
+          "kind": "model",
+          "asset": "clock_adjustable_pendulum",
+          "parent": "scene_root",
+          "pos": [
+            2.35,
+            -0.25,
+            0
+          ],
+          "scale": 1.02,
+          "lit": true,
+          "label": "Pendulum",
+          "model": "models/clock_adjustable_pendulum.glb"
+        },
+        {
+          "id": "incoming_motion",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            -2.25,
+            0.4,
+            -1.25
+          ],
+          "scale": 0.045,
+          "color": [
+            1,
+            0.72,
+            0.2
+          ],
+          "lit": false,
+          "label": "Incoming motion",
+          "path": {
+            "points": [
+              [
+                -2.25,
+                0.4,
+                -1.25
+              ],
+              [
+                -1.7,
+                0.85,
+                -1.25
+              ],
+              [
+                -0.65,
+                1.02,
+                -0.45
+              ],
+              [
+                0.3,
+                1.02,
+                0.42
+              ]
+            ],
+            "seconds": 4,
+            "loop": "loop",
+            "phase": 0
+          },
+          "visible": false
+        },
+        {
+          "id": "wheel_outline",
+          "kind": "torus",
+          "parent": "scene_root",
+          "pos": [
+            0.65,
+            0.88,
+            0.59
+          ],
+          "scale": 0.36,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            1,
+            0.74,
+            0.2,
+            0.65
+          ],
+          "lit": false,
+          "label": "Escape wheel",
+          "visible": false,
+          "pickable": false
+        },
+        {
+          "id": "anchor_marker",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0.65,
+            1.35,
+            0.6
+          ],
+          "scale": 0.045,
+          "color": [
+            0.4,
+            0.85,
+            1
+          ],
+          "lit": false,
+          "label": "Anchor",
+          "visible": false
+        },
+        {
+          "id": "left_pallet",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0.4,
+            1.12,
+            0.6
+          ],
+          "scale": 0.035,
+          "color": [
+            0.35,
+            0.8,
+            1
+          ],
+          "lit": false,
+          "label": "Left pallet",
+          "visible": false
+        },
+        {
+          "id": "right_pallet",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            0.9,
+            1.12,
+            0.6
+          ],
+          "scale": 0.035,
+          "color": [
+            1,
+            0.55,
+            0.25
+          ],
+          "lit": false,
+          "label": "Right pallet",
+          "visible": false
+        },
+        {
+          "id": "impulse",
+          "kind": "sphere",
+          "parent": "scene_root",
+          "pos": [
+            2.35,
+            0.57,
+            0.35
+          ],
+          "scale": 0.035,
+          "color": [
+            1,
+            0.8,
+            0.3
+          ],
+          "lit": false,
+          "label": "Small sustaining push",
+          "path": {
+            "points": [
+              [
+                2.29,
+                0.57,
+                0.35
+              ],
+              [
+                2.35,
+                0.57,
+                0.35
+              ],
+              [
+                2.41,
+                0.57,
+                0.35
+              ]
+            ],
+            "seconds": 2,
+            "loop": "pingpong",
+            "phase": 0
+          },
+          "visible": false
+        },
+        {
+          "id": "long_pendulum",
+          "kind": "model",
+          "asset": "clock_adjustable_pendulum",
+          "parent": "scene_root",
+          "pos": [
+            -1.2,
+            0.15,
+            0
+          ],
+          "scale": 0.9,
+          "stretch": [
+            1,
+            1,
+            1
+          ],
+          "lit": true,
+          "label": "Longer pendulum",
+          "visible": false,
+          "model": "models/clock_adjustable_pendulum.glb"
+        },
+        {
+          "id": "short_pendulum",
+          "kind": "model",
+          "asset": "clock_adjustable_pendulum",
+          "parent": "scene_root",
+          "pos": [
+            1.1,
+            0.6,
+            0
+          ],
+          "scale": 0.9,
+          "stretch": [
+            1,
+            0.5,
+            1
+          ],
+          "lit": true,
+          "label": "Shorter pendulum",
+          "visible": false,
+          "model": "models/clock_adjustable_pendulum.glb"
+        },
+        {
+          "id": "long_length_marker",
+          "kind": "cylinder",
+          "parent": "scene_root",
+          "pos": [
+            -2.05,
+            0.22,
+            0.15
+          ],
+          "scale": 0.018,
+          "stretch": [
+            1,
+            43,
+            1
+          ],
+          "color": [
+            0.4,
+            0.85,
+            1
+          ],
+          "lit": false,
+          "label": "Suspension to bob centre",
+          "visible": false,
+          "pickable": false
+        },
+        {
+          "id": "short_length_marker",
+          "kind": "cylinder",
+          "parent": "scene_root",
+          "pos": [
+            1.95,
+            0.635,
+            0.15
+          ],
+          "scale": 0.018,
+          "stretch": [
+            1,
+            21.5,
+            1
+          ],
+          "color": [
+            1,
+            0.65,
+            0.3
+          ],
+          "lit": false,
+          "label": "Suspension to bob centre",
+          "visible": false,
+          "pickable": false
+        }
+      ],
+      "steps": [
+        {
+          "text": "The gear train pushes the escape wheel. The anchor catches its teeth, stopping the wheel from turning freely. Sizes are enlarged for viewing.",
+          "highlight": "gear_train",
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ],
+            "focus": "escapement",
+            "seconds": 3
+          },
+          "show": [
+            "incoming_motion"
+          ],
+          "cues": [
+            {
+              "phrase": "escape wheel",
+              "highlight": "wheel_outline",
+              "show": [
+                "wheel_outline"
+              ],
+              "at": 1.23
+            },
+            {
+              "phrase": "anchor",
+              "highlight": "anchor_marker",
+              "show": [
+                "anchor_marker"
+              ],
+              "hide": [
+                "incoming_motion",
+                "wheel_outline"
+              ],
+              "at": 2.09
+            }
+          ],
+          "audio": "audio/escapement_and_pendulum_00.wav",
+          "duration": 7.13
+        },
+        {
+          "text": "The pendulum rocks the anchor. One pallet releases a tooth; the other catches the wheel after a small turn.",
+          "highlight": "pendulum",
+          "camera": {
+            "focus": "pendulum",
+            "seconds": 3,
+            "pos": [
+              1.79,
+              1.0,
+              -0.6
+            ]
+          },
+          "hide": [
+            "anchor_marker"
+          ],
+          "cues": [
+            {
+              "phrase": "rocks the anchor",
+              "highlight": "escapement",
+              "at": 0.7
+            },
+            {
+              "phrase": "One pallet",
+              "highlight": "left_pallet",
+              "show": [
+                "left_pallet"
+              ],
+              "hide": [
+                "right_pallet"
+              ],
+              "at": 1.63
+            },
+            {
+              "phrase": "the other",
+              "highlight": "right_pallet",
+              "show": [
+                "right_pallet"
+              ],
+              "hide": [
+                "left_pallet"
+              ],
+              "at": 3.33
+            }
+          ],
+          "audio": "audio/escapement_and_pendulum_01.wav",
+          "duration": 5.88
+        },
+        {
+          "text": "On the next half-swing, the pallets swap jobs. Each catch makes a tick or a tock, letting the gears advance in small steps.",
+          "highlight": "escapement",
+          "camera": {
+            "focus": "escapement",
+            "seconds": 3,
+            "pos": [
+              1.79,
+              1.0,
+              -0.6
+            ]
+          },
+          "hide": [
+            "left_pallet",
+            "right_pallet"
+          ],
+          "cues": [
+            {
+              "phrase": "swap jobs",
+              "highlight": "left_pallet",
+              "show": [
+                "left_pallet"
+              ],
+              "at": 3.27
+            },
+            {
+              "phrase": "small steps",
+              "highlight": "wheel_outline",
+              "show": [
+                "wheel_outline"
+              ],
+              "hide": [
+                "left_pallet"
+              ],
+              "at": 5.76
+            }
+          ],
+          "audio": "audio/escapement_and_pendulum_02.wav",
+          "duration": 6.39,
+          "sfx": {
+            "prompt": "Two crisp mechanical escapement clicks, one second apart",
+            "audio": "audio/escapement_and_pendulum_sfx02.mp3",
+            "volume": 0.4,
+            "delay": 0.5
+          }
+        },
+        {
+          "text": "The escapement gives the pendulum tiny pushes. These replace energy lost to friction and air resistance, keeping the swing going without making it grow.",
+          "highlight": "escapement",
+          "camera": {
+            "focus": "pendulum",
+            "seconds": 3,
+            "pos": [
+              1.79,
+              1.0,
+              -0.6
+            ]
+          },
+          "hide": [
+            "wheel_outline",
+            "left_pallet",
+            "right_pallet"
+          ],
+          "cues": [
+            {
+              "phrase": "tiny pushes",
+              "highlight": "impulse",
+              "show": [
+                "impulse"
+              ],
+              "at": 1.79
+            },
+            {
+              "phrase": "keeping the swing",
+              "highlight": "pendulum",
+              "hide": [
+                "impulse"
+              ],
+              "at": 5.45
+            }
+          ],
+          "audio": "audio/escapement_and_pendulum_03.wav",
+          "duration": 7.7
+        },
+        {
+          "text": "Length runs from the suspension to the bob's centre. A longer pendulum swings more slowly; a shorter one swings faster. Compare the two lengths.",
+          "highlight": "long_pendulum",
+          "camera": {
+            "focus": "long_pendulum",
+            "seconds": 3,
+            "pos": [
+              1.79,
+              1.0,
+              -0.6
+            ]
+          },
+          "hide": [
+            "power",
+            "gear_train",
+            "dial",
+            "escapement",
+            "pendulum",
+            "impulse"
+          ],
+          "show": [
+            "long_pendulum",
+            "short_pendulum",
+            "long_length_marker"
+          ],
+          "cues": [
+            {
+              "phrase": "longer pendulum",
+              "highlight": "long_pendulum",
+              "at": 2.54
+            },
+            {
+              "phrase": "a shorter one",
+              "highlight": "short_pendulum",
+              "hide": [
+                "long_length_marker"
+              ],
+              "show": [
+                "short_length_marker"
+              ],
+              "at": 4.66
+            }
+          ],
+          "audio": "audio/escapement_and_pendulum_04.wav",
+          "duration": 7.95
+        },
+        {
+          "text": "At small angles, the rhythm stays nearly steady. A one-metre pendulum takes about two seconds there and back, with about one second between ticks.",
+          "highlight": "pendulum",
+          "camera": {
+            "focus": "pendulum",
+            "seconds": 3,
+            "pos": [
+              1.79,
+              1.0,
+              -0.6
+            ]
+          },
+          "hide": [
+            "long_pendulum",
+            "short_pendulum",
+            "long_length_marker",
+            "short_length_marker"
+          ],
+          "show": [
+            "power",
+            "gear_train",
+            "dial",
+            "escapement",
+            "pendulum"
+          ],
+          "cues": [
+            {
+              "phrase": "between ticks",
+              "highlight": "escapement",
+              "at": 6.77
+            }
+          ],
+          "audio": "audio/escapement_and_pendulum_05.wav",
+          "duration": 7.82
+        }
+      ]
+    },
+    {
+      "id": "hands_and_accuracy",
+      "title": "From Ticks to Time",
+      "sky": {
+        "color": [
+          0.035,
+          0.055,
+          0.085
+        ]
+      },
+      "nodes": [
+        {
+          "id": "clock_dial",
+          "kind": "model",
+          "asset": "clock_dial_and_motion_works",
+          "scale": 1.3,
+          "pos": [
+            0,
+            3.5,
+            -10
+          ],
+          "lit": true,
+          "label": "Hands and motion-work gears",
+          "model": "models/clock_dial_and_motion_works.glb"
+        },
+        {
+          "id": "going_train",
+          "kind": "model",
+          "asset": "clock_going_train",
+          "parent": "clock_dial",
+          "scale": 0.9,
+          "pos": [
+            -2.65,
+            -0.1,
+            0
+          ],
+          "lit": true,
+          "label": "Gear train and minute-hand shaft",
+          "visible": false,
+          "model": "models/clock_going_train.glb"
+        },
+        {
+          "id": "raised_weight",
+          "kind": "model",
+          "asset": "clock_weight_and_drum",
+          "parent": "clock_dial",
+          "scale": 0.85,
+          "pos": [
+            -4.55,
+            -0.45,
+            0
+          ],
+          "lit": true,
+          "label": "Raised weight and winding drum",
+          "visible": false,
+          "model": "models/clock_weight_and_drum.glb"
+        },
+        {
+          "id": "anchor_escapement",
+          "kind": "model",
+          "asset": "clock_anchor_escapement",
+          "parent": "clock_dial",
+          "scale": 0.7,
+          "pos": [
+            2.2,
+            0.1,
+            0
+          ],
+          "lit": true,
+          "label": "Escapement",
+          "visible": false,
+          "model": "models/clock_anchor_escapement.glb"
+        },
+        {
+          "id": "adjustable_pendulum",
+          "kind": "model",
+          "asset": "clock_adjustable_pendulum",
+          "parent": "clock_dial",
+          "scale": 1.05,
+          "pos": [
+            3.85,
+            -0.6,
+            0
+          ],
+          "lit": true,
+          "label": "Pendulum, bob and adjustment nut",
+          "model": "models/clock_adjustable_pendulum.glb"
+        },
+        {
+          "id": "speed_caption",
+          "kind": "quad",
+          "parent": "clock_dial",
+          "pos": [
+            0,
+            1.85,
+            0
+          ],
+          "scale": 0.3,
+          "label": "Hand motion sped up",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "lit": false,
+          "visible": false,
+          "pickable": false
+        },
+        {
+          "id": "lower_caption",
+          "kind": "quad",
+          "parent": "clock_dial",
+          "pos": [
+            3.85,
+            1.25,
+            0
+          ],
+          "scale": 0.3,
+          "label": "Lower: longer and slower",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "lit": false,
+          "visible": false,
+          "pickable": false
+        },
+        {
+          "id": "raise_caption",
+          "kind": "quad",
+          "parent": "clock_dial",
+          "pos": [
+            3.85,
+            1.25,
+            0
+          ],
+          "scale": 0.3,
+          "label": "Raise: shorter and faster",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "lit": false,
+          "visible": false,
+          "pickable": false
+        }
+      ],
+      "steps": [
+        {
+          "text": "Each pendulum swing permits a tiny advance. The gear train turns the minute-hand shaft once an hour. Parts are spread apart and enlarged for clarity.",
+          "highlight": "adjustable_pendulum",
+          "show": [
+            "going_train",
+            "anchor_escapement"
+          ],
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ],
+            "focus": "clock_dial",
+            "seconds": 3
+          },
+          "cues": [
+            {
+              "phrase": "gear train",
+              "highlight": "going_train",
+              "at": 2.57
+            },
+            {
+              "phrase": "minute-hand shaft",
+              "highlight": "going_train",
+              "at": 3.62
+            }
+          ],
+          "audio": "audio/hands_and_accuracy_00.wav",
+          "duration": 7.9
+        },
+        {
+          "text": "Behind the dial, two gear pairs slow motion by twelve times. Watch the sped-up hands: twelve minute-hand turns take the same time as one hour-hand turn.",
+          "highlight": "clock_dial",
+          "show": [
+            "speed_caption"
+          ],
+          "camera": {
+            "focus": "clock_dial",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.53,
+              4.0
+            ]
+          },
+          "audio": "audio/hands_and_accuracy_01.wav",
+          "duration": 8.13
+        },
+        {
+          "text": "Both hands turn clockwise. The hour hand advances gradually, in tiny steps from the escapement. It does not wait for the next hour and then jump.",
+          "highlight": "clock_dial",
+          "camera": {
+            "focus": "clock_dial",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.53,
+              4.0
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "the escapement",
+              "highlight": "anchor_escapement",
+              "at": 4.45
+            },
+            {
+              "phrase": "It does not",
+              "highlight": "clock_dial",
+              "at": 5.35
+            }
+          ],
+          "audio": "audio/hands_and_accuracy_02.wav",
+          "duration": 7.88
+        },
+        {
+          "text": "The nut adjusts the bob. If the clock runs fast, lower the bob: a longer pendulum swings slower. If it runs slow, raise the bob: a shorter pendulum swings faster.",
+          "highlight": "adjustable_pendulum",
+          "hide": [
+            "speed_caption"
+          ],
+          "camera": {
+            "focus": "adjustable_pendulum",
+            "seconds": 3,
+            "pos": [
+              3.85,
+              2.33,
+              -5.94
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "lower the bob",
+              "show": [
+                "lower_caption"
+              ],
+              "hide": [
+                "raise_caption"
+              ],
+              "at": 3.32
+            },
+            {
+              "phrase": "raise the bob",
+              "show": [
+                "raise_caption"
+              ],
+              "hide": [
+                "lower_caption"
+              ],
+              "at": 7.58
+            }
+          ],
+          "audio": "audio/hands_and_accuracy_03.wav",
+          "duration": 9.11
+        },
+        {
+          "text": "Keep length stable and swings small and steady. Heat can change rod length; friction disturbs motion. Rewinding restores the weight's energy, not the rhythm.",
+          "highlight": "adjustable_pendulum",
+          "show": [
+            "raised_weight"
+          ],
+          "hide": [
+            "lower_caption",
+            "raise_caption"
+          ],
+          "camera": {
+            "focus": "adjustable_pendulum",
+            "seconds": 3,
+            "pos": [
+              3.85,
+              2.33,
+              -5.94
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "friction",
+              "highlight": "anchor_escapement",
+              "at": 3.92
+            },
+            {
+              "phrase": "Rewinding",
+              "highlight": "raised_weight",
+              "at": 5.54
+            }
+          ],
+          "audio": "audio/hands_and_accuracy_04.wav",
+          "duration": 8.45
+        },
+        {
+          "text": "The weight supplies energy. Gears carry motion; the escapement releases it in steps. The pendulum sets the rhythm, and the hands display the time.",
+          "highlight": "raised_weight",
+          "camera": {
+            "focus": "clock_dial",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.53,
+              4.0
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "Gears",
+              "highlight": "going_train",
+              "at": 1.3
+            },
+            {
+              "phrase": "the escapement",
+              "highlight": "anchor_escapement",
+              "at": 2.57
+            },
+            {
+              "phrase": "The pendulum",
+              "highlight": "adjustable_pendulum",
+              "at": 4.62
+            },
+            {
+              "phrase": "the hands",
+              "highlight": "clock_dial",
+              "at": 6.38
+            }
+          ],
+          "audio": "audio/hands_and_accuracy_05.wav",
+          "duration": 7.96
+        },
+        {
+          "text": "What supplies energy? What releases the gears in steps? How many minute-hand turns equal one hour-hand turn? If the clock runs fast, raise or lower its bob?",
+          "highlight": "clock_dial",
+          "hide": [
+            "speed_caption",
+            "lower_caption",
+            "raise_caption"
+          ],
+          "camera": {
+            "focus": "clock_dial",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.53,
+              4.0
+            ]
+          },
+          "audio": "audio/hands_and_accuracy_06.wav",
+          "duration": 8.64
+        }
+      ],
+      "quiz": {
+        "question": "Choose the four answers in order: energy source, step-by-step release, minute-hand turns per hour-hand turn, and the adjustment for a fast clock.",
+        "options": [
+          {
+            "label": "Weight, escapement, 12, lower",
+            "correct": true
+          },
+          {
+            "label": "Pendulum, gears, 12, raise",
+            "correct": false
+          },
+          {
+            "label": "Weight, escapement, 1, raise",
+            "correct": false
+          }
+        ],
+        "correct": {
+          "text": "Correct! The raised weight supplies energy, the escapement releases the gears in steps, the minute hand makes twelve turns per hour-hand turn, and lowering the bob slows the pendulum's rhythm.",
+          "audio": "audio/hands_and_accuracy_correct.wav",
+          "duration": 9.37
+        },
+        "wrong": {
+          "text": "Not quite. Try again.",
+          "audio": "audio/hands_and_accuracy_wrong.wav",
+          "duration": 1.68
+        },
+        "audio": "audio/hands_and_accuracy_quiz.wav",
+        "duration": 7.74
+      },
+      "ambience": {
+        "prompt": "quiet mechanical clockwork ticking, steady and delicate",
+        "audio": "audio/hands_and_accuracy_ambience.mp3",
+        "volume": 0.08
+      }
+    }
+  ],
+  "tracks": [
+    {
+      "id": "clock_discovery",
+      "prompt": "inquisitive, friendly learning: science, how-things-work, body, machines",
+      "audio": "audio/music_clock_discovery.mp3",
+      "volume": 0.16
+    }
+  ]
+}
