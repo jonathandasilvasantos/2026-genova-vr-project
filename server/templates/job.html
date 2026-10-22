@@ -1,0 +1,22 @@
+{% extends "base.html" %}{% block title %}Job {{ j.id }} · Genova VR{% endblock %}{% block body %}
+<div class="row"><h1 style="margin:0">Building…</h1><span id="st" class="badge run" style="margin-left:8px">{{ j.status }}</span></div>
+<div class="card"><div class="progress" id="bar"><i></i></div><p id="stage" class="muted small" style="margin:.6em 0 0">{{ j.stage }}</p></div>
+<div id="err" class="card" style="display:none;border-color:#6a2c2c"></div>
+<div class="row"><a class="btn ghost" id="open" href="/experience/{{ j.experience_id }}">Open experience</a>
+<form id="cancelf"><button class="btn danger" type="button" onclick="cancelJob()">Cancel</button></form></div>
+<h2>Log</h2><pre class="log" id="log"></pre>
+<script>
+const id={{ j.id }},csrf="{{ csrf_token() }}";
+async function tick(){
+  let r=await fetch('/api/job/'+id,{headers:{'X-Requested-With':'x'}});if(!r.ok)return;let d=await r.json();
+  document.getElementById('st').textContent=d.status.replace('_',' ');document.getElementById('stage').textContent=d.stage||'';
+  const L=document.getElementById('log');const atEnd=L.scrollTop+L.clientHeight>=L.scrollHeight-20;L.textContent=d.log;if(atEnd)L.scrollTop=L.scrollHeight;
+  const fin=['done','failed','cancelled'].includes(d.status);
+  if(fin){document.getElementById('bar').style.display='none';document.getElementById('cancelf').style.display='none';
+    document.getElementById('st').className='badge '+(d.status==='done'?'ok':'bad');
+    if(d.status==='failed'){const e=document.getElementById('err');e.style.display='block';e.textContent='Failed: '+d.error;}
+    return;}
+  setTimeout(tick,2500);}
+async function cancelJob(){await fetch('/api/job/'+id+'/cancel',{method:'POST',headers:{'X-CSRF':csrf,'X-Requested-With':'x'}});}
+tick();
+</script>{% endblock %}

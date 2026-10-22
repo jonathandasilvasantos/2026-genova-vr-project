@@ -1,0 +1,130 @@
+{
+  "title": "How Our Solar System Began",
+  "language": "en",
+  "audience": "Elementary school students, approximately ages 7–11",
+  "summary": "Travel back about 4.6 billion years to watch the Sun and planets form from a cloud of gas and dust. Then explore all eight planets, meet some of their natural satellites, and finish with a short quiz.",
+  "assets": [
+    {
+      "id": "sun",
+      "brief": "A spherical star with a bright, warm-white surface, pale yellow shading, and subtle mottled granulation. Include a few small, darker sunspots without a solid-looking crust. Use a clean, scientifically informed style with a restrained glow. Its north pole points upward; its real diameter is approximately 109 Earth diameters."
+    },
+    {
+      "id": "mercury",
+      "brief": "A nearly spherical rocky planet with a gray, heavily cratered surface, overlapping impact basins, and subtle lighter streaks around some craters. No clouds, rings, or vegetation. Use a clean, accurate educational style. Its north pole points upward; its diameter is approximately 0.38 times Earth's."
+    },
+    {
+      "id": "venus",
+      "brief": "A spherical planet enclosed by thick, pale cream and yellowish clouds, with gentle swirling bands and no visible ground through the cloud layer. Avoid exaggerated storm features. Use a clean, accurate educational style. Its north pole points upward; its diameter is approximately 0.95 times Earth's."
+    },
+    {
+      "id": "earth",
+      "brief": "A spherical planet with recognizable blue oceans, green and brown continents, white polar ice, and thin swirling white clouds. Include a delicate blue atmospheric edge. Use a friendly, geographically recognizable educational style. Its north pole points upward; the planet's real diameter is approximately 12,742 kilometers."
+    },
+    {
+      "id": "mars",
+      "brief": "A spherical rocky planet with rusty red and ochre terrain, dark surface patches, small white polar caps, a broad volcanic rise, and a long canyon system. Keep relief subtle rather than jagged. Use a clean educational style. Its north pole points upward; its diameter is approximately 0.53 times Earth's."
+    },
+    {
+      "id": "jupiter",
+      "brief": "A slightly flattened giant planet with alternating cream, tan, and brown cloud bands, small swirling storms, and the oval Great Red Spot in its southern hemisphere. No solid surface is visible. Use a clean, recognizable educational style. Its north pole points upward; its diameter is approximately 11 Earth diameters."
+    },
+    {
+      "id": "saturn",
+      "brief": "A slightly flattened, pale golden planet with subtle horizontal cloud bands and broad, thin rings containing a clearly visible dark gap. Rings are icy ivory and gray, with a large central opening. Use a clean educational style. Its north pole points upward; the planet is approximately nine Earth diameters wide."
+    },
+    {
+      "id": "uranus",
+      "brief": "A slightly flattened planet with a pale cyan atmosphere, faint cloud bands, and very thin, dark rings. No rocky surface is visible. Use a clean, scientifically informed educational style. Its north pole points upward in the model, with rings around its equator; its diameter is approximately four Earth diameters."
+    },
+    {
+      "id": "neptune",
+      "brief": "A slightly flattened planet with a soft blue atmosphere, subtle horizontal shading, and a few small white cloud streaks. Avoid an overly dark or intensely saturated blue. Use a clean, accurate educational style. Its north pole points upward; its diameter is approximately 3.9 times Earth's."
+    },
+    {
+      "id": "earth_moon",
+      "brief": "A spherical, airless rocky moon with light gray cratered highlands and broad darker volcanic plains forming recognizable lunar markings. Include several prominent impact craters with subtle relief. Use a clean, accurate educational style. Its north pole points upward; its diameter is approximately one-quarter of Earth's."
+    },
+    {
+      "id": "europa",
+      "brief": "A spherical icy moon with an ivory surface crossed by fine reddish-brown cracks, curved lines, and irregular fractured patches. Include few obvious impact craters and keep the surface mostly smooth. Use a clean, scientifically informed educational style. Its north pole points upward; it is slightly smaller than Earth's Moon."
+    },
+    {
+      "id": "titan",
+      "brief": "A spherical moon wrapped in a thick, hazy orange-gold atmosphere that hides its ground. Use smooth, subtle shading without Earth-like oceans or visible continents on the outer haze. The style is clean and scientifically informed. Its north pole points upward; its diameter is approximately 0.40 times Earth's."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "cloud_to_disc",
+      "title": "Before There Were Planets",
+      "goal": "Understand that the Solar System began as a collapsing cloud of gas and dust.",
+      "key_points": [
+        "About 4.6 billion years ago, there was no Earth and no Sun here. Instead, a huge cloud of gas and dust floated in space.",
+        "Gravity is a pull between things that have mass. It pulled parts of this cloud closer together.",
+        "As the cloud shrank, it spun faster, much like a spinning skater pulling in their arms.",
+        "Most material gathered in the center. The center became hotter and denser, forming a young star.",
+        "Around the center, the remaining gas and dust spread into a spinning, flattened disc. This was the material that would help build the planets.",
+        "Our journey shows enormous changes in just a few moments. In real life, these changes took millions of years."
+      ],
+      "visual_idea": "Approximately 90 seconds, with six narrated stops. Surround the stationary viewer with a sparse cloud of translucent spheres and tiny dust markers. Gravity arrows point inward as the cloud contracts and its slow rotation becomes more noticeable. The camera gently moves outside the cloud, pauses beside its flattening edge, then stops above the disc. A bright central sphere grows; reuse the sun asset at the end to represent the emerging star, with a panel reading 'Young Sun forming'. Show 'Time sped up' throughout the transformation. Keep particles away from the viewer's face and avoid camera rotation."
+    },
+    {
+      "id": "building_sun_and_planets",
+      "title": "A Star and Its Planet Builders",
+      "goal": "Understand how the Sun began shining and how small pieces grew into planets.",
+      "key_points": [
+        "The young Sun's center became hot enough for fusion. Tiny particles joined together and released energy. The Sun began making its own light and heat.",
+        "The Sun is a star made mostly of hydrogen and helium. It holds almost all the mass in our Solar System.",
+        "In the surrounding disc, some dust grains stuck together. Over time, growing clumps collided and joined to make larger bodies.",
+        "Near the hot young Sun, rock and metal could remain solid. These materials helped build the four rocky inner planets.",
+        "Farther away, it was colder, so ice could join the building material. Large growing worlds collected gas; the outer planets developed in this colder region.",
+        "The young Sun helped clear away leftover gas. Some small bodies remained, including asteroids and comets. The Sun's gravity keeps planets in orbit while their forward motion keeps them moving around it."
+      ],
+      "visual_idea": "Approximately 90 seconds, with six narrated stops in one formation laboratory around the disc. Begin beside the sun asset; reveal a simple cutaway made from nested spheres, with two small markers joining and a gentle light pulse labeled 'Fusion'. Move slowly to a magnified dust patch where plain grains merge into pebbles, boulders, and round growing worlds. Use warm inner and cool outer disc zones labeled 'Hotter' and 'Colder', explicitly marked as a simplified diagram. Add rock-colored particles inside and ice-colored particles outside. Finish above the disc as gas fades, asteroid markers remain, and the eight planet assets appear on orbit rings. Label distances, sizes, and motion as simplified."
+    },
+    {
+      "id": "rocky_inner_planets",
+      "title": "The Four Rocky Neighbors",
+      "goal": "Identify Mercury, Venus, Earth, and Mars and describe a distinguishing feature of each.",
+      "key_points": [
+        "Starting nearest the Sun, the planets are Mercury, Venus, Earth, and Mars. All four have rocky surfaces.",
+        "Mercury is the smallest planet and the closest to the Sun. Its cratered ground gets very hot in sunlight and very cold during its long nights.",
+        "Venus is almost Earth's size. Its thick atmosphere traps heat, making it the hottest planet, even though Mercury is closer to the Sun.",
+        "Earth has liquid-water oceans and an atmosphere that helps support life. It is the only world where we know life exists.",
+        "Mars looks reddish because some minerals on its surface contain rusty iron. It has huge volcanoes, deep canyons, and signs that liquid water flowed there long ago.",
+        "These planets formed from similar kinds of building material, but they became very different worlds. Their distances from the Sun and their atmospheres help explain those differences."
+      ],
+      "visual_idea": "Approximately 120 seconds, with six narrated stops in an inner-planet exhibit. Display the sun asset in the distance and the four rocky planet assets on orbit rings. Present the four planets side by side at their correct relative sizes before enlarging each separately for inspection. Clearly label the close-up enlargements and the compressed orbital distances. The camera glides slowly to one planet at a time and stops before narration. Planets rotate gently, revealing Mercury's craters, Venus's clouds, Earth's continents, and Mars's canyon. Keep a persistent order panel: 'Mercury → Venus → Earth → Mars'. Finish by returning to the relative-size lineup."
+    },
+    {
+      "id": "outer_giant_planets",
+      "title": "Beyond the Rocky Worlds",
+      "goal": "Identify Jupiter, Saturn, Uranus, and Neptune and distinguish gas giants from ice giants.",
+      "key_points": [
+        "Beyond Mars, we pass the asteroid belt. It contains many rocky objects, but they are spread far apart—not packed into a crowded wall.",
+        "Jupiter is the largest planet. This gas giant is made mostly of hydrogen and helium. Its Great Red Spot is a huge storm.",
+        "Saturn is another gas giant. Its bright rings contain countless pieces of ice and some rocky material. The rings are extremely thin compared with their width.",
+        "Uranus is an ice giant. Deep inside are materials such as water, ammonia, and methane under great pressure—not a giant snowball. Uranus spins almost on its side.",
+        "Neptune is also an ice giant and is the farthest planet from the Sun. Its atmosphere has powerful winds. Methane helps give both ice giants their blue-green colors.",
+        "The order of all eight planets is Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. The outer planets grew in the colder part of the young Solar System."
+      ],
+      "visual_idea": "Approximately 120 seconds, with six narrated stops in an outer-planet exhibit. Begin with sparse plain asteroid shapes and plenty of empty space; show a panel noting that separations are compressed. Visit the jupiter, saturn, uranus, and neptune assets in order, pausing at each. Keep a small earth asset beside the current giant for a correctly proportioned size comparison. Slowly orbit the viewpoint around Saturn's ring edge to reveal its thinness without rotating the viewer's horizon. Tilt Uranus's rotation axis almost into its orbital plane and animate a gentle spin. End above a simplified eight-planet model, with clearly labeled, compressed distances and slow illustrative orbital motion."
+    },
+    {
+      "id": "moons_and_review",
+      "title": "Worlds Around Worlds",
+      "goal": "Understand what natural satellites are, recognize examples, and recall the main formation story.",
+      "key_points": [
+        "A natural satellite is a naturally formed object that orbits another body. A planet's natural satellites are often called moons. Planets orbit the Sun, while their moons orbit them.",
+        "Earth has one Moon. Scientists think it formed mainly from debris after a large body struck the young Earth. The debris gathered together in orbit.",
+        "Mercury and Venus have no moons. Mars has two small moons, Phobos and Deimos. The four giant planets each have many moons.",
+        "Moons can be very different. Jupiter's Europa has an icy surface and strong evidence for an ocean beneath it. Saturn's Titan has a thick atmosphere and lakes of liquid methane and ethane—not water.",
+        "Some moons formed from material around young planets, and some were captured by gravity. Today, we can watch moons orbit planets while those planets travel around the Sun.",
+        "Quiz question one: What did our Solar System form from—a cloud of gas and dust, or fully grown planets? Pause and choose by looking. The answer is a cloud of gas and dust.",
+        "Quiz question two: Which planet is the hottest—Mercury or Venus? Pause and choose by looking. The answer is Venus, because its thick atmosphere traps heat.",
+        "Quiz question three: What does Earth's Moon orbit—Earth or Mars? Pause and choose by looking. The answer is Earth. We have followed the journey from a cloud, to a star and planets, to worlds with moons!"
+      ],
+      "visual_idea": "Approximately 120 seconds, with eight narrated stops in a satellite observatory. Start with the earth and earth_moon assets orbiting their shared center, with a small Sun and a broad ring showing their joint journey around it. Mark orbit sizes and speeds as simplified. Demonstrate the leading Moon-formation explanation with plain colliding spheres and a debris ring that gathers into the earth_moon asset; label it 'A scientific explanation supported by evidence'. Use labeled simple irregular shapes for Mars's tiny moons. Visit Europa beside Jupiter and Titan beside Saturn, reusing their assets; show Europa's possible ocean in a clearly labeled schematic inset of nested spheres. Finish at three large quiz panels, presented one question at a time. Each has two gaze-selectable choices, an eight-second thinking pause, and then a narrated answer with a gentle visual highlight. If no choice is made, reveal the answer after the pause. Keep the camera stationary during the quiz."
+    }
+  ]
+}

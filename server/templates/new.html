@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block title %}New experience · Genova VR{% endblock %}{% block body %}
+<h1>New experience</h1>
+<form method="post" class="card"><input type="hidden" name="csrf" value="{{ csrf_token() }}">
+<label>What should the experience teach? Describe the topic, audience, language and anything you want to see.</label>
+<textarea name="brief" required placeholder="Create a VR experience teaching the formation of the Solar System to elementary school students. Explain a little about the Sun, each planet and the natural satellites.">{{ brief }}</textarea>
+<label>Title (optional)</label><input type="text" name="title" maxlength="80">
+<div class="checks"><label><input type="checkbox" name="models" checked> 3D models (Blender)</label>
+<label><input type="checkbox" name="music" checked> Music</label>
+<label><input type="checkbox" name="sfx" checked> Sound effects</label></div>
+<p class="muted small">Generation takes several minutes. You can leave this page; the experience appears in the list when it is ready. Nothing reaches the app until you press Publish.</p>
+<p><button class="btn">Create experience</button></p></form>
+<p class="muted small">Already have a bundle? <a href="/import">Import a .zip</a>.</p>{% endblock %}

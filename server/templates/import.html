@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Import · Genova VR{% endblock %}{% block body %}
+<h1>Import a bundle</h1>
+<form method="post" enctype="multipart/form-data" class="card"><input type="hidden" name="csrf" value="{{ csrf_token() }}">
+<label>Bundle .zip (contains manifest.json at the top level)</label><input type="file" name="bundle" accept=".zip" required>
+<label>Title (optional)</label><input type="text" name="title" maxlength="80">
+<p><button class="btn">Import</button></p></form>{% endblock %}

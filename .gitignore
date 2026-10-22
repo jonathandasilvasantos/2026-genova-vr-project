@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+data/
+cache/
+.DS_Store
+vendor/
+client-vr/app/build/
+client-vr/build/
+client-vr/.gradle/
+client-vr/local.properties
+client-vr/app/libraries/
+.cxx/
+client-vr/app/.cxx/

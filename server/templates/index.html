@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% block body %}
+<div class="row"><h1 style="margin:0">Experiences</h1><a class="btn" href="/new" style="margin-left:auto">+ New experience</a></div>
+{% if not exps %}<div class="card muted">Nothing here yet. Describe a lesson and Genova VR builds a guided VR experience for it.</div>{% endif %}
+<div class="grid" style="margin-top:14px">
+{% for e in exps %}{% set r = running.get(e.id) %}
+<div class="card"><div class="row"><h3><a href="/experience/{{ e.id }}">{{ e.title }}</a></h3></div>
+<div class="row">
+{% if r %}<span class="badge run">{{ r.status|replace('_',' ') }}</span>
+{% elif not e.draft_version %}<span class="badge warn">no version yet</span>{% endif %}
+{% if e.published_version %}<span class="badge ok">published v{{ e.published_version }}</span>{% elif e.draft_version %}<span class="badge">draft</span>{% endif %}
+{% if e.published_version and e.draft_version and e.draft_version != e.published_version %}<span class="badge warn">unpublished changes</span>{% endif %}</div>
+<div class="muted small">{{ e.summary or e.brief[:140] }}</div>
+<div class="muted small">{% if e.scenes %}{{ e.scenes }} scenes · {{ (e.duration_s/60)|round(1) }} min{% endif %}</div></div>
+{% endfor %}</div>{% endblock %}

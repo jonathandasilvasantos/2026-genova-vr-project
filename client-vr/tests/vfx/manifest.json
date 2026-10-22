@@ -1,0 +1,28 @@
+{
+  "schema": "genova.vr/1",
+  "title": "Visual-effects runtime smoke fixture",
+  "language": "en",
+  "summary": "Deterministic software fixture, not a research case or educational evaluation.",
+  "scenes": [{
+    "id": "effects",
+    "title": "Particles, lights, fog, and timed bursts",
+    "sky": {"color": [0.02, 0.03, 0.06, 1]},
+    "fog": {"color": [0.2, 0.28, 0.4], "density": 0.045, "base": 0, "falloff": 0.15, "start": 1},
+    "nodes": [
+      {"id": "target", "kind": "box", "pos": [0, 1.2, -4], "scale": 0.5, "color": [0.8, 0.8, 0.8, 1], "lit": true},
+      {"id": "spot", "kind": "light", "pos": [-2, 3, -2], "light": {"preset": "spotlight", "aim": "target", "angle": 30, "range": 8}},
+      {"id": "fire", "kind": "effect", "effect": "campfire", "pos": [-1.5, 0.2, -4]},
+      {"id": "event", "kind": "effect", "effect": "explosion", "pos": [1.5, 1.2, -4]}
+    ],
+    "steps": [
+      {"text": "Continuous fire particles, a targeted spot light, and height-dependent fog.", "duration": 8,
+       "camera": {"pos": [0, 1.6, 0], "focus": "target"}, "cues": [{"at": 2, "burst": ["event"]}]},
+      {"text": "The timed explosion can be triggered again without increasing particle allocation.", "duration": 8,
+       "camera": {"pos": [0, 1.6, 0], "focus": "target"}, "burst": ["event"],
+       "cues": [{"at": 3, "hide": ["fire"]}, {"at": 5, "show": ["fire"]}]},
+      {"text": "A moved effect group carries its particles and light sources together.", "duration": 8,
+       "camera": {"pos": [0, 1.6, 0], "focus": "target"},
+       "set": [{"node": "event", "position": [0, 2, -5], "seconds": 0}], "burst": ["event"]}
+    ]
+  }]
+}

@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Sign in · Genova VR{% endblock %}
+{% block body %}<div class="login card"><h1>Genova VR</h1><p class="muted">Sign in to create and publish VR experiences.</p>
+<form method="post"><input type="hidden" name="csrf" value="{{ csrf_token() }}">
+<label>User</label><input type="text" name="user" autocomplete="username" autofocus required>
+<label>Password</label><input type="password" name="password" autocomplete="current-password" required>
+<p><button class="btn" style="width:100%">Sign in</button></p></form></div>{% endblock %}

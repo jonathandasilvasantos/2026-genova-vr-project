@@ -1,0 +1,15 @@
+{% extends "base.html" %}{% block title %}Library · Genova VR{% endblock %}{% block body %}
+<h1>Library &amp; usage</h1>
+<p class="muted">Everything paid for is stored here and reused by later experiences. Cost figures marked ~ are estimates; OpenRouter is exact.</p>
+<h2>Last 30 days</h2>
+<div class="grid">{% for prov, u in usage.items() %}<div class="card"><h3>{{ prov }}</h3>
+<div class="small">{{ u.paid_calls }} paid call{{ '' if u.paid_calls == 1 else 's' }} · {{ u.cache_hits }} reused</div>
+<div>{{ '' if u.spent_exact else '~' }}${{ u.spent }} spent{% if u.saved %} · <span style="color:var(--ok)">~${{ u.saved }} saved</span>{% endif %}</div>
+{% if prov in caps %}<div class="muted small">today {{ today[prov] }}/{{ caps[prov] }} (daily ceiling)</div>{% endif %}</div>{% else %}<div class="card muted">No usage recorded yet.</div>{% endfor %}</div>
+{% for kind, items in kinds.items() %}<h2>{{ kind }} ({{ items|length }})</h2><div class="card">
+{% for id, m in items %}<div class="row small" style="padding:4px 0;border-bottom:1px solid var(--line)"><b>{{ id }}</b>
+<span class="muted" style="flex:1">{{ (m.description or m.brief or m.prompt or '')[:140] }}</span>
+<span class="badge">{{ (m.bytes/1024)|round|int }} KB</span><span class="badge">used {{ m.uses }}x</span>
+{% if m.score %}<span class="badge ok">{{ m.score }}/10</span>{% endif %}
+<a href="/library/{{ kind }}/{{ m.file }}">file</a></div>{% else %}<span class="muted">Empty.</span>{% endfor %}</div>{% endfor %}
+{% endblock %}

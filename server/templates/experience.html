@@ -1,0 +1,50 @@
+{% extends "base.html" %}{% block title %}{{ e.title }} · Genova VR{% endblock %}{% block body %}
+<div class="row"><h1 style="margin:0">{{ e.title }}</h1>
+{% if e.published_version %}<span class="badge ok">published v{{ e.published_version }}</span>{% endif %}
+{% if busy %}<span class="badge run">building…</span>{% endif %}</div>
+<p class="muted">{{ e.summary or '' }}</p>
+{% if e.draft_version %}<div class="card"><div class="row">
+<div><b>Version {{ e.draft_version }}</b> <span class="muted small">· {{ e.scenes }} scenes · {{ (e.duration_s/60)|round(1) }} min</span></div>
+<form method="post" action="/experience/{{ e.id }}/publish" style="margin-left:auto"><input type="hidden" name="csrf" value="{{ csrf_token() }}">
+<input type="hidden" name="version" value="{{ e.draft_version }}">
+<button class="btn" {% if busy %}disabled{% endif %}>{% if e.published_version %}Update in app{% else %}Publish to app{% endif %}</button></form>
+{% if e.published_version %}<form method="post" action="/experience/{{ e.id }}/unpublish"><input type="hidden" name="csrf" value="{{ csrf_token() }}"><button class="btn ghost">Unpublish</button></form>{% endif %}
+</div>
+{% if e.published_version and e.published_version and e.draft_version %}<p class="muted small" style="margin-bottom:0">Pressing the button makes this version the one the app downloads. Phones update the next time the app opens its list.</p>{% endif %}</div>{% endif %}
+
+{% if outline %}<h2>Scenes</h2><div class="card"><ol class="scenes">{% for s in outline.scenes %}<li><b>{{ s.title }}</b><div class="muted small">{{ s.goal }}</div></li>{% endfor %}</ol>
+{% if outline.assets %}<div class="muted small">3D models: {{ outline.assets|map(attribute='id')|join(', ') }}</div>{% endif %}</div>{% endif %}
+
+{% if manifest and manifest.assets %}<h2>3D models</h2>
+<script type="module" src="/static/model-viewer.min.js"></script>
+<div class="grid">{% for a in manifest.assets %}<div class="card"><b>{{ a.id }}</b> {% if a.score %}<span class="badge {{ 'ok' if a.score >= 7 else 'warn' }}">{{ a.score }}/10</span>{% endif %}
+{% if a.file %}<model-viewer src="/experience/{{ e.id }}/v{{ e.draft_version }}/file/{{ a.file }}" camera-controls auto-rotate autoplay shadow-intensity="0.6" exposure="1.1" style="width:100%;height:220px;background:#0b0e14;border-radius:10px"></model-viewer>{% else %}<div class="muted small">no model yet (plain shape used)</div>{% endif %}
+<form method="post" action="/experience/{{ e.id }}/asset/{{ a.id }}/regenerate"><input type="hidden" name="csrf" value="{{ csrf_token() }}">
+<textarea name="brief" style="min-height:90px;font-size:.85rem" {% if busy %}disabled{% endif %}>{{ a.brief }}</textarea>
+<button class="btn ghost" style="margin-top:6px" {% if busy %}disabled{% endif %}>Regenerate this model</button></form>
+<form method="post" action="/experience/{{ e.id }}/asset/{{ a.id }}/upload" enctype="multipart/form-data"><input type="hidden" name="csrf" value="{{ csrf_token() }}">
+<label>Or upload a .glb</label><input type="file" name="glb" accept=".glb" required> <button class="btn ghost" style="margin-top:6px">Replace</button></form></div>{% endfor %}</div>{% endif %}
+
+{% if manifest %}<h2>Narration</h2>
+<form method="post" action="/experience/{{ e.id }}/narration" class="card"><input type="hidden" name="csrf" value="{{ csrf_token() }}">
+{% for sc in manifest.scenes %}{% set si = loop.index0 %}<h3 style="margin:.8em 0 .3em">{{ loop.index }}. {{ sc.title }}</h3>
+{% for st in sc.steps %}<label>Step {{ loop.index }}</label><textarea name="t_{{ si }}_{{ loop.index0 }}" style="min-height:64px" maxlength="400" {% if busy %}disabled{% endif %}>{{ st.text }}</textarea>{% endfor %}{% endfor %}
+<p class="muted small">Changed steps are re-recorded automatically. The result becomes a new draft version.</p>
+<p><button class="btn" {% if busy %}disabled{% endif %}>Save narration</button></p></form>{% endif %}
+
+<h2>Edit this experience</h2>
+<form method="post" action="/experience/{{ e.id }}/edit" class="card"><input type="hidden" name="csrf" value="{{ csrf_token() }}">
+<label>What should change? (for example: “add a scene about asteroids”, “make the narration simpler”, “shorter, 4 scenes”)</label>
+<textarea name="instructions" style="min-height:90px" {% if busy or not e.draft_version %}disabled{% endif %}></textarea>
+<p style="margin-bottom:0"><button class="btn" {% if busy or not e.draft_version %}disabled{% endif %}>Regenerate with changes</button></p>
+<p class="muted small">Unchanged parts and already-built 3D models are reused. The result becomes a new draft version; publish it when you like it.</p></form>
+
+<h2>Original brief</h2><div class="card muted">{{ e.brief }}</div>
+<h2>History</h2><div class="card">{% for j in jobs %}<div class="row small"><a href="/job/{{ j.id }}">#{{ j.id }} · {{ j.kind }}</a>
+<span class="badge {{ 'ok' if j.status=='done' else 'bad' if j.status in ('failed','cancelled') else 'run' }}">{{ j.status|replace('_',' ') }}</span>
+{% if j.version %}<span class="muted">v{{ j.version }}</span>{% endif %}</div>{% else %}<span class="muted">No jobs.</span>{% endfor %}
+<div class="row" style="margin-top:10px">{% for v in versions %}<a class="btn ghost" style="padding:5px 10px" href="/experience/{{ e.id }}/v{{ v }}/download">Download v{{ v }}</a>{% endfor %}</div></div>
+<div class="row" style="margin-top:20px"><form method="post" action="/experience/{{ e.id }}/models"><input type="hidden" name="csrf" value="{{ csrf_token() }}">
+<button class="btn ghost" {% if busy or not e.draft_version %}disabled{% endif %}>Build missing 3D models</button></form>
+<form method="post" action="/experience/{{ e.id }}/delete" onsubmit="return confirm('Delete this experience and all versions?')"><input type="hidden" name="csrf" value="{{ csrf_token() }}"><button class="btn danger">Delete</button></form></div>
+{% endblock %}
