@@ -1,0 +1,6937 @@
+{
+  "schema": "genova.vr/1",
+  "title": "How Our Solar System Began",
+  "language": "en",
+  "summary": "Travel back about 4.6 billion years to watch the Sun and planets form from a cloud of gas and dust. Then explore all eight planets, meet some of their natural satellites, and finish with a short quiz.",
+  "assets": [
+    {
+      "id": "sun",
+      "brief": "A spherical star with a bright, warm-white surface, pale yellow shading, and subtle mottled granulation. Include a few small, darker sunspots without a solid-looking crust. Use a clean, scientifically informed style with a restrained glow. Its north pole points upward; its real diameter is approximately 109 Earth diameters.",
+      "file": "models/sun.glb"
+    },
+    {
+      "id": "mercury",
+      "brief": "A nearly spherical rocky planet with a gray, heavily cratered surface, overlapping impact basins, and subtle lighter streaks around some craters. No clouds, rings, or vegetation. Use a clean, accurate educational style. Its north pole points upward; its diameter is approximately 0.38 times Earth's.",
+      "file": "models/mercury.glb"
+    },
+    {
+      "id": "venus",
+      "brief": "A spherical planet enclosed by thick, pale cream and yellowish clouds, with gentle swirling bands and no visible ground through the cloud layer. Avoid exaggerated storm features. Use a clean, accurate educational style. Its north pole points upward; its diameter is approximately 0.95 times Earth's.",
+      "file": "models/venus.glb"
+    },
+    {
+      "id": "earth",
+      "brief": "A spherical planet with recognizable blue oceans, green and brown continents, white polar ice, and thin swirling white clouds. Include a delicate blue atmospheric edge. Use a friendly, geographically recognizable educational style. Its north pole points upward; the planet's real diameter is approximately 12,742 kilometers.",
+      "file": "models/earth.glb"
+    },
+    {
+      "id": "mars",
+      "brief": "A spherical rocky planet with rusty red and ochre terrain, dark surface patches, small white polar caps, a broad volcanic rise, and a long canyon system. Keep relief subtle rather than jagged. Use a clean educational style. Its north pole points upward; its diameter is approximately 0.53 times Earth's.",
+      "file": "models/mars.glb"
+    },
+    {
+      "id": "jupiter",
+      "brief": "A slightly flattened giant planet with alternating cream, tan, and brown cloud bands, small swirling storms, and the oval Great Red Spot in its southern hemisphere. No solid surface is visible. Use a clean, recognizable educational style. Its north pole points upward; its diameter is approximately 11 Earth diameters.",
+      "file": "models/jupiter.glb"
+    },
+    {
+      "id": "saturn",
+      "brief": "A slightly flattened, pale golden planet with subtle horizontal cloud bands and broad, thin rings containing a clearly visible dark gap. Rings are icy ivory and gray, with a large central opening. Use a clean educational style. Its north pole points upward; the planet is approximately nine Earth diameters wide.",
+      "file": "models/saturn.glb"
+    },
+    {
+      "id": "uranus",
+      "brief": "A slightly flattened planet with a pale cyan atmosphere, faint cloud bands, and very thin, dark rings. No rocky surface is visible. Use a clean, scientifically informed educational style. Its north pole points upward in the model, with rings around its equator; its diameter is approximately four Earth diameters.",
+      "file": "models/uranus.glb"
+    },
+    {
+      "id": "neptune",
+      "brief": "A slightly flattened planet with a soft blue atmosphere, subtle horizontal shading, and a few small white cloud streaks. Avoid an overly dark or intensely saturated blue. Use a clean, accurate educational style. Its north pole points upward; its diameter is approximately 3.9 times Earth's.",
+      "file": "models/neptune.glb"
+    },
+    {
+      "id": "earth_moon",
+      "brief": "A spherical, airless rocky moon with light gray cratered highlands and broad darker volcanic plains forming recognizable lunar markings. Include several prominent impact craters with subtle relief. Use a clean, accurate educational style. Its north pole points upward; its diameter is approximately one-quarter of Earth's.",
+      "file": "models/earth_moon.glb"
+    },
+    {
+      "id": "europa",
+      "brief": "A spherical icy moon with an ivory surface crossed by fine reddish-brown cracks, curved lines, and irregular fractured patches. Include few obvious impact craters and keep the surface mostly smooth. Use a clean, scientifically informed educational style. Its north pole points upward; it is slightly smaller than Earth's Moon.",
+      "file": "models/europa.glb"
+    },
+    {
+      "id": "titan",
+      "brief": "A spherical moon wrapped in a thick, hazazy orange-gold atmosphere that hides its ground. Use smooth, subtle shading without Earth-like oceans or visible continents on the outer haze. The style is clean and scientifically informed. Its north pole points upward; its diameter is approximately 0.40 times Earth's.",
+      "file": "models/titan.glb"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "cloud_to_disc",
+      "title": "Before There Were Planets",
+      "sky": {
+        "texture": "textures/stars.png"
+      },
+      "nodes": [
+        {
+          "id": "formation_root",
+          "kind": "sphere",
+          "pos": [
+            0,
+            1.8,
+            -9
+          ],
+          "scale": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "label": "Solar System formation",
+          "pickable": false
+        },
+        {
+          "id": "slow_cloud",
+          "kind": "sphere",
+          "parent": "formation_root",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "spin": 0.08,
+          "label": "Gas and dust cloud",
+          "pickable": false
+        },
+        {
+          "id": "slow_gas_1",
+          "kind": "sphere",
+          "parent": "slow_cloud",
+          "pos": [
+            -2,
+            0.5,
+            0.4
+          ],
+          "scale": 0.65,
+          "color": [
+            0.62,
+            0.68,
+            0.82,
+            0.18
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "slow_gas_2",
+          "kind": "sphere",
+          "parent": "slow_cloud",
+          "pos": [
+            -1.2,
+            -0.7,
+            1.3
+          ],
+          "scale": 0.7,
+          "color": [
+            0.62,
+            0.68,
+            0.82,
+            0.18
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "slow_gas_3",
+          "kind": "sphere",
+          "parent": "slow_cloud",
+          "pos": [
+            0.1,
+            0.8,
+            1.5
+          ],
+          "scale": 0.75,
+          "color": [
+            0.62,
+            0.68,
+            0.82,
+            0.18
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "slow_gas_4",
+          "kind": "sphere",
+          "parent": "slow_cloud",
+          "pos": [
+            1.7,
+            0.3,
+            0.9
+          ],
+          "scale": 0.65,
+          "color": [
+            0.62,
+            0.68,
+            0.82,
+            0.18
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "slow_gas_5",
+          "kind": "sphere",
+          "parent": "slow_cloud",
+          "pos": [
+            2,
+            -0.6,
+            -0.5
+          ],
+          "scale": 0.65,
+          "color": [
+            0.62,
+            0.68,
+            0.82,
+            0.18
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "slow_gas_6",
+          "kind": "sphere",
+          "parent": "slow_cloud",
+          "pos": [
+            0.9,
+            0.8,
+            -1.6
+          ],
+          "scale": 0.7,
+          "color": [
+            0.62,
+            0.68,
+            0.82,
+            0.18
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "slow_gas_7",
+          "kind": "sphere",
+          "parent": "slow_cloud",
+          "pos": [
+            -1,
+            -0.5,
+            -1.5
+          ],
+          "scale": 0.75,
+          "color": [
+            0.62,
+            0.68,
+            0.82,
+            0.18
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "slow_gas_8",
+          "kind": "sphere",
+          "parent": "slow_cloud",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.85,
+          "color": [
+            0.67,
+            0.7,
+            0.84,
+            0.16
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "slow_dust_1",
+          "kind": "sphere",
+          "parent": "slow_cloud",
+          "pos": [
+            -2.3,
+            -0.3,
+            -0.4
+          ],
+          "scale": 0.07,
+          "color": [
+            0.79,
+            0.63,
+            0.4
+          ],
+          "lit": false,
+          "label": "Dust"
+        },
+        {
+          "id": "slow_dust_2",
+          "kind": "sphere",
+          "parent": "slow_cloud",
+          "pos": [
+            -0.6,
+            0.6,
+            2
+          ],
+          "scale": 0.06,
+          "color": [
+            0.79,
+            0.63,
+            0.4
+          ],
+          "lit": false,
+          "label": "Dust"
+        },
+        {
+          "id": "slow_dust_3",
+          "kind": "sphere",
+          "parent": "slow_cloud",
+          "pos": [
+            2.1,
+            0.5,
+            -1
+          ],
+          "scale": 0.07,
+          "color": [
+            0.79,
+            0.63,
+            0.4
+          ],
+          "lit": false,
+          "label": "Dust"
+        },
+        {
+          "id": "slow_dust_4",
+          "kind": "sphere",
+          "parent": "slow_cloud",
+          "pos": [
+            0.2,
+            -0.8,
+            -2
+          ],
+          "scale": 0.06,
+          "color": [
+            0.79,
+            0.63,
+            0.4
+          ],
+          "lit": false,
+          "label": "Dust"
+        },
+        {
+          "id": "fast_cloud",
+          "kind": "sphere",
+          "parent": "formation_root",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.72,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "spin": 0.24,
+          "label": "Faster spinning cloud",
+          "visible": false,
+          "pickable": false
+        },
+        {
+          "id": "fast_gas_1",
+          "kind": "sphere",
+          "parent": "fast_cloud",
+          "pos": [
+            -2,
+            0.5,
+            0.4
+          ],
+          "scale": 0.65,
+          "color": [
+            0.62,
+            0.68,
+            0.82,
+            0.18
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "fast_gas_2",
+          "kind": "sphere",
+          "parent": "fast_cloud",
+          "pos": [
+            -1.2,
+            -0.7,
+            1.3
+          ],
+          "scale": 0.7,
+          "color": [
+            0.62,
+            0.68,
+            0.82,
+            0.18
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "fast_gas_3",
+          "kind": "sphere",
+          "parent": "fast_cloud",
+          "pos": [
+            0.1,
+            0.8,
+            1.5
+          ],
+          "scale": 0.75,
+          "color": [
+            0.62,
+            0.68,
+            0.82,
+            0.18
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "fast_gas_4",
+          "kind": "sphere",
+          "parent": "fast_cloud",
+          "pos": [
+            1.7,
+            0.3,
+            0.9
+          ],
+          "scale": 0.65,
+          "color": [
+            0.62,
+            0.68,
+            0.82,
+            0.18
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "fast_gas_5",
+          "kind": "sphere",
+          "parent": "fast_cloud",
+          "pos": [
+            2,
+            -0.6,
+            -0.5
+          ],
+          "scale": 0.65,
+          "color": [
+            0.62,
+            0.68,
+            0.82,
+            0.18
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "fast_gas_6",
+          "kind": "sphere",
+          "parent": "fast_cloud",
+          "pos": [
+            0.9,
+            0.8,
+            -1.6
+          ],
+          "scale": 0.7,
+          "color": [
+            0.62,
+            0.68,
+            0.82,
+            0.18
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "fast_gas_7",
+          "kind": "sphere",
+          "parent": "fast_cloud",
+          "pos": [
+            -1,
+            -0.5,
+            -1.5
+          ],
+          "scale": 0.75,
+          "color": [
+            0.62,
+            0.68,
+            0.82,
+            0.18
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "fast_gas_8",
+          "kind": "sphere",
+          "parent": "fast_cloud",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.85,
+          "color": [
+            0.67,
+            0.7,
+            0.84,
+            0.16
+          ],
+          "lit": false,
+          "label": "Gas"
+        },
+        {
+          "id": "fast_dust_1",
+          "kind": "sphere",
+          "parent": "fast_cloud",
+          "pos": [
+            -2.3,
+            -0.3,
+            -0.4
+          ],
+          "scale": 0.07,
+          "color": [
+            0.79,
+            0.63,
+            0.4
+          ],
+          "lit": false,
+          "label": "Dust"
+        },
+        {
+          "id": "fast_dust_2",
+          "kind": "sphere",
+          "parent": "fast_cloud",
+          "pos": [
+            -0.6,
+            0.6,
+            2
+          ],
+          "scale": 0.06,
+          "color": [
+            0.79,
+            0.63,
+            0.4
+          ],
+          "lit": false,
+          "label": "Dust"
+        },
+        {
+          "id": "fast_dust_3",
+          "kind": "sphere",
+          "parent": "fast_cloud",
+          "pos": [
+            2.1,
+            0.5,
+            -1
+          ],
+          "scale": 0.07,
+          "color": [
+            0.79,
+            0.63,
+            0.4
+          ],
+          "lit": false,
+          "label": "Dust"
+        },
+        {
+          "id": "fast_dust_4",
+          "kind": "sphere",
+          "parent": "fast_cloud",
+          "pos": [
+            0.2,
+            -0.8,
+            -2
+          ],
+          "scale": 0.06,
+          "color": [
+            0.79,
+            0.63,
+            0.4
+          ],
+          "lit": false,
+          "label": "Dust"
+        },
+        {
+          "id": "gravity_left",
+          "kind": "cone",
+          "parent": "formation_root",
+          "pos": [
+            -2,
+            0,
+            0
+          ],
+          "scale": 0.15,
+          "stretch": [
+            1,
+            2.4,
+            1
+          ],
+          "rot": [
+            0,
+            0,
+            -1.57
+          ],
+          "color": [
+            0.45,
+            0.85,
+            1
+          ],
+          "lit": false,
+          "label": "Gravity pulls inward",
+          "visible": false,
+          "animate": [
+            {
+              "prop": "position",
+              "from": [
+                -0.2,
+                0,
+                0
+              ],
+              "to": [
+                0.4,
+                0,
+                0
+              ],
+              "seconds": 3,
+              "loop": "pingpong",
+              "ease": "smooth",
+              "delay": 0
+            }
+          ]
+        },
+        {
+          "id": "gravity_right",
+          "kind": "cone",
+          "parent": "formation_root",
+          "pos": [
+            2,
+            0,
+            0
+          ],
+          "scale": 0.15,
+          "stretch": [
+            1,
+            2.4,
+            1
+          ],
+          "rot": [
+            0,
+            0,
+            1.57
+          ],
+          "color": [
+            0.45,
+            0.85,
+            1
+          ],
+          "lit": false,
+          "label": "Gravity pulls inward",
+          "visible": false,
+          "animate": [
+            {
+              "prop": "position",
+              "from": [
+                0.2,
+                0,
+                0
+              ],
+              "to": [
+                -0.4,
+                0,
+                0
+              ],
+              "seconds": 3,
+              "loop": "pingpong",
+              "ease": "smooth",
+              "delay": 0
+            }
+          ]
+        },
+        {
+          "id": "forming_center",
+          "kind": "sphere",
+          "parent": "formation_root",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.15,
+          "color": [
+            1,
+            0.68,
+            0.3
+          ],
+          "lit": false,
+          "label": "Hot, dense center",
+          "visible": false
+        },
+        {
+          "id": "young_sun",
+          "kind": "model",
+          "asset": "sun",
+          "parent": "formation_root",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.65,
+          "lit": false,
+          "light": true,
+          "label": "Young Sun forming",
+          "visible": false,
+          "model": "models/sun.glb"
+        },
+        {
+          "id": "disc_frame",
+          "kind": "sphere",
+          "parent": "formation_root",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "rot": [
+            0.55,
+            0,
+            0
+          ],
+          "label": "Planet-building disc",
+          "visible": false,
+          "pickable": false
+        },
+        {
+          "id": "gas_disc",
+          "kind": "disc",
+          "parent": "disc_frame",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 2.6,
+          "inner": 0.28,
+          "color": [
+            0.64,
+            0.66,
+            0.78,
+            0.22
+          ],
+          "lit": false,
+          "label": "Gas and dust disc"
+        },
+        {
+          "id": "inner_orbit",
+          "kind": "disc",
+          "parent": "disc_frame",
+          "pos": [
+            0,
+            0.015,
+            0
+          ],
+          "scale": 1.25,
+          "inner": 0.985,
+          "color": [
+            0.91,
+            0.76,
+            0.48,
+            0.3
+          ],
+          "lit": false,
+          "label": "Material circling the center"
+        },
+        {
+          "id": "outer_orbit",
+          "kind": "disc",
+          "parent": "disc_frame",
+          "pos": [
+            0,
+            0.015,
+            0
+          ],
+          "scale": 2.25,
+          "inner": 0.985,
+          "color": [
+            0.91,
+            0.76,
+            0.48,
+            0.3
+          ],
+          "lit": false,
+          "label": "Material circling the center"
+        },
+        {
+          "id": "disc_dust_1",
+          "kind": "sphere",
+          "parent": "disc_frame",
+          "pos": [
+            0,
+            0.04,
+            0
+          ],
+          "scale": 0.055,
+          "color": [
+            0.83,
+            0.67,
+            0.43
+          ],
+          "lit": false,
+          "label": "Orbiting dust",
+          "orbit": {
+            "radius": 1.25,
+            "speed": 0.25,
+            "phase": 0
+          }
+        },
+        {
+          "id": "disc_dust_2",
+          "kind": "sphere",
+          "parent": "disc_frame",
+          "pos": [
+            0,
+            0.04,
+            0
+          ],
+          "scale": 0.055,
+          "color": [
+            0.83,
+            0.67,
+            0.43
+          ],
+          "lit": false,
+          "label": "Orbiting dust",
+          "orbit": {
+            "radius": 1.25,
+            "speed": 0.25,
+            "phase": 1.57
+          }
+        },
+        {
+          "id": "disc_dust_3",
+          "kind": "sphere",
+          "parent": "disc_frame",
+          "pos": [
+            0,
+            0.04,
+            0
+          ],
+          "scale": 0.055,
+          "color": [
+            0.83,
+            0.67,
+            0.43
+          ],
+          "lit": false,
+          "label": "Orbiting dust",
+          "orbit": {
+            "radius": 1.25,
+            "speed": 0.25,
+            "phase": 3.14
+          }
+        },
+        {
+          "id": "disc_dust_4",
+          "kind": "sphere",
+          "parent": "disc_frame",
+          "pos": [
+            0,
+            0.04,
+            0
+          ],
+          "scale": 0.055,
+          "color": [
+            0.83,
+            0.67,
+            0.43
+          ],
+          "lit": false,
+          "label": "Orbiting dust",
+          "orbit": {
+            "radius": 1.25,
+            "speed": 0.25,
+            "phase": 4.71
+          }
+        },
+        {
+          "id": "disc_dust_5",
+          "kind": "sphere",
+          "parent": "disc_frame",
+          "pos": [
+            0,
+            0.04,
+            0
+          ],
+          "scale": 0.065,
+          "color": [
+            0.83,
+            0.67,
+            0.43
+          ],
+          "lit": false,
+          "label": "Orbiting dust",
+          "orbit": {
+            "radius": 2.25,
+            "speed": 0.18,
+            "phase": 0.4
+          }
+        },
+        {
+          "id": "disc_dust_6",
+          "kind": "sphere",
+          "parent": "disc_frame",
+          "pos": [
+            0,
+            0.04,
+            0
+          ],
+          "scale": 0.065,
+          "color": [
+            0.83,
+            0.67,
+            0.43
+          ],
+          "lit": false,
+          "label": "Orbiting dust",
+          "orbit": {
+            "radius": 2.25,
+            "speed": 0.18,
+            "phase": 1.97
+          }
+        },
+        {
+          "id": "disc_dust_7",
+          "kind": "sphere",
+          "parent": "disc_frame",
+          "pos": [
+            0,
+            0.04,
+            0
+          ],
+          "scale": 0.065,
+          "color": [
+            0.83,
+            0.67,
+            0.43
+          ],
+          "lit": false,
+          "label": "Orbiting dust",
+          "orbit": {
+            "radius": 2.25,
+            "speed": 0.18,
+            "phase": 3.54
+          }
+        },
+        {
+          "id": "disc_dust_8",
+          "kind": "sphere",
+          "parent": "disc_frame",
+          "pos": [
+            0,
+            0.04,
+            0
+          ],
+          "scale": 0.065,
+          "color": [
+            0.83,
+            0.67,
+            0.43
+          ],
+          "lit": false,
+          "label": "Orbiting dust",
+          "orbit": {
+            "radius": 2.25,
+            "speed": 0.18,
+            "phase": 5.11
+          }
+        },
+        {
+          "id": "ancient_time",
+          "kind": "quad",
+          "parent": "formation_root",
+          "pos": [
+            -2.1,
+            2.1,
+            0
+          ],
+          "scale": 0.3,
+          "color": [
+            0.06,
+            0.08,
+            0.14
+          ],
+          "lit": false,
+          "label": "4.6 billion years ago",
+          "visible": false
+        },
+        {
+          "id": "sped_up_time",
+          "kind": "quad",
+          "parent": "formation_root",
+          "pos": [
+            2.1,
+            2.1,
+            0
+          ],
+          "scale": 0.3,
+          "color": [
+            0.06,
+            0.08,
+            0.14
+          ],
+          "lit": false,
+          "label": "Time sped up",
+          "visible": false
+        },
+        {
+          "id": "real_time",
+          "kind": "quad",
+          "parent": "formation_root",
+          "pos": [
+            2.1,
+            2.1,
+            0
+          ],
+          "scale": 0.3,
+          "color": [
+            0.06,
+            0.08,
+            0.14
+          ],
+          "lit": false,
+          "label": "Millions of years",
+          "visible": false
+        }
+      ],
+      "steps": [
+        {
+          "text": "About four point six billion years ago, there was no Earth or Sun here. A huge cloud of gas and dust floated in space.",
+          "highlight": "slow_cloud",
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ],
+            "focus": "slow_cloud",
+            "seconds": 3
+          },
+          "cues": [
+            {
+              "phrase": "billion years ago",
+              "show": [
+                "ancient_time"
+              ],
+              "at": 1.07
+            },
+            {
+              "phrase": "gas and dust",
+              "highlight": "slow_cloud",
+              "at": 4.67
+            }
+          ],
+          "audio": "audio/cloud_to_disc_00.wav",
+          "duration": 6.74
+        },
+        {
+          "text": "Gravity is a pull between things that have mass. Gravity pulled parts of this cloud closer together.",
+          "highlight": "slow_cloud",
+          "camera": {
+            "focus": "slow_cloud",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "hide": [
+            "ancient_time"
+          ],
+          "show": [
+            "sped_up_time"
+          ],
+          "cues": [
+            {
+              "phrase": "pulled",
+              "highlight": "gravity_left",
+              "show": [
+                "gravity_left",
+                "gravity_right"
+              ],
+              "set": [
+                {
+                  "node": "slow_cloud",
+                  "scale": 0.72,
+                  "seconds": 6
+                }
+              ],
+              "at": 2.62
+            }
+          ],
+          "audio": "audio/cloud_to_disc_01.wav",
+          "duration": 5.01
+        },
+        {
+          "text": "As the cloud shrank, it spun faster, like a spinning skater pulling in their arms. Watch the dust circle the middle.",
+          "highlight": "slow_cloud",
+          "camera": {
+            "focus": "slow_cloud",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "hide": [
+            "gravity_left",
+            "gravity_right"
+          ],
+          "cues": [
+            {
+              "phrase": "spun faster",
+              "highlight": "fast_cloud",
+              "hide": [
+                "slow_cloud"
+              ],
+              "show": [
+                "fast_cloud"
+              ],
+              "at": 1.48
+            },
+            {
+              "phrase": "dust",
+              "highlight": "fast_dust_2",
+              "at": 5.09
+            }
+          ],
+          "audio": "audio/cloud_to_disc_02.wav",
+          "duration": 5.98,
+          "sfx": {
+            "prompt": "soft airy whoosh circling and gently accelerating",
+            "audio": "audio/cloud_to_disc_sfx02.mp3",
+            "volume": 0.25,
+            "delay": 4.5
+          }
+        },
+        {
+          "text": "Most material gathered in the center. Packed closer together, it became denser and hotter. A young star was beginning to form.",
+          "highlight": "fast_cloud",
+          "camera": {
+            "focus": "forming_center",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.63,
+              -7.8
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "center",
+              "highlight": "forming_center",
+              "show": [
+                "forming_center"
+              ],
+              "set": [
+                {
+                  "node": "fast_cloud",
+                  "scale": 0.48,
+                  "seconds": 6
+                },
+                {
+                  "node": "forming_center",
+                  "scale": 0.65,
+                  "seconds": 6
+                }
+              ],
+              "at": 1.42
+            }
+          ],
+          "audio": "audio/cloud_to_disc_03.wav",
+          "duration": 6.69
+        },
+        {
+          "text": "The remaining gas and dust flattened into a spinning disc around the young Sun. This leftover material would help build planets.",
+          "highlight": "fast_cloud",
+          "camera": {
+            "focus": "disc_frame",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.0,
+              -0.05
+            ]
+          },
+          "cues": [
+            {
+              "phrase": "disc",
+              "highlight": "gas_disc",
+              "hide": [
+                "fast_cloud",
+                "forming_center"
+              ],
+              "show": [
+                "disc_frame",
+                "young_sun"
+              ],
+              "at": 2.39
+            },
+            {
+              "phrase": "young Sun",
+              "highlight": "young_sun",
+              "at": 3.09
+            }
+          ],
+          "audio": "audio/cloud_to_disc_04.wav",
+          "duration": 6.25
+        },
+        {
+          "text": "Pause and picture the whole system. These changes took millions of years. We have sped up time and changed sizes to help you see.",
+          "highlight": "gas_disc",
+          "camera": {
+            "focus": "disc_frame",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.0,
+              -0.05
+            ]
+          },
+          "hide": [
+            "disc_dust_1",
+            "disc_dust_2",
+            "disc_dust_3",
+            "disc_dust_4",
+            "disc_dust_5",
+            "disc_dust_6",
+            "disc_dust_7",
+            "disc_dust_8"
+          ],
+          "cues": [
+            {
+              "phrase": "millions of years",
+              "hide": [
+                "sped_up_time"
+              ],
+              "show": [
+                "real_time"
+              ],
+              "at": 2.68
+            }
+          ],
+          "audio": "audio/cloud_to_disc_05.wav",
+          "duration": 6.83
+        }
+      ],
+      "music": "formation_wonder"
+    },
+    {
+      "id": "building_sun_and_planets",
+      "title": "A Star and Its Planet Builders",
+      "sky": {
+        "texture": "textures/stars.png"
+      },
+      "nodes": [
+        {
+          "id": "root",
+          "kind": "sphere",
+          "pos": [
+            0,
+            1.8,
+            -9
+          ],
+          "scale": 0.01,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "pickable": false
+        },
+        {
+          "id": "system_plane",
+          "kind": "sphere",
+          "parent": "root",
+          "pos": [
+            0,
+            -0.3,
+            0
+          ],
+          "scale": 0.01,
+          "rot": [
+            0.65,
+            0,
+            0
+          ],
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "pickable": false
+        },
+        {
+          "id": "young_sun",
+          "kind": "model",
+          "asset": "sun",
+          "parent": "system_plane",
+          "pos": [
+            -2,
+            0.5,
+            0
+          ],
+          "scale": 1.15,
+          "lit": false,
+          "light": true,
+          "label": "Young Sun",
+          "model": "models/sun.glb"
+        },
+        {
+          "id": "sun_halo",
+          "kind": "sphere",
+          "parent": "young_sun",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.25,
+          "color": [
+            1,
+            0.8,
+            0.3,
+            0.12
+          ],
+          "lit": false,
+          "visible": false,
+          "label": "A star"
+        },
+        {
+          "id": "sun_cutaway",
+          "kind": "sphere",
+          "parent": "root",
+          "pos": [
+            0,
+            0,
+            6
+          ],
+          "scale": 0.95,
+          "color": [
+            1,
+            0.55,
+            0.12,
+            0.18
+          ],
+          "lit": false,
+          "label": "Inside the young Sun"
+        },
+        {
+          "id": "sun_center",
+          "kind": "sphere",
+          "parent": "sun_cutaway",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.43,
+          "color": [
+            1,
+            0.3,
+            0.08,
+            0.35
+          ],
+          "lit": false,
+          "label": "Hot center"
+        },
+        {
+          "id": "fusion_left",
+          "kind": "sphere",
+          "parent": "sun_center",
+          "pos": [
+            -0.22,
+            0,
+            0.35
+          ],
+          "scale": 0.085,
+          "color": [
+            1,
+            0.95,
+            0.55
+          ],
+          "lit": false,
+          "label": "Hydrogen nucleus"
+        },
+        {
+          "id": "fusion_right",
+          "kind": "sphere",
+          "parent": "sun_center",
+          "pos": [
+            0.22,
+            0,
+            0.35
+          ],
+          "scale": 0.085,
+          "color": [
+            1,
+            0.95,
+            0.55
+          ],
+          "lit": false,
+          "label": "Hydrogen nucleus"
+        },
+        {
+          "id": "fusion_pulse",
+          "kind": "sphere",
+          "parent": "sun_center",
+          "pos": [
+            0,
+            0,
+            0.35
+          ],
+          "scale": 0.12,
+          "color": [
+            1,
+            0.95,
+            0.6,
+            0.5
+          ],
+          "lit": false,
+          "visible": false,
+          "label": "Energy released",
+          "animate": [
+            {
+              "prop": "scale",
+              "from": 1,
+              "to": 4,
+              "seconds": 2,
+              "loop": "once",
+              "ease": "smooth"
+            },
+            {
+              "prop": "opacity",
+              "from": 1,
+              "to": 0,
+              "seconds": 2,
+              "loop": "once",
+              "ease": "smooth"
+            }
+          ]
+        },
+        {
+          "id": "fusion_panel",
+          "kind": "quad",
+          "parent": "root",
+          "pos": [
+            2,
+            2,
+            0
+          ],
+          "scale": 0.28,
+          "label": "Fusion",
+          "visible": false
+        },
+        {
+          "id": "hydrogen_marker",
+          "kind": "sphere",
+          "parent": "root",
+          "pos": [
+            0.9,
+            0.6,
+            0
+          ],
+          "scale": 0.17,
+          "color": [
+            0.45,
+            0.8,
+            1
+          ],
+          "lit": false,
+          "label": "Hydrogen",
+          "visible": false
+        },
+        {
+          "id": "helium_marker",
+          "kind": "sphere",
+          "parent": "root",
+          "pos": [
+            2.4,
+            0.6,
+            0
+          ],
+          "scale": 0.23,
+          "color": [
+            0.8,
+            0.6,
+            1
+          ],
+          "lit": false,
+          "label": "Helium",
+          "visible": false
+        },
+        {
+          "id": "sun_mass_bar",
+          "kind": "box",
+          "parent": "root",
+          "pos": [
+            1.55,
+            -0.6,
+            0
+          ],
+          "scale": 0.8,
+          "stretch": [
+            1,
+            0.12,
+            0.12
+          ],
+          "color": [
+            1,
+            0.75,
+            0.2
+          ],
+          "lit": false,
+          "label": "Almost all the mass: Sun",
+          "visible": false
+        },
+        {
+          "id": "other_mass_bar",
+          "kind": "box",
+          "parent": "root",
+          "pos": [
+            2.42,
+            -0.6,
+            0
+          ],
+          "scale": 0.04,
+          "stretch": [
+            1,
+            2.4,
+            2.4
+          ],
+          "color": [
+            0.35,
+            0.7,
+            1
+          ],
+          "lit": false,
+          "label": "Everything else",
+          "visible": false
+        },
+        {
+          "id": "dust_a",
+          "kind": "sphere",
+          "parent": "root",
+          "pos": [
+            -1.4,
+            0.1,
+            0
+          ],
+          "scale": 0.13,
+          "color": [
+            0.6,
+            0.43,
+            0.27
+          ],
+          "lit": true,
+          "label": "Dust grain",
+          "visible": false
+        },
+        {
+          "id": "dust_b",
+          "kind": "sphere",
+          "parent": "root",
+          "pos": [
+            -0.8,
+            0.3,
+            0
+          ],
+          "scale": 0.11,
+          "color": [
+            0.5,
+            0.47,
+            0.42
+          ],
+          "lit": true,
+          "label": "Dust grain",
+          "visible": false
+        },
+        {
+          "id": "dust_c",
+          "kind": "sphere",
+          "parent": "root",
+          "pos": [
+            0.8,
+            0.3,
+            0
+          ],
+          "scale": 0.14,
+          "color": [
+            0.65,
+            0.48,
+            0.31
+          ],
+          "lit": true,
+          "label": "Dust grain",
+          "visible": false
+        },
+        {
+          "id": "dust_d",
+          "kind": "sphere",
+          "parent": "root",
+          "pos": [
+            1.4,
+            0.1,
+            0
+          ],
+          "scale": 0.12,
+          "color": [
+            0.45,
+            0.43,
+            0.4
+          ],
+          "lit": true,
+          "label": "Dust grain",
+          "visible": false
+        },
+        {
+          "id": "small_clump",
+          "kind": "sphere",
+          "parent": "root",
+          "pos": [
+            -0.7,
+            0.15,
+            0
+          ],
+          "scale": 0.28,
+          "stretch": [
+            1,
+            0.85,
+            1.15
+          ],
+          "color": [
+            0.55,
+            0.43,
+            0.32
+          ],
+          "lit": true,
+          "label": "Growing clump",
+          "visible": false
+        },
+        {
+          "id": "large_clump",
+          "kind": "sphere",
+          "parent": "root",
+          "pos": [
+            0.7,
+            0.15,
+            0
+          ],
+          "scale": 0.45,
+          "stretch": [
+            0.9,
+            1,
+            1.1
+          ],
+          "color": [
+            0.56,
+            0.45,
+            0.34
+          ],
+          "lit": true,
+          "label": "Larger body",
+          "visible": false
+        },
+        {
+          "id": "dust_panel",
+          "kind": "quad",
+          "parent": "root",
+          "pos": [
+            0,
+            2,
+            0
+          ],
+          "scale": 0.3,
+          "label": "Enlarged view • Time sped up",
+          "visible": false
+        },
+        {
+          "id": "formation_disc",
+          "kind": "disc",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 4.15,
+          "inner": 0.18,
+          "color": [
+            0.65,
+            0.52,
+            0.38,
+            0.12
+          ],
+          "lit": false,
+          "label": "Planet-building disc",
+          "visible": false
+        },
+        {
+          "id": "warm_zone",
+          "kind": "disc",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0.02,
+            0
+          ],
+          "scale": 2.35,
+          "inner": 0.35,
+          "color": [
+            1,
+            0.45,
+            0.16,
+            0.22
+          ],
+          "lit": false,
+          "label": "Hotter: rock and metal",
+          "visible": false
+        },
+        {
+          "id": "cold_zone",
+          "kind": "disc",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0.025,
+            0
+          ],
+          "scale": 4.1,
+          "inner": 0.6,
+          "color": [
+            0.3,
+            0.7,
+            1,
+            0.22
+          ],
+          "lit": false,
+          "label": "Colder: ice can survive",
+          "visible": false
+        },
+        {
+          "id": "inner_builder_a",
+          "kind": "sphere",
+          "parent": "system_plane",
+          "pos": [
+            -1.25,
+            0,
+            0
+          ],
+          "scale": 0.17,
+          "color": [
+            0.52,
+            0.48,
+            0.43
+          ],
+          "lit": true,
+          "label": "Rocky planet builder",
+          "visible": false
+        },
+        {
+          "id": "inner_builder_b",
+          "kind": "sphere",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            -1.6
+          ],
+          "scale": 0.21,
+          "color": [
+            0.65,
+            0.53,
+            0.37
+          ],
+          "lit": true,
+          "label": "Rocky planet builder",
+          "visible": false
+        },
+        {
+          "id": "inner_builder_c",
+          "kind": "sphere",
+          "parent": "system_plane",
+          "pos": [
+            1.95,
+            0,
+            0
+          ],
+          "scale": 0.23,
+          "color": [
+            0.46,
+            0.44,
+            0.41
+          ],
+          "lit": true,
+          "label": "Rocky planet builder",
+          "visible": false
+        },
+        {
+          "id": "inner_builder_d",
+          "kind": "sphere",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            2.3
+          ],
+          "scale": 0.18,
+          "color": [
+            0.68,
+            0.36,
+            0.23
+          ],
+          "lit": true,
+          "label": "Rocky planet builder",
+          "visible": false
+        },
+        {
+          "id": "outer_builder_a",
+          "kind": "sphere",
+          "parent": "system_plane",
+          "pos": [
+            -2.75,
+            0,
+            0
+          ],
+          "scale": 0.29,
+          "color": [
+            0.65,
+            0.58,
+            0.42
+          ],
+          "lit": true,
+          "label": "Outer planet builder",
+          "visible": false
+        },
+        {
+          "id": "outer_builder_b",
+          "kind": "sphere",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            -3.15
+          ],
+          "scale": 0.27,
+          "color": [
+            0.7,
+            0.63,
+            0.46
+          ],
+          "lit": true,
+          "label": "Outer planet builder",
+          "visible": false
+        },
+        {
+          "id": "outer_builder_c",
+          "kind": "sphere",
+          "parent": "system_plane",
+          "pos": [
+            3.55,
+            0,
+            0
+          ],
+          "scale": 0.24,
+          "color": [
+            0.55,
+            0.73,
+            0.78
+          ],
+          "lit": true,
+          "label": "Outer planet builder",
+          "visible": false
+        },
+        {
+          "id": "outer_builder_d",
+          "kind": "sphere",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            4
+          ],
+          "scale": 0.24,
+          "color": [
+            0.42,
+            0.61,
+            0.8
+          ],
+          "lit": true,
+          "label": "Outer planet builder",
+          "visible": false
+        },
+        {
+          "id": "ice_a",
+          "kind": "sphere",
+          "parent": "system_plane",
+          "pos": [
+            -3.35,
+            0.15,
+            0.3
+          ],
+          "scale": 0.07,
+          "color": [
+            0.8,
+            0.94,
+            1
+          ],
+          "lit": true,
+          "label": "Ice",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -3.35,
+                0.15,
+                0.3
+              ],
+              [
+                -3.1,
+                0.1,
+                0.15
+              ],
+              [
+                -2.8,
+                0,
+                0
+              ]
+            ],
+            "seconds": 5,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "ice_b",
+          "kind": "sphere",
+          "parent": "system_plane",
+          "pos": [
+            -3.35,
+            0.15,
+            0.3
+          ],
+          "scale": 0.06,
+          "color": [
+            0.8,
+            0.94,
+            1
+          ],
+          "lit": true,
+          "label": "Ice",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -3.35,
+                0.15,
+                0.3
+              ],
+              [
+                -3.1,
+                0.1,
+                0.15
+              ],
+              [
+                -2.8,
+                0,
+                0
+              ]
+            ],
+            "seconds": 5,
+            "loop": "loop",
+            "phase": 0.33
+          }
+        },
+        {
+          "id": "ice_c",
+          "kind": "sphere",
+          "parent": "system_plane",
+          "pos": [
+            -3.35,
+            0.15,
+            0.3
+          ],
+          "scale": 0.08,
+          "color": [
+            0.8,
+            0.94,
+            1
+          ],
+          "lit": true,
+          "label": "Ice",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -3.35,
+                0.15,
+                0.3
+              ],
+              [
+                -3.1,
+                0.1,
+                0.15
+              ],
+              [
+                -2.8,
+                0,
+                0
+              ]
+            ],
+            "seconds": 5,
+            "loop": "loop",
+            "phase": 0.66
+          }
+        },
+        {
+          "id": "envelope_a",
+          "kind": "sphere",
+          "parent": "outer_builder_a",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.43,
+          "color": [
+            0.85,
+            0.75,
+            0.55,
+            0.25
+          ],
+          "lit": false,
+          "label": "Collected gas",
+          "visible": false,
+          "animate": [
+            {
+              "prop": "scale",
+              "from": 0.7,
+              "to": 1,
+              "seconds": 7,
+              "loop": "once",
+              "ease": "smooth"
+            }
+          ]
+        },
+        {
+          "id": "envelope_b",
+          "kind": "sphere",
+          "parent": "outer_builder_b",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.4,
+          "color": [
+            0.9,
+            0.8,
+            0.55,
+            0.25
+          ],
+          "lit": false,
+          "label": "Collected gas",
+          "visible": false,
+          "animate": [
+            {
+              "prop": "scale",
+              "from": 0.7,
+              "to": 1,
+              "seconds": 7,
+              "loop": "once",
+              "ease": "smooth"
+            }
+          ]
+        },
+        {
+          "id": "envelope_c",
+          "kind": "sphere",
+          "parent": "outer_builder_c",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.34,
+          "color": [
+            0.55,
+            0.85,
+            0.9,
+            0.25
+          ],
+          "lit": false,
+          "label": "Collected gas",
+          "visible": false,
+          "animate": [
+            {
+              "prop": "scale",
+              "from": 0.7,
+              "to": 1,
+              "seconds": 7,
+              "loop": "once",
+              "ease": "smooth"
+            }
+          ]
+        },
+        {
+          "id": "envelope_d",
+          "kind": "sphere",
+          "parent": "outer_builder_d",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.34,
+          "color": [
+            0.45,
+            0.65,
+            0.95,
+            0.25
+          ],
+          "lit": false,
+          "label": "Collected gas",
+          "visible": false,
+          "animate": [
+            {
+              "prop": "scale",
+              "from": 0.7,
+              "to": 1,
+              "seconds": 7,
+              "loop": "once",
+              "ease": "smooth"
+            }
+          ]
+        },
+        {
+          "id": "leftover_gas",
+          "kind": "disc",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            -0.02,
+            0
+          ],
+          "scale": 4.15,
+          "inner": 0.18,
+          "color": [
+            0.65,
+            0.75,
+            0.95,
+            0.15
+          ],
+          "lit": false,
+          "label": "Leftover gas",
+          "visible": false
+        },
+        {
+          "id": "orbit_mercury",
+          "kind": "disc",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.25,
+          "inner": 0.985,
+          "color": [
+            0.8,
+            0.8,
+            0.85,
+            0.3
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "orbit_venus",
+          "kind": "disc",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.6,
+          "inner": 0.985,
+          "color": [
+            0.8,
+            0.8,
+            0.85,
+            0.3
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "orbit_earth",
+          "kind": "disc",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.95,
+          "inner": 0.985,
+          "color": [
+            0.8,
+            0.8,
+            0.85,
+            0.3
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "orbit_mars",
+          "kind": "disc",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 2.3,
+          "inner": 0.985,
+          "color": [
+            0.8,
+            0.8,
+            0.85,
+            0.3
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "orbit_jupiter",
+          "kind": "disc",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 2.75,
+          "inner": 0.985,
+          "color": [
+            0.8,
+            0.8,
+            0.85,
+            0.3
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "orbit_saturn",
+          "kind": "disc",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 3.15,
+          "inner": 0.985,
+          "color": [
+            0.8,
+            0.8,
+            0.85,
+            0.3
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "orbit_uranus",
+          "kind": "disc",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 3.55,
+          "inner": 0.985,
+          "color": [
+            0.8,
+            0.8,
+            0.85,
+            0.3
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "orbit_neptune",
+          "kind": "disc",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 4,
+          "inner": 0.985,
+          "color": [
+            0.8,
+            0.8,
+            0.85,
+            0.3
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "mercury",
+          "kind": "model",
+          "asset": "mercury",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.12,
+          "lit": true,
+          "label": "Mercury",
+          "visible": false,
+          "orbit": {
+            "radius": 1.25,
+            "speed": 0.12,
+            "phase": 0.4
+          },
+          "model": "models/mercury.glb"
+        },
+        {
+          "id": "venus",
+          "kind": "model",
+          "asset": "venus",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.17,
+          "lit": true,
+          "label": "Venus",
+          "visible": false,
+          "orbit": {
+            "radius": 1.6,
+            "speed": 0.1,
+            "phase": 2.4
+          },
+          "model": "models/venus.glb"
+        },
+        {
+          "id": "earth",
+          "kind": "model",
+          "asset": "earth",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.18,
+          "lit": true,
+          "label": "Earth",
+          "visible": false,
+          "orbit": {
+            "radius": 1.95,
+            "speed": 0.09,
+            "phase": 4.4
+          },
+          "model": "models/earth.glb"
+        },
+        {
+          "id": "mars",
+          "kind": "model",
+          "asset": "mars",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.14,
+          "lit": true,
+          "label": "Mars",
+          "visible": false,
+          "orbit": {
+            "radius": 2.3,
+            "speed": 0.08,
+            "phase": 1.4
+          },
+          "model": "models/mars.glb"
+        },
+        {
+          "id": "jupiter",
+          "kind": "model",
+          "asset": "jupiter",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.35,
+          "lit": true,
+          "label": "Jupiter",
+          "visible": false,
+          "orbit": {
+            "radius": 2.75,
+            "speed": 0.07,
+            "phase": 3.2
+          },
+          "model": "models/jupiter.glb"
+        },
+        {
+          "id": "saturn",
+          "kind": "model",
+          "asset": "saturn",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.4,
+          "lit": true,
+          "label": "Saturn",
+          "visible": false,
+          "orbit": {
+            "radius": 3.15,
+            "speed": 0.06,
+            "phase": 5.3
+          },
+          "model": "models/saturn.glb"
+        },
+        {
+          "id": "uranus",
+          "kind": "model",
+          "asset": "uranus",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.25,
+          "tilt": 1.7,
+          "lit": true,
+          "label": "Uranus",
+          "visible": false,
+          "orbit": {
+            "radius": 3.55,
+            "speed": 0.055,
+            "phase": 0.7
+          },
+          "model": "models/uranus.glb"
+        },
+        {
+          "id": "neptune",
+          "kind": "model",
+          "asset": "neptune",
+          "parent": "system_plane",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.24,
+          "lit": true,
+          "label": "Neptune",
+          "visible": false,
+          "orbit": {
+            "radius": 4,
+            "speed": 0.05,
+            "phase": 3.9
+          },
+          "model": "models/neptune.glb"
+        },
+        {
+          "id": "asteroid",
+          "kind": "sphere",
+          "parent": "system_plane",
+          "pos": [
+            -2.3,
+            0,
+            1.1
+          ],
+          "scale": 0.075,
+          "stretch": [
+            1,
+            0.7,
+            1.3
+          ],
+          "color": [
+            0.48,
+            0.43,
+            0.38
+          ],
+          "lit": true,
+          "label": "Asteroid",
+          "visible": false
+        },
+        {
+          "id": "comet",
+          "kind": "sphere",
+          "parent": "system_plane",
+          "pos": [
+            3.4,
+            0,
+            1.8
+          ],
+          "scale": 0.08,
+          "color": [
+            0.75,
+            0.85,
+            0.9
+          ],
+          "lit": true,
+          "label": "Comet",
+          "visible": false
+        },
+        {
+          "id": "simplified_panel",
+          "kind": "quad",
+          "parent": "root",
+          "pos": [
+            0,
+            2.65,
+            0
+          ],
+          "scale": 0.3,
+          "label": "Sizes, distances, and speeds simplified",
+          "visible": false
+        }
+      ],
+      "steps": [
+        {
+          "text": "The young Sun's center became hot enough for fusion. Hydrogen nuclei joined together, releasing energy. The Sun began making its own light and heat.",
+          "highlight": "sun_center",
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ],
+            "focus": "sun_center",
+            "seconds": 3
+          },
+          "cues": [
+            {
+              "phrase": "fusion",
+              "highlight": "sun_center",
+              "show": [
+                "fusion_panel"
+              ],
+              "set": [
+                {
+                  "node": "fusion_left",
+                  "position": [
+                    -0.025,
+                    0,
+                    0.35
+                  ],
+                  "seconds": 1.5
+                },
+                {
+                  "node": "fusion_right",
+                  "position": [
+                    0.025,
+                    0,
+                    0.35
+                  ],
+                  "seconds": 1.5
+                }
+              ],
+              "at": 2.1
+            },
+            {
+              "phrase": "releasing energy",
+              "highlight": "fusion_pulse",
+              "show": [
+                "fusion_pulse"
+              ],
+              "at": 4.33
+            },
+            {
+              "phrase": "light and heat",
+              "highlight": "young_sun",
+              "at": 6.94
+            }
+          ],
+          "audio": "audio/building_sun_and_planets_00.wav",
+          "duration": 8.02
+        },
+        {
+          "text": "The Sun is a star, mostly hydrogen and helium. It holds almost all the mass in our Solar System. The bars compare how much matter there is.",
+          "highlight": "young_sun",
+          "camera": {
+            "focus": "young_sun",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "hide": [
+            "sun_cutaway",
+            "sun_center",
+            "fusion_left",
+            "fusion_right",
+            "fusion_pulse",
+            "fusion_panel"
+          ],
+          "cues": [
+            {
+              "phrase": "star",
+              "highlight": "young_sun",
+              "show": [
+                "sun_halo"
+              ],
+              "at": 0.66
+            },
+            {
+              "phrase": "hydrogen",
+              "highlight": "hydrogen_marker",
+              "show": [
+                "hydrogen_marker"
+              ],
+              "at": 1.4
+            },
+            {
+              "phrase": "helium",
+              "highlight": "helium_marker",
+              "show": [
+                "helium_marker"
+              ],
+              "at": 2.24
+            },
+            {
+              "phrase": "almost all the mass",
+              "highlight": "sun_mass_bar",
+              "show": [
+                "sun_mass_bar",
+                "other_mass_bar"
+              ],
+              "at": 3.2
+            }
+          ],
+          "audio": "audio/building_sun_and_planets_01.wav",
+          "duration": 7.77
+        },
+        {
+          "text": "In this enlarged, sped-up view, some dust grains stuck together. Growing clumps collided and joined. Over time, they became larger bodies.",
+          "highlight": "dust_a",
+          "camera": {
+            "focus": "dust_a",
+            "seconds": 3,
+            "pos": [
+              -1.4,
+              1.73,
+              -7.8
+            ]
+          },
+          "hide": [
+            "young_sun",
+            "sun_halo",
+            "hydrogen_marker",
+            "helium_marker",
+            "sun_mass_bar",
+            "other_mass_bar"
+          ],
+          "show": [
+            "dust_a",
+            "dust_b",
+            "dust_c",
+            "dust_d",
+            "dust_panel"
+          ],
+          "cues": [
+            {
+              "phrase": "stuck together",
+              "highlight": "dust_b",
+              "set": [
+                {
+                  "node": "dust_a",
+                  "position": [
+                    -0.95,
+                    0.15,
+                    0
+                  ],
+                  "seconds": 2
+                },
+                {
+                  "node": "dust_b",
+                  "position": [
+                    -0.75,
+                    0.15,
+                    0
+                  ],
+                  "seconds": 2
+                },
+                {
+                  "node": "dust_c",
+                  "position": [
+                    0.75,
+                    0.15,
+                    0
+                  ],
+                  "seconds": 2
+                },
+                {
+                  "node": "dust_d",
+                  "position": [
+                    0.95,
+                    0.15,
+                    0
+                  ],
+                  "seconds": 2
+                }
+              ],
+              "at": 5.15
+            },
+            {
+              "phrase": "Growing clumps",
+              "highlight": "small_clump",
+              "hide": [
+                "dust_a",
+                "dust_b",
+                "dust_c",
+                "dust_d"
+              ],
+              "show": [
+                "small_clump",
+                "large_clump"
+              ],
+              "set": [
+                {
+                  "node": "small_clump",
+                  "position": [
+                    -0.3,
+                    0.15,
+                    0
+                  ],
+                  "seconds": 3
+                },
+                {
+                  "node": "large_clump",
+                  "position": [
+                    0.3,
+                    0.15,
+                    0
+                  ],
+                  "seconds": 3
+                }
+              ],
+              "at": 5.39
+            },
+            {
+              "phrase": "larger bodies",
+              "highlight": "large_clump",
+              "hide": [
+                "small_clump"
+              ],
+              "set": [
+                {
+                  "node": "large_clump",
+                  "position": [
+                    0,
+                    0.15,
+                    0
+                  ],
+                  "scale": 0.65,
+                  "seconds": 3
+                }
+              ],
+              "at": 6.59
+            }
+          ],
+          "audio": "audio/building_sun_and_planets_02.wav",
+          "duration": 7.19,
+          "sfx": {
+            "prompt": "deep muffled impact followed by brief debris rumble",
+            "audio": "audio/building_sun_and_planets_sfx02.mp3",
+            "volume": 0.25,
+            "delay": 4.5
+          }
+        },
+        {
+          "text": "Near the hot young Sun, rock and metal could stay solid. These materials helped build the four rocky inner planets. This diagram is simplified.",
+          "highlight": "young_sun",
+          "camera": {
+            "focus": "formation_disc",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.0,
+              5.0
+            ]
+          },
+          "hide": [
+            "small_clump",
+            "large_clump",
+            "dust_panel"
+          ],
+          "show": [
+            "young_sun",
+            "formation_disc",
+            "leftover_gas",
+            "simplified_panel"
+          ],
+          "set": [
+            {
+              "node": "young_sun",
+              "position": [
+                0,
+                0,
+                0
+              ],
+              "scale": 0.65,
+              "seconds": 2
+            }
+          ],
+          "cues": [
+            {
+              "phrase": "Near",
+              "highlight": "warm_zone",
+              "show": [
+                "warm_zone"
+              ],
+              "at": 0.0
+            },
+            {
+              "phrase": "rock and metal",
+              "highlight": "inner_builder_a",
+              "show": [
+                "inner_builder_a",
+                "inner_builder_b",
+                "inner_builder_c",
+                "inner_builder_d"
+              ],
+              "set": [
+                {
+                  "node": "inner_builder_a",
+                  "scale": 0.06,
+                  "seconds": 0
+                },
+                {
+                  "node": "inner_builder_b",
+                  "scale": 0.07,
+                  "seconds": 0
+                },
+                {
+                  "node": "inner_builder_c",
+                  "scale": 0.08,
+                  "seconds": 0
+                },
+                {
+                  "node": "inner_builder_d",
+                  "scale": 0.06,
+                  "seconds": 0
+                }
+              ],
+              "at": 1.1
+            },
+            {
+              "phrase": "four rocky inner planets",
+              "highlight": "inner_builder_c",
+              "set": [
+                {
+                  "node": "inner_builder_a",
+                  "scale": 0.17,
+                  "seconds": 4
+                },
+                {
+                  "node": "inner_builder_b",
+                  "scale": 0.21,
+                  "seconds": 4
+                },
+                {
+                  "node": "inner_builder_c",
+                  "scale": 0.23,
+                  "seconds": 4
+                },
+                {
+                  "node": "inner_builder_d",
+                  "scale": 0.18,
+                  "seconds": 4
+                }
+              ],
+              "at": 4.5
+            }
+          ],
+          "audio": "audio/building_sun_and_planets_03.wav",
+          "duration": 7.62
+        },
+        {
+          "text": "Farther away, it was colder, so ice could join the building material. Large growing worlds collected gas. The outer planets developed in this colder region.",
+          "highlight": "cold_zone",
+          "camera": {
+            "focus": "cold_zone",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.0,
+              5.0
+            ]
+          },
+          "show": [
+            "cold_zone"
+          ],
+          "set": [
+            {
+              "node": "warm_zone",
+              "opacity": 0.4,
+              "seconds": 2
+            }
+          ],
+          "cues": [
+            {
+              "phrase": "Farther away",
+              "highlight": "cold_zone",
+              "at": 0.0
+            },
+            {
+              "phrase": "ice",
+              "highlight": "ice_a",
+              "show": [
+                "ice_a",
+                "ice_b",
+                "ice_c",
+                "outer_builder_a",
+                "outer_builder_b",
+                "outer_builder_c",
+                "outer_builder_d"
+              ],
+              "at": 5.51
+            },
+            {
+              "phrase": "collected gas",
+              "highlight": "envelope_a",
+              "show": [
+                "envelope_a",
+                "envelope_b",
+                "envelope_c",
+                "envelope_d"
+              ],
+              "at": 6.67
+            },
+            {
+              "phrase": "outer planets",
+              "highlight": "outer_builder_c",
+              "at": 7.03
+            }
+          ],
+          "audio": "audio/building_sun_and_planets_04.wav",
+          "duration": 8.07
+        },
+        {
+          "text": "The Sun helped clear away gas. Asteroids and comets remained. Gravity pulls planets inward; forward motion keeps them moving around it.",
+          "highlight": "young_sun",
+          "camera": {
+            "focus": "young_sun",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.15,
+              -6.49
+            ]
+          },
+          "show": [
+            "orbit_mercury",
+            "orbit_venus",
+            "orbit_earth",
+            "orbit_mars",
+            "orbit_jupiter",
+            "orbit_saturn",
+            "orbit_uranus",
+            "orbit_neptune"
+          ],
+          "hide": [
+            "ice_a",
+            "ice_b",
+            "ice_c"
+          ],
+          "cues": [
+            {
+              "phrase": "clear away",
+              "highlight": "leftover_gas",
+              "set": [
+                {
+                  "node": "leftover_gas",
+                  "opacity": 0,
+                  "seconds": 4
+                },
+                {
+                  "node": "formation_disc",
+                  "opacity": 0,
+                  "seconds": 4
+                },
+                {
+                  "node": "warm_zone",
+                  "opacity": 0,
+                  "seconds": 4
+                },
+                {
+                  "node": "cold_zone",
+                  "opacity": 0,
+                  "seconds": 4
+                }
+              ],
+              "at": 0.77
+            },
+            {
+              "phrase": "Asteroids",
+              "highlight": "asteroid",
+              "show": [
+                "asteroid"
+              ],
+              "at": 1.58
+            },
+            {
+              "phrase": "comets",
+              "highlight": "comet",
+              "show": [
+                "comet"
+              ],
+              "at": 2.4
+            },
+            {
+              "phrase": "moving around it",
+              "highlight": "earth",
+              "hide": [
+                "inner_builder_a",
+                "inner_builder_b",
+                "inner_builder_c",
+                "inner_builder_d",
+                "outer_builder_a",
+                "outer_builder_b",
+                "outer_builder_c",
+                "outer_builder_d",
+                "envelope_a",
+                "envelope_b",
+                "envelope_c",
+                "envelope_d"
+              ],
+              "show": [
+                "mercury",
+                "venus",
+                "earth",
+                "mars",
+                "jupiter",
+                "saturn",
+                "uranus",
+                "neptune"
+              ],
+              "at": 6.32
+            }
+          ],
+          "audio": "audio/building_sun_and_planets_05.wav",
+          "duration": 7.53
+        }
+      ],
+      "ambience": {
+        "prompt": "faint low cosmic rumble, steady and diffuse",
+        "audio": "audio/building_sun_and_planets_ambience.mp3",
+        "volume": 0.08
+      }
+    },
+    {
+      "id": "rocky_inner_planets",
+      "title": "The Four Rocky Neighbors",
+      "sky": {
+        "texture": "textures/stars.png"
+      },
+      "nodes": [
+        {
+          "id": "exhibit_root",
+          "kind": "sphere",
+          "pos": [
+            0,
+            1.6,
+            -9
+          ],
+          "scale": 0.01,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "pickable": false
+        },
+        {
+          "id": "sun",
+          "kind": "model",
+          "asset": "sun",
+          "parent": "exhibit_root",
+          "pos": [
+            -5.2,
+            1.7,
+            -2
+          ],
+          "scale": 0.65,
+          "lit": false,
+          "light": true,
+          "label": "Sun",
+          "model": "models/sun.glb"
+        },
+        {
+          "id": "mercury_orbit",
+          "kind": "disc",
+          "parent": "sun",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.95,
+          "inner": 0.985,
+          "tilt": 0.65,
+          "color": [
+            0.65,
+            0.65,
+            0.68,
+            0.3
+          ],
+          "lit": false,
+          "label": "Mercury's orbit"
+        },
+        {
+          "id": "venus_orbit",
+          "kind": "disc",
+          "parent": "sun",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.2,
+          "inner": 0.985,
+          "tilt": 0.65,
+          "color": [
+            0.95,
+            0.82,
+            0.48,
+            0.3
+          ],
+          "lit": false,
+          "label": "Venus's orbit"
+        },
+        {
+          "id": "earth_orbit",
+          "kind": "disc",
+          "parent": "sun",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.45,
+          "inner": 0.985,
+          "tilt": 0.65,
+          "color": [
+            0.25,
+            0.65,
+            1,
+            0.3
+          ],
+          "lit": false,
+          "label": "Earth's orbit"
+        },
+        {
+          "id": "mars_orbit",
+          "kind": "disc",
+          "parent": "sun",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.7,
+          "inner": 0.985,
+          "tilt": 0.65,
+          "color": [
+            0.95,
+            0.4,
+            0.22,
+            0.3
+          ],
+          "lit": false,
+          "label": "Mars's orbit"
+        },
+        {
+          "id": "mercury_lineup",
+          "kind": "model",
+          "asset": "mercury",
+          "parent": "exhibit_root",
+          "pos": [
+            -3,
+            0,
+            0
+          ],
+          "scale": 0.266,
+          "lit": true,
+          "label": "Mercury",
+          "model": "models/mercury.glb"
+        },
+        {
+          "id": "venus_lineup",
+          "kind": "model",
+          "asset": "venus",
+          "parent": "exhibit_root",
+          "pos": [
+            -1,
+            0,
+            0
+          ],
+          "scale": 0.665,
+          "lit": true,
+          "label": "Venus",
+          "model": "models/venus.glb"
+        },
+        {
+          "id": "earth_lineup",
+          "kind": "model",
+          "asset": "earth",
+          "parent": "exhibit_root",
+          "pos": [
+            1,
+            0,
+            0
+          ],
+          "scale": 0.7,
+          "lit": true,
+          "label": "Earth",
+          "model": "models/earth.glb"
+        },
+        {
+          "id": "mars_lineup",
+          "kind": "model",
+          "asset": "mars",
+          "parent": "exhibit_root",
+          "pos": [
+            3,
+            0,
+            0
+          ],
+          "scale": 0.371,
+          "lit": true,
+          "label": "Mars",
+          "model": "models/mars.glb"
+        },
+        {
+          "id": "order_panel",
+          "kind": "quad",
+          "parent": "exhibit_root",
+          "pos": [
+            0,
+            2.6,
+            0
+          ],
+          "scale": 0.3,
+          "label": "Mercury → Venus → Earth → Mars",
+          "lit": false
+        },
+        {
+          "id": "distance_panel",
+          "kind": "quad",
+          "parent": "exhibit_root",
+          "pos": [
+            3.1,
+            2,
+            -0.5
+          ],
+          "scale": 0.28,
+          "label": "Distances compressed",
+          "lit": false
+        },
+        {
+          "id": "water_evidence_panel",
+          "kind": "quad",
+          "parent": "exhibit_root",
+          "pos": [
+            2.5,
+            2.2,
+            2
+          ],
+          "scale": 0.3,
+          "label": "Evidence of past water",
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "mercury_enlarged",
+          "kind": "model",
+          "asset": "mercury",
+          "parent": "exhibit_root",
+          "pos": [
+            -0.7,
+            0.25,
+            2
+          ],
+          "scale": 1.5,
+          "lit": true,
+          "spin": 0.018,
+          "label": "Mercury — Enlarged view",
+          "visible": false,
+          "model": "models/mercury.glb"
+        },
+        {
+          "id": "venus_enlarged",
+          "kind": "model",
+          "asset": "venus",
+          "parent": "exhibit_root",
+          "pos": [
+            -1.1,
+            0.25,
+            2
+          ],
+          "scale": 1.5,
+          "lit": true,
+          "spin": 0.018,
+          "label": "Venus — Enlarged view",
+          "visible": false,
+          "model": "models/venus.glb"
+        },
+        {
+          "id": "earth_size_outline",
+          "kind": "disc",
+          "parent": "exhibit_root",
+          "pos": [
+            2.35,
+            0.25,
+            2
+          ],
+          "scale": 1.579,
+          "inner": 0.985,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            0.35,
+            0.75,
+            1,
+            0.8
+          ],
+          "lit": false,
+          "label": "Earth-sized outline",
+          "visible": false
+        },
+        {
+          "id": "atmosphere_diagram",
+          "kind": "disc",
+          "parent": "exhibit_root",
+          "pos": [
+            2.35,
+            0.25,
+            2
+          ],
+          "scale": 1.1,
+          "inner": 0.83,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            0.95,
+            0.77,
+            0.4,
+            0.65
+          ],
+          "lit": false,
+          "label": "Thick atmosphere: simplified diagram",
+          "visible": false
+        },
+        {
+          "id": "trapped_heat",
+          "kind": "sphere",
+          "parent": "exhibit_root",
+          "pos": [
+            2.35,
+            -0.45,
+            2
+          ],
+          "scale": 0.1,
+          "color": [
+            1,
+            0.32,
+            0.08
+          ],
+          "lit": false,
+          "label": "Heat",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                2.35,
+                -0.45,
+                2
+              ],
+              [
+                2.35,
+                0.85,
+                2
+              ],
+              [
+                2.75,
+                0.55,
+                2
+              ],
+              [
+                2.35,
+                -0.45,
+                2
+              ]
+            ],
+            "seconds": 5,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "heat_arrow",
+          "kind": "cone",
+          "parent": "exhibit_root",
+          "pos": [
+            2.35,
+            0.55,
+            2
+          ],
+          "scale": 0.12,
+          "stretch": [
+            1,
+            2,
+            1
+          ],
+          "color": [
+            1,
+            0.45,
+            0.1
+          ],
+          "lit": false,
+          "label": "Heat moving upward",
+          "visible": false
+        },
+        {
+          "id": "return_heat_arrow",
+          "kind": "cone",
+          "parent": "exhibit_root",
+          "pos": [
+            2.75,
+            0.35,
+            2
+          ],
+          "scale": 0.12,
+          "stretch": [
+            1,
+            2,
+            1
+          ],
+          "rot": [
+            0,
+            0,
+            3.1416
+          ],
+          "color": [
+            1,
+            0.45,
+            0.1
+          ],
+          "lit": false,
+          "label": "Heat returning downward",
+          "visible": false
+        },
+        {
+          "id": "earth_enlarged",
+          "kind": "model",
+          "asset": "earth",
+          "parent": "exhibit_root",
+          "pos": [
+            -0.7,
+            0.25,
+            2
+          ],
+          "scale": 1.5,
+          "rot": [
+            0,
+            0.6,
+            0
+          ],
+          "lit": true,
+          "spin": 0.018,
+          "label": "Earth — Enlarged view",
+          "visible": false,
+          "model": "models/earth.glb"
+        },
+        {
+          "id": "earth_atmosphere",
+          "kind": "sphere",
+          "parent": "earth_enlarged",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.535,
+          "color": [
+            0.25,
+            0.65,
+            1,
+            0.09
+          ],
+          "lit": false,
+          "label": "Earth's atmosphere",
+          "visible": false
+        },
+        {
+          "id": "mars_enlarged",
+          "kind": "model",
+          "asset": "mars",
+          "parent": "exhibit_root",
+          "pos": [
+            -0.7,
+            0.25,
+            2
+          ],
+          "scale": 1.5,
+          "lit": true,
+          "spin": 0.018,
+          "label": "Mars — Enlarged view",
+          "visible": false,
+          "model": "models/mars.glb"
+        },
+        {
+          "id": "mercury_atmosphere_comparison",
+          "kind": "disc",
+          "parent": "exhibit_root",
+          "pos": [
+            -3,
+            -1.05,
+            0
+          ],
+          "scale": 0.23,
+          "inner": 0.985,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            0.65,
+            0.65,
+            0.68,
+            0.4
+          ],
+          "lit": false,
+          "label": "Mercury: almost no atmosphere",
+          "visible": false
+        },
+        {
+          "id": "venus_atmosphere_comparison",
+          "kind": "disc",
+          "parent": "exhibit_root",
+          "pos": [
+            -1,
+            -1.05,
+            0
+          ],
+          "scale": 0.23,
+          "inner": 0.55,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            0.95,
+            0.8,
+            0.45,
+            0.85
+          ],
+          "lit": false,
+          "label": "Venus: very thick atmosphere",
+          "visible": false
+        },
+        {
+          "id": "earth_atmosphere_comparison",
+          "kind": "disc",
+          "parent": "exhibit_root",
+          "pos": [
+            1,
+            -1.05,
+            0
+          ],
+          "scale": 0.23,
+          "inner": 0.8,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            0.3,
+            0.65,
+            1,
+            0.8
+          ],
+          "lit": false,
+          "label": "Earth: life-supporting atmosphere",
+          "visible": false
+        },
+        {
+          "id": "mars_atmosphere_comparison",
+          "kind": "disc",
+          "parent": "exhibit_root",
+          "pos": [
+            3,
+            -1.05,
+            0
+          ],
+          "scale": 0.23,
+          "inner": 0.95,
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "color": [
+            0.95,
+            0.45,
+            0.25,
+            0.7
+          ],
+          "lit": false,
+          "label": "Mars: thin atmosphere",
+          "visible": false
+        }
+      ],
+      "steps": [
+        {
+          "text": "Mercury, Venus, Earth, then Mars: four rocky planets, starting nearest the Sun. Planet sizes are relative; the Sun and distances are not to scale.",
+          "highlight": "mercury_lineup",
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ],
+            "focus": "earth_lineup",
+            "seconds": 3
+          },
+          "cues": [
+            {
+              "phrase": "Mercury",
+              "highlight": "mercury_lineup",
+              "at": 0.0
+            },
+            {
+              "phrase": "Venus",
+              "highlight": "venus_lineup",
+              "at": 1.83
+            },
+            {
+              "phrase": "Earth",
+              "highlight": "earth_lineup",
+              "at": 4.37
+            },
+            {
+              "phrase": "Mars",
+              "highlight": "mars_lineup",
+              "at": 6.25
+            }
+          ],
+          "audio": "audio/rocky_inner_planets_00.wav",
+          "duration": 8.3
+        },
+        {
+          "text": "Mercury is the smallest planet and closest to the Sun. Its cratered ground gets very hot in sunlight and very cold during its long nights.",
+          "highlight": "mercury_enlarged",
+          "camera": {
+            "focus": "mercury_enlarged",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "hide": [
+            "mercury_lineup",
+            "venus_lineup",
+            "earth_lineup",
+            "mars_lineup",
+            "mercury_orbit",
+            "venus_orbit",
+            "earth_orbit",
+            "mars_orbit",
+            "order_panel",
+            "distance_panel"
+          ],
+          "show": [
+            "mercury_enlarged"
+          ],
+          "audio": "audio/rocky_inner_planets_01.wav",
+          "duration": 7.2
+        },
+        {
+          "text": "Venus is almost Earth's size. Its thick atmosphere traps heat, making it the hottest planet, even though Mercury is closer to the Sun.",
+          "highlight": "venus_enlarged",
+          "camera": {
+            "focus": "venus_enlarged",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "hide": [
+            "mercury_enlarged"
+          ],
+          "show": [
+            "venus_enlarged"
+          ],
+          "cues": [
+            {
+              "phrase": "almost Earth's size",
+              "highlight": "earth_size_outline",
+              "show": [
+                "earth_size_outline"
+              ],
+              "at": 0.5
+            },
+            {
+              "phrase": "traps heat",
+              "highlight": "atmosphere_diagram",
+              "hide": [
+                "earth_size_outline"
+              ],
+              "show": [
+                "atmosphere_diagram",
+                "trapped_heat",
+                "heat_arrow",
+                "return_heat_arrow"
+              ],
+              "at": 2.86
+            },
+            {
+              "phrase": "hottest planet",
+              "highlight": "venus_enlarged",
+              "at": 4.16
+            }
+          ],
+          "audio": "audio/rocky_inner_planets_02.wav",
+          "duration": 7.29
+        },
+        {
+          "text": "Earth has liquid-water oceans and an atmosphere that helps support life. It is the only world where we know life exists.",
+          "highlight": "earth_enlarged",
+          "camera": {
+            "focus": "earth_enlarged",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "hide": [
+            "venus_enlarged",
+            "earth_size_outline",
+            "atmosphere_diagram",
+            "trapped_heat",
+            "heat_arrow",
+            "return_heat_arrow"
+          ],
+          "show": [
+            "earth_enlarged"
+          ],
+          "cues": [
+            {
+              "phrase": "oceans",
+              "highlight": "earth_enlarged",
+              "at": 1.03
+            },
+            {
+              "phrase": "atmosphere",
+              "highlight": "earth_atmosphere",
+              "show": [
+                "earth_atmosphere"
+              ],
+              "at": 1.67
+            },
+            {
+              "phrase": "life exists",
+              "highlight": "earth_enlarged",
+              "at": 5.06
+            }
+          ],
+          "audio": "audio/rocky_inner_planets_03.wav",
+          "duration": 6.14
+        },
+        {
+          "text": "Mars is red from rusty iron in surface minerals. It has huge volcanoes, deep canyons, and signs that liquid water flowed there long ago.",
+          "highlight": "mars_enlarged",
+          "camera": {
+            "focus": "mars_enlarged",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "hide": [
+            "earth_enlarged",
+            "earth_atmosphere"
+          ],
+          "show": [
+            "mars_enlarged"
+          ],
+          "cues": [
+            {
+              "phrase": "liquid water",
+              "show": [
+                "water_evidence_panel"
+              ],
+              "highlight": "water_evidence_panel",
+              "at": 5.46
+            },
+            {
+              "phrase": "long ago",
+              "highlight": "mars_enlarged",
+              "at": 6.63
+            }
+          ],
+          "audio": "audio/rocky_inner_planets_04.wav",
+          "duration": 7.36
+        },
+        {
+          "text": "Similar building materials made very different worlds. Distance from the Sun and atmosphere help explain why these rocky neighbors are so different.",
+          "highlight": "earth_lineup",
+          "camera": {
+            "focus": "earth_lineup",
+            "seconds": 3,
+            "pos": [
+              0.7,
+              1.22,
+              -6.31
+            ]
+          },
+          "hide": [
+            "mars_enlarged",
+            "water_evidence_panel"
+          ],
+          "show": [
+            "mercury_lineup",
+            "venus_lineup",
+            "earth_lineup",
+            "mars_lineup",
+            "order_panel"
+          ],
+          "cues": [
+            {
+              "phrase": "Distance from the Sun",
+              "highlight": "sun",
+              "show": [
+                "mercury_orbit",
+                "venus_orbit",
+                "earth_orbit",
+                "mars_orbit",
+                "distance_panel"
+              ],
+              "at": 2.62
+            },
+            {
+              "phrase": "atmosphere",
+              "highlight": "venus_atmosphere_comparison",
+              "show": [
+                "mercury_atmosphere_comparison",
+                "venus_atmosphere_comparison",
+                "earth_atmosphere_comparison",
+                "mars_atmosphere_comparison"
+              ],
+              "at": 3.75
+            },
+            {
+              "phrase": "rocky neighbors",
+              "highlight": "earth_lineup",
+              "at": 5.29
+            }
+          ],
+          "audio": "audio/rocky_inner_planets_05.wav",
+          "duration": 7.12
+        }
+      ],
+      "music": "planet_discovery"
+    },
+    {
+      "id": "outer_giant_planets",
+      "title": "Beyond the Rocky Worlds",
+      "sky": {
+        "texture": "textures/stars.png"
+      },
+      "nodes": [
+        {
+          "id": "exhibit_root",
+          "kind": "sphere",
+          "pos": [
+            0,
+            1.6,
+            -7
+          ],
+          "scale": 0.001,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "pickable": false
+        },
+        {
+          "id": "belt_group",
+          "kind": "sphere",
+          "parent": "exhibit_root",
+          "pos": [
+            0,
+            1.5,
+            -2
+          ],
+          "scale": 0.001,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "label": "Asteroid belt"
+        },
+        {
+          "id": "asteroid_one",
+          "kind": "sphere",
+          "parent": "belt_group",
+          "pos": [
+            -3.4,
+            0.5,
+            -0.8
+          ],
+          "scale": 0.19,
+          "stretch": [
+            1,
+            0.65,
+            0.8
+          ],
+          "color": [
+            0.42,
+            0.38,
+            0.34
+          ],
+          "lit": true,
+          "label": "Rocky asteroid"
+        },
+        {
+          "id": "asteroid_two",
+          "kind": "sphere",
+          "parent": "belt_group",
+          "pos": [
+            -1.8,
+            -0.3,
+            0.3
+          ],
+          "scale": 0.12,
+          "stretch": [
+            0.8,
+            1.3,
+            0.7
+          ],
+          "color": [
+            0.5,
+            0.47,
+            0.43
+          ],
+          "lit": true
+        },
+        {
+          "id": "asteroid_three",
+          "kind": "sphere",
+          "parent": "belt_group",
+          "pos": [
+            -0.4,
+            0.7,
+            -0.5
+          ],
+          "scale": 0.17,
+          "stretch": [
+            1.4,
+            0.7,
+            1
+          ],
+          "color": [
+            0.38,
+            0.35,
+            0.32
+          ],
+          "lit": true
+        },
+        {
+          "id": "asteroid_four",
+          "kind": "sphere",
+          "parent": "belt_group",
+          "pos": [
+            1.2,
+            -0.4,
+            0
+          ],
+          "scale": 0.13,
+          "stretch": [
+            1.1,
+            0.8,
+            0.65
+          ],
+          "color": [
+            0.52,
+            0.49,
+            0.44
+          ],
+          "lit": true
+        },
+        {
+          "id": "asteroid_five",
+          "kind": "sphere",
+          "parent": "belt_group",
+          "pos": [
+            2.7,
+            0.6,
+            -0.9
+          ],
+          "scale": 0.2,
+          "stretch": [
+            0.7,
+            1,
+            1.2
+          ],
+          "color": [
+            0.4,
+            0.37,
+            0.33
+          ],
+          "lit": true
+        },
+        {
+          "id": "asteroid_six",
+          "kind": "sphere",
+          "parent": "belt_group",
+          "pos": [
+            3.7,
+            -0.1,
+            0.2
+          ],
+          "scale": 0.1,
+          "stretch": [
+            1.3,
+            0.7,
+            0.9
+          ],
+          "color": [
+            0.48,
+            0.45,
+            0.42
+          ],
+          "lit": true
+        },
+        {
+          "id": "separation_panel",
+          "kind": "quad",
+          "parent": "exhibit_root",
+          "pos": [
+            -3.2,
+            2,
+            -0.3
+          ],
+          "scale": 0.3,
+          "label": "Separations compressed",
+          "visible": false
+        },
+        {
+          "id": "jupiter",
+          "kind": "model",
+          "asset": "jupiter",
+          "parent": "exhibit_root",
+          "pos": [
+            -0.4,
+            0,
+            0
+          ],
+          "scale": 1.4,
+          "lit": true,
+          "label": "Jupiter",
+          "visible": false,
+          "animate": [
+            {
+              "prop": "rotation",
+              "from": [
+                0,
+                -0.35,
+                0
+              ],
+              "to": [
+                0,
+                0,
+                0
+              ],
+              "seconds": 5,
+              "loop": "once",
+              "ease": "smooth",
+              "delay": 0
+            }
+          ],
+          "model": "models/jupiter.glb"
+        },
+        {
+          "id": "earth_jupiter",
+          "kind": "model",
+          "asset": "earth",
+          "parent": "exhibit_root",
+          "pos": [
+            2,
+            0,
+            0
+          ],
+          "scale": 0.1273,
+          "lit": true,
+          "label": "Earth: size comparison",
+          "visible": false,
+          "model": "models/earth.glb"
+        },
+        {
+          "id": "saturn",
+          "kind": "model",
+          "asset": "saturn",
+          "parent": "exhibit_root",
+          "pos": [
+            -0.5,
+            0,
+            0
+          ],
+          "scale": 1.8,
+          "rot": [
+            0.3,
+            0,
+            0
+          ],
+          "lit": true,
+          "label": "Saturn",
+          "visible": false,
+          "model": "models/saturn.glb"
+        },
+        {
+          "id": "earth_saturn",
+          "kind": "model",
+          "asset": "earth",
+          "parent": "exhibit_root",
+          "pos": [
+            2.3,
+            0,
+            0
+          ],
+          "scale": 0.082,
+          "lit": true,
+          "label": "Earth: size comparison",
+          "visible": false,
+          "model": "models/earth.glb"
+        },
+        {
+          "id": "saturn_edge",
+          "kind": "model",
+          "asset": "saturn",
+          "parent": "exhibit_root",
+          "pos": [
+            -0.5,
+            0,
+            0
+          ],
+          "scale": 1.8,
+          "rot": [
+            0.025,
+            0,
+            0
+          ],
+          "lit": true,
+          "label": "Saturn: nearly edge-on rings",
+          "visible": false,
+          "model": "models/saturn.glb"
+        },
+        {
+          "id": "ring_detail",
+          "kind": "sphere",
+          "parent": "exhibit_root",
+          "pos": [
+            2.5,
+            0.6,
+            0
+          ],
+          "scale": 0.001,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "label": "Enlarged ring detail",
+          "visible": false
+        },
+        {
+          "id": "ice_one",
+          "kind": "sphere",
+          "parent": "ring_detail",
+          "pos": [
+            -0.5,
+            0,
+            0
+          ],
+          "scale": 0.11,
+          "stretch": [
+            1,
+            0.7,
+            1.2
+          ],
+          "color": [
+            0.86,
+            0.94,
+            1
+          ],
+          "lit": true
+        },
+        {
+          "id": "ice_two",
+          "kind": "sphere",
+          "parent": "ring_detail",
+          "pos": [
+            -0.15,
+            0.14,
+            0.1
+          ],
+          "scale": 0.07,
+          "stretch": [
+            1.3,
+            1,
+            0.7
+          ],
+          "color": [
+            0.95,
+            0.97,
+            1
+          ],
+          "lit": true
+        },
+        {
+          "id": "ice_three",
+          "kind": "sphere",
+          "parent": "ring_detail",
+          "pos": [
+            0.23,
+            -0.08,
+            0
+          ],
+          "scale": 0.13,
+          "stretch": [
+            0.8,
+            1,
+            1.2
+          ],
+          "color": [
+            0.8,
+            0.9,
+            0.96
+          ],
+          "lit": true
+        },
+        {
+          "id": "ice_four",
+          "kind": "sphere",
+          "parent": "ring_detail",
+          "pos": [
+            0.58,
+            0.11,
+            -0.1
+          ],
+          "scale": 0.08,
+          "color": [
+            0.92,
+            0.96,
+            1
+          ],
+          "lit": true
+        },
+        {
+          "id": "ring_rock",
+          "kind": "sphere",
+          "parent": "ring_detail",
+          "pos": [
+            0.05,
+            -0.25,
+            0.08
+          ],
+          "scale": 0.055,
+          "stretch": [
+            1.4,
+            0.8,
+            1
+          ],
+          "color": [
+            0.42,
+            0.39,
+            0.35
+          ],
+          "lit": true,
+          "label": "Rocky ring material"
+        },
+        {
+          "id": "uranus",
+          "kind": "model",
+          "asset": "uranus",
+          "parent": "exhibit_root",
+          "pos": [
+            -0.8,
+            0,
+            0
+          ],
+          "scale": 1.05,
+          "lit": true,
+          "label": "Uranus",
+          "visible": false,
+          "model": "models/uranus.glb"
+        },
+        {
+          "id": "earth_uranus",
+          "kind": "model",
+          "asset": "earth",
+          "parent": "exhibit_root",
+          "pos": [
+            0.8,
+            -0.5,
+            0
+          ],
+          "scale": 0.245,
+          "lit": true,
+          "label": "Earth: size comparison",
+          "visible": false,
+          "model": "models/earth.glb"
+        },
+        {
+          "id": "uranus_sideways",
+          "kind": "model",
+          "asset": "uranus",
+          "parent": "exhibit_root",
+          "pos": [
+            -0.8,
+            0,
+            0
+          ],
+          "scale": 1.05,
+          "tilt": 1.52,
+          "spin": 0.06,
+          "lit": true,
+          "label": "Uranus: almost sideways",
+          "visible": false,
+          "model": "models/uranus.glb"
+        },
+        {
+          "id": "interior_group",
+          "kind": "sphere",
+          "parent": "exhibit_root",
+          "pos": [
+            2.3,
+            0.3,
+            0
+          ],
+          "scale": 0.001,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "label": "Simplified interior",
+          "visible": false
+        },
+        {
+          "id": "interior_envelope",
+          "kind": "sphere",
+          "parent": "interior_group",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.65,
+          "color": [
+            0.55,
+            0.86,
+            0.91,
+            0.18
+          ],
+          "lit": false,
+          "label": "Outer atmosphere"
+        },
+        {
+          "id": "interior_materials",
+          "kind": "sphere",
+          "parent": "interior_group",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.48,
+          "color": [
+            0.32,
+            0.64,
+            0.72,
+            0.38
+          ],
+          "lit": false,
+          "label": "Water, ammonia, methane under pressure"
+        },
+        {
+          "id": "interior_core",
+          "kind": "sphere",
+          "parent": "interior_group",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.2,
+          "color": [
+            0.5,
+            0.37,
+            0.27
+          ],
+          "lit": true,
+          "label": "Central core"
+        },
+        {
+          "id": "axis_panel",
+          "kind": "quad",
+          "parent": "exhibit_root",
+          "pos": [
+            -2.9,
+            1.8,
+            0
+          ],
+          "scale": 0.3,
+          "label": "Spin axis: almost sideways",
+          "visible": false
+        },
+        {
+          "id": "neptune",
+          "kind": "model",
+          "asset": "neptune",
+          "parent": "exhibit_root",
+          "pos": [
+            -0.5,
+            0,
+            0
+          ],
+          "scale": 1.2,
+          "spin": 0.035,
+          "lit": true,
+          "label": "Neptune",
+          "visible": false,
+          "model": "models/neptune.glb"
+        },
+        {
+          "id": "earth_neptune",
+          "kind": "model",
+          "asset": "earth",
+          "parent": "exhibit_root",
+          "pos": [
+            1.6,
+            -0.3,
+            0
+          ],
+          "scale": 0.3077,
+          "lit": true,
+          "label": "Earth: size comparison",
+          "visible": false,
+          "model": "models/earth.glb"
+        },
+        {
+          "id": "wind_one",
+          "kind": "sphere",
+          "parent": "neptune",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.035,
+          "color": [
+            0.85,
+            0.95,
+            1
+          ],
+          "lit": false,
+          "label": "Illustrative wind motion",
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -1,
+                0.3,
+                -0.6
+              ],
+              [
+                -0.6,
+                0.3,
+                -1.02
+              ],
+              [
+                0,
+                0.3,
+                -1.19
+              ],
+              [
+                0.6,
+                0.3,
+                -1.02
+              ],
+              [
+                1,
+                0.3,
+                -0.6
+              ]
+            ],
+            "seconds": 5,
+            "loop": "loop",
+            "phase": 0
+          }
+        },
+        {
+          "id": "wind_two",
+          "kind": "sphere",
+          "parent": "neptune",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.035,
+          "color": [
+            0.85,
+            0.95,
+            1
+          ],
+          "lit": false,
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -1,
+                0.3,
+                -0.6
+              ],
+              [
+                -0.6,
+                0.3,
+                -1.02
+              ],
+              [
+                0,
+                0.3,
+                -1.19
+              ],
+              [
+                0.6,
+                0.3,
+                -1.02
+              ],
+              [
+                1,
+                0.3,
+                -0.6
+              ]
+            ],
+            "seconds": 5,
+            "loop": "loop",
+            "phase": 0.33
+          }
+        },
+        {
+          "id": "wind_three",
+          "kind": "sphere",
+          "parent": "neptune",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.035,
+          "color": [
+            0.85,
+            0.95,
+            1
+          ],
+          "lit": false,
+          "visible": false,
+          "path": {
+            "points": [
+              [
+                -1,
+                0.3,
+                -0.6
+              ],
+              [
+                -0.6,
+                0.3,
+                -1.02
+              ],
+              [
+                0,
+                0.3,
+                -1.19
+              ],
+              [
+                0.6,
+                0.3,
+                -1.02
+              ],
+              [
+                1,
+                0.3,
+                -0.6
+              ]
+            ],
+            "seconds": 5,
+            "loop": "loop",
+            "phase": 0.66
+          }
+        },
+        {
+          "id": "overview",
+          "kind": "sphere",
+          "parent": "exhibit_root",
+          "pos": [
+            0,
+            2,
+            -3
+          ],
+          "scale": 0.001,
+          "rot": [
+            0.48,
+            0,
+            0
+          ],
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "label": "Eight-planet overview",
+          "visible": false
+        },
+        {
+          "id": "overview_sun",
+          "kind": "model",
+          "asset": "sun",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.35,
+          "lit": false,
+          "label": "Sun",
+          "model": "models/sun.glb"
+        },
+        {
+          "id": "mercury_orbit",
+          "kind": "disc",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.85,
+          "inner": 0.985,
+          "color": [
+            0.7,
+            0.7,
+            0.7,
+            0.3
+          ],
+          "lit": false
+        },
+        {
+          "id": "overview_mercury",
+          "kind": "model",
+          "asset": "mercury",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.075,
+          "orbit": {
+            "radius": 0.85,
+            "speed": 0.05,
+            "phase": 0
+          },
+          "lit": true,
+          "label": "Mercury",
+          "model": "models/mercury.glb"
+        },
+        {
+          "id": "venus_orbit",
+          "kind": "disc",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.05,
+          "inner": 0.985,
+          "color": [
+            0.9,
+            0.8,
+            0.5,
+            0.3
+          ],
+          "lit": false
+        },
+        {
+          "id": "overview_venus",
+          "kind": "model",
+          "asset": "venus",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.11,
+          "orbit": {
+            "radius": 1.05,
+            "speed": 0.05,
+            "phase": 2.5
+          },
+          "lit": true,
+          "label": "Venus",
+          "model": "models/venus.glb"
+        },
+        {
+          "id": "earth_orbit",
+          "kind": "disc",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.45,
+          "inner": 0.985,
+          "color": [
+            0.4,
+            0.7,
+            1,
+            0.3
+          ],
+          "lit": false
+        },
+        {
+          "id": "overview_earth",
+          "kind": "model",
+          "asset": "earth",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.12,
+          "orbit": {
+            "radius": 1.45,
+            "speed": 0.05,
+            "phase": 4.7
+          },
+          "lit": true,
+          "label": "Earth",
+          "model": "models/earth.glb"
+        },
+        {
+          "id": "mars_orbit",
+          "kind": "disc",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.85,
+          "inner": 0.985,
+          "color": [
+            0.9,
+            0.4,
+            0.2,
+            0.3
+          ],
+          "lit": false
+        },
+        {
+          "id": "overview_mars",
+          "kind": "model",
+          "asset": "mars",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.095,
+          "orbit": {
+            "radius": 1.85,
+            "speed": 0.05,
+            "phase": 0.6
+          },
+          "lit": true,
+          "label": "Mars",
+          "model": "models/mars.glb"
+        },
+        {
+          "id": "jupiter_orbit",
+          "kind": "disc",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 2.4,
+          "inner": 0.985,
+          "color": [
+            0.9,
+            0.7,
+            0.5,
+            0.3
+          ],
+          "lit": false
+        },
+        {
+          "id": "overview_jupiter",
+          "kind": "model",
+          "asset": "jupiter",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.32,
+          "orbit": {
+            "radius": 2.4,
+            "speed": 0.05,
+            "phase": 3.2
+          },
+          "lit": true,
+          "label": "Jupiter",
+          "model": "models/jupiter.glb"
+        },
+        {
+          "id": "saturn_orbit",
+          "kind": "disc",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 3.05,
+          "inner": 0.985,
+          "color": [
+            0.9,
+            0.8,
+            0.6,
+            0.3
+          ],
+          "lit": false
+        },
+        {
+          "id": "overview_saturn",
+          "kind": "model",
+          "asset": "saturn",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.42,
+          "orbit": {
+            "radius": 3.05,
+            "speed": 0.05,
+            "phase": 0.2
+          },
+          "lit": true,
+          "label": "Saturn",
+          "model": "models/saturn.glb"
+        },
+        {
+          "id": "uranus_orbit",
+          "kind": "disc",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 3.65,
+          "inner": 0.985,
+          "color": [
+            0.5,
+            0.9,
+            0.9,
+            0.3
+          ],
+          "lit": false
+        },
+        {
+          "id": "overview_uranus",
+          "kind": "model",
+          "asset": "uranus",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.2,
+          "tilt": 1.52,
+          "orbit": {
+            "radius": 3.65,
+            "speed": 0.05,
+            "phase": 2.6
+          },
+          "lit": true,
+          "label": "Uranus",
+          "model": "models/uranus.glb"
+        },
+        {
+          "id": "neptune_orbit",
+          "kind": "disc",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 4.25,
+          "inner": 0.985,
+          "color": [
+            0.4,
+            0.6,
+            1,
+            0.3
+          ],
+          "lit": false
+        },
+        {
+          "id": "overview_neptune",
+          "kind": "model",
+          "asset": "neptune",
+          "parent": "overview",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.2,
+          "orbit": {
+            "radius": 4.25,
+            "speed": 0.05,
+            "phase": 5.5
+          },
+          "lit": true,
+          "label": "Neptune",
+          "model": "models/neptune.glb"
+        },
+        {
+          "id": "overview_panel",
+          "kind": "quad",
+          "parent": "exhibit_root",
+          "pos": [
+            -3.6,
+            3.5,
+            -3
+          ],
+          "scale": 0.3,
+          "label": "Sizes, distances, and speeds simplified",
+          "visible": false
+        }
+      ],
+      "steps": [
+        {
+          "text": "Beyond Mars lies the asteroid belt. Its rocky objects are far apart, not a crowded wall. Here, their separations are compressed.",
+          "highlight": "belt_group",
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ],
+            "focus": "belt_group",
+            "seconds": 3
+          },
+          "cues": [
+            {
+              "phrase": "separations are compressed",
+              "show": [
+                "separation_panel"
+              ],
+              "at": 6.29
+            }
+          ],
+          "audio": "audio/outer_giant_planets_00.wav",
+          "duration": 7.34
+        },
+        {
+          "text": "Jupiter is the largest planet, eleven Earths wide. This gas giant is mostly hydrogen and helium. Its Great Red Spot is a huge storm.",
+          "highlight": "jupiter",
+          "camera": {
+            "focus": "jupiter",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "hide": [
+            "belt_group",
+            "separation_panel"
+          ],
+          "show": [
+            "jupiter",
+            "earth_jupiter"
+          ],
+          "cues": [
+            {
+              "phrase": "largest planet",
+              "highlight": "earth_jupiter",
+              "at": 0.74
+            },
+            {
+              "phrase": "gas giant",
+              "highlight": "jupiter",
+              "at": 3.21
+            },
+            {
+              "phrase": "huge storm",
+              "highlight": "jupiter",
+              "at": 6.93
+            }
+          ],
+          "audio": "audio/outer_giant_planets_01.wav",
+          "duration": 7.88
+        },
+        {
+          "text": "Saturn is another gas giant. Its rings hold countless pieces of ice and some rock. The enlarged detail shows pieces; the rings are extremely thin.",
+          "highlight": "saturn",
+          "camera": {
+            "focus": "saturn",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "hide": [
+            "jupiter",
+            "earth_jupiter"
+          ],
+          "show": [
+            "saturn",
+            "earth_saturn"
+          ],
+          "cues": [
+            {
+              "phrase": "pieces of ice",
+              "show": [
+                "ring_detail"
+              ],
+              "highlight": "ring_detail",
+              "at": 3.08
+            },
+            {
+              "phrase": "extremely thin",
+              "hide": [
+                "saturn",
+                "ring_detail"
+              ],
+              "show": [
+                "saturn_edge"
+              ],
+              "highlight": "saturn_edge",
+              "at": 7.31
+            }
+          ],
+          "audio": "audio/outer_giant_planets_02.wav",
+          "duration": 8.4,
+          "sfx": {
+            "prompt": "soft airy whoosh as ring detail expands",
+            "audio": "audio/outer_giant_planets_sfx02.mp3",
+            "volume": 0.25,
+            "delay": 7.0
+          }
+        },
+        {
+          "text": "Uranus is an ice giant, not a snowball. Deep inside, water, ammonia and methane are under great pressure. Uranus spins almost on its side.",
+          "highlight": "uranus",
+          "camera": {
+            "focus": "uranus",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "hide": [
+            "saturn",
+            "saturn_edge",
+            "earth_saturn",
+            "ring_detail"
+          ],
+          "show": [
+            "uranus",
+            "earth_uranus"
+          ],
+          "cues": [
+            {
+              "phrase": "Deep inside",
+              "show": [
+                "interior_group"
+              ],
+              "highlight": "interior_group",
+              "at": 2.36
+            },
+            {
+              "phrase": "on its side",
+              "hide": [
+                "uranus"
+              ],
+              "show": [
+                "uranus_sideways",
+                "axis_panel"
+              ],
+              "highlight": "uranus_sideways",
+              "at": 7.41
+            }
+          ],
+          "audio": "audio/outer_giant_planets_03.wav",
+          "duration": 7.99
+        },
+        {
+          "text": "Neptune is the farthest planet from the Sun, another ice giant. It has powerful winds. Methane helps give both ice giants their blue-green colors.",
+          "highlight": "neptune",
+          "camera": {
+            "focus": "neptune",
+            "seconds": 3,
+            "pos": [
+              0,
+              1.6,
+              0
+            ]
+          },
+          "hide": [
+            "uranus",
+            "uranus_sideways",
+            "earth_uranus",
+            "interior_group",
+            "axis_panel"
+          ],
+          "show": [
+            "neptune",
+            "earth_neptune"
+          ],
+          "cues": [
+            {
+              "phrase": "powerful winds",
+              "show": [
+                "wind_one",
+                "wind_two",
+                "wind_three"
+              ],
+              "highlight": "wind_one",
+              "at": 3.8
+            }
+          ],
+          "audio": "audio/outer_giant_planets_04.wav",
+          "duration": 8.06
+        },
+        {
+          "text": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune. Outer planets grew in colder regions. This view simplifies sizes, distances and speeds.",
+          "highlight": "overview_mercury",
+          "camera": {
+            "focus": "overview",
+            "seconds": 3,
+            "pos": [
+              0.0,
+              1.63,
+              4.0
+            ]
+          },
+          "hide": [
+            "neptune",
+            "earth_neptune",
+            "wind_one",
+            "wind_two",
+            "wind_three"
+          ],
+          "show": [
+            "overview",
+            "overview_panel"
+          ],
+          "cues": [
+            {
+              "phrase": "Venus",
+              "highlight": "overview_venus",
+              "at": 3.44
+            },
+            {
+              "phrase": "Mars",
+              "highlight": "overview_mars",
+              "at": 7.31
+            },
+            {
+              "phrase": "Saturn",
+              "highlight": "overview_saturn",
+              "at": 7.6
+            },
+            {
+              "phrase": "Neptune",
+              "highlight": "overview_neptune",
+              "at": 7.89
+            }
+          ],
+          "audio": "audio/outer_giant_planets_05.wav",
+          "duration": 8.79
+        }
+      ]
+    },
+    {
+      "id": "moons_and_review",
+      "title": "Worlds Around Worlds",
+      "sky": {
+        "texture": "textures/stars.png"
+      },
+      "nodes": [
+        {
+          "id": "observatory_root",
+          "kind": "sphere",
+          "pos": [
+            0,
+            2,
+            -9
+          ],
+          "scale": 0.01,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "pickable": false
+        },
+        {
+          "id": "simplification_panel",
+          "kind": "quad",
+          "parent": "observatory_root",
+          "pos": [
+            0,
+            2.2,
+            0
+          ],
+          "scale": 0.3,
+          "label": "Sizes, distances and speeds simplified",
+          "lit": false
+        },
+        {
+          "id": "solar_sun",
+          "kind": "model",
+          "asset": "sun",
+          "parent": "observatory_root",
+          "pos": [
+            -2.5,
+            0,
+            0
+          ],
+          "scale": 0.5,
+          "lit": false,
+          "label": "Sun",
+          "model": "models/sun.glb"
+        },
+        {
+          "id": "solar_path",
+          "kind": "disc",
+          "parent": "solar_sun",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.65,
+          "inner": 0.985,
+          "color": [
+            1,
+            0.8,
+            0.35,
+            0.3
+          ],
+          "lit": false,
+          "label": "Planet's path around the Sun"
+        },
+        {
+          "id": "traveling_earth",
+          "kind": "model",
+          "asset": "earth",
+          "parent": "solar_sun",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.3,
+          "orbit": {
+            "radius": 1.65,
+            "speed": 0.08,
+            "phase": 0.6
+          },
+          "spin": 0.12,
+          "lit": true,
+          "label": "Earth traveling around the Sun",
+          "model": "models/earth.glb"
+        },
+        {
+          "id": "traveling_moon_path",
+          "kind": "disc",
+          "parent": "traveling_earth",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.55,
+          "inner": 0.985,
+          "color": [
+            0.7,
+            0.85,
+            1,
+            0.3
+          ],
+          "lit": false
+        },
+        {
+          "id": "traveling_moon",
+          "kind": "model",
+          "asset": "earth_moon",
+          "parent": "traveling_earth",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.1,
+          "orbit": {
+            "radius": 0.55,
+            "speed": 0.25,
+            "phase": 2
+          },
+          "lit": true,
+          "label": "Moon traveling with Earth",
+          "model": "models/earth_moon.glb"
+        },
+        {
+          "id": "earth_moon_center",
+          "kind": "sphere",
+          "parent": "observatory_root",
+          "pos": [
+            2,
+            0,
+            0
+          ],
+          "scale": 0.01,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "lit": false,
+          "pickable": false
+        },
+        {
+          "id": "earth",
+          "kind": "model",
+          "asset": "earth",
+          "parent": "earth_moon_center",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.7,
+          "orbit": {
+            "radius": 0.045,
+            "speed": 0.18,
+            "phase": 3.1416
+          },
+          "spin": 0.1,
+          "lit": true,
+          "label": "Earth",
+          "model": "models/earth.glb"
+        },
+        {
+          "id": "moon_path",
+          "kind": "disc",
+          "parent": "earth_moon_center",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.35,
+          "inner": 0.985,
+          "color": [
+            0.7,
+            0.85,
+            1,
+            0.3
+          ],
+          "lit": false,
+          "label": "Moon's path around Earth"
+        },
+        {
+          "id": "earth_moon",
+          "kind": "model",
+          "asset": "earth_moon",
+          "parent": "earth_moon_center",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.23,
+          "orbit": {
+            "radius": 1.35,
+            "speed": 0.18,
+            "phase": 0
+          },
+          "lit": true,
+          "label": "Earth's Moon",
+          "model": "models/earth_moon.glb"
+        },
+        {
+          "id": "young_earth",
+          "kind": "sphere",
+          "parent": "observatory_root",
+          "pos": [
+            -1.6,
+            0,
+            0
+          ],
+          "scale": 0.7,
+          "color": [
+            0.55,
+            0.28,
+            0.12
+          ],
+          "lit": true,
+          "label": "Young Earth",
+          "visible": false
+        },
+        {
+          "id": "striking_body",
+          "kind": "sphere",
+          "parent": "observatory_root",
+          "pos": [
+            0.3,
+            0,
+            0
+          ],
+          "scale": 0.32,
+          "color": [
+            0.6,
+            0.43,
+            0.3
+          ],
+          "lit": true,
+          "label": "Large striking body",
+          "visible": false
+        },
+        {
+          "id": "debris_ring",
+          "kind": "disc",
+          "parent": "young_earth",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.35,
+          "inner": 0.74,
+          "color": [
+            0.72,
+            0.62,
+            0.5,
+            0.7
+          ],
+          "lit": true,
+          "label": "Orbiting debris",
+          "spin": 0.15,
+          "visible": false
+        },
+        {
+          "id": "formed_moon",
+          "kind": "model",
+          "asset": "earth_moon",
+          "parent": "young_earth",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.24,
+          "orbit": {
+            "radius": 1.35,
+            "speed": 0.15,
+            "phase": 0
+          },
+          "lit": true,
+          "label": "Moon gathered from debris",
+          "visible": false,
+          "model": "models/earth_moon.glb"
+        },
+        {
+          "id": "mercury",
+          "kind": "model",
+          "asset": "mercury",
+          "parent": "observatory_root",
+          "pos": [
+            -3,
+            -0.3,
+            0
+          ],
+          "scale": 0.32,
+          "lit": true,
+          "label": "Mercury: no moons",
+          "visible": false,
+          "model": "models/mercury.glb"
+        },
+        {
+          "id": "venus",
+          "kind": "model",
+          "asset": "venus",
+          "parent": "observatory_root",
+          "pos": [
+            -1.6,
+            -0.3,
+            0
+          ],
+          "scale": 0.43,
+          "lit": true,
+          "label": "Venus: no moons",
+          "visible": false,
+          "model": "models/venus.glb"
+        },
+        {
+          "id": "mars",
+          "kind": "model",
+          "asset": "mars",
+          "parent": "observatory_root",
+          "pos": [
+            0.2,
+            -0.3,
+            0
+          ],
+          "scale": 0.4,
+          "lit": true,
+          "label": "Mars: two moons",
+          "visible": false,
+          "model": "models/mars.glb"
+        },
+        {
+          "id": "phobos",
+          "kind": "sphere",
+          "parent": "mars",
+          "pos": [
+            -0.7,
+            0.05,
+            0
+          ],
+          "scale": 0.13,
+          "stretch": [
+            1.3,
+            0.8,
+            0.9
+          ],
+          "color": [
+            0.43,
+            0.39,
+            0.35
+          ],
+          "lit": true,
+          "label": "Phobos",
+          "visible": false
+        },
+        {
+          "id": "deimos",
+          "kind": "sphere",
+          "parent": "mars",
+          "pos": [
+            0.85,
+            0.1,
+            0
+          ],
+          "scale": 0.085,
+          "stretch": [
+            1.25,
+            0.85,
+            1
+          ],
+          "color": [
+            0.57,
+            0.52,
+            0.46
+          ],
+          "lit": true,
+          "label": "Deimos",
+          "visible": false
+        },
+        {
+          "id": "jupiter",
+          "kind": "model",
+          "asset": "jupiter",
+          "parent": "observatory_root",
+          "pos": [
+            -3,
+            1.3,
+            0
+          ],
+          "scale": 0.48,
+          "lit": true,
+          "label": "Jupiter: many moons",
+          "visible": false,
+          "model": "models/jupiter.glb"
+        },
+        {
+          "id": "jupiter_moon_ring",
+          "kind": "disc",
+          "parent": "jupiter",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.73,
+          "inner": 0.985,
+          "color": [
+            0.85,
+            0.8,
+            0.65,
+            0.3
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "jupiter_marker_a",
+          "kind": "sphere",
+          "parent": "jupiter",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.07,
+          "orbit": {
+            "radius": 0.73,
+            "speed": 0.12,
+            "phase": 0
+          },
+          "color": [
+            0.8,
+            0.75,
+            0.6
+          ],
+          "lit": true,
+          "label": "Example moon marker",
+          "visible": false
+        },
+        {
+          "id": "jupiter_marker_b",
+          "kind": "sphere",
+          "parent": "jupiter",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.06,
+          "orbit": {
+            "radius": 0.73,
+            "speed": 0.12,
+            "phase": 3.14
+          },
+          "color": [
+            0.7,
+            0.7,
+            0.65
+          ],
+          "lit": true,
+          "visible": false
+        },
+        {
+          "id": "saturn",
+          "kind": "model",
+          "asset": "saturn",
+          "parent": "observatory_root",
+          "pos": [
+            -1,
+            1.3,
+            0
+          ],
+          "scale": 0.65,
+          "lit": true,
+          "label": "Saturn: many moons",
+          "visible": false,
+          "model": "models/saturn.glb"
+        },
+        {
+          "id": "saturn_moon_ring",
+          "kind": "disc",
+          "parent": "saturn",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.85,
+          "inner": 0.985,
+          "color": [
+            0.85,
+            0.8,
+            0.65,
+            0.3
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "saturn_marker_a",
+          "kind": "sphere",
+          "parent": "saturn",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.07,
+          "orbit": {
+            "radius": 0.85,
+            "speed": 0.1,
+            "phase": 0
+          },
+          "color": [
+            0.8,
+            0.75,
+            0.6
+          ],
+          "lit": true,
+          "visible": false
+        },
+        {
+          "id": "saturn_marker_b",
+          "kind": "sphere",
+          "parent": "saturn",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.06,
+          "orbit": {
+            "radius": 0.85,
+            "speed": 0.1,
+            "phase": 3.14
+          },
+          "color": [
+            0.7,
+            0.7,
+            0.65
+          ],
+          "lit": true,
+          "visible": false
+        },
+        {
+          "id": "uranus",
+          "kind": "model",
+          "asset": "uranus",
+          "parent": "observatory_root",
+          "pos": [
+            1.1,
+            1.3,
+            0
+          ],
+          "scale": 0.42,
+          "tilt": 1.7,
+          "lit": true,
+          "label": "Uranus: many moons",
+          "visible": false,
+          "model": "models/uranus.glb"
+        },
+        {
+          "id": "uranus_moon_ring",
+          "kind": "disc",
+          "parent": "uranus",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.73,
+          "inner": 0.985,
+          "color": [
+            0.6,
+            0.85,
+            0.85,
+            0.3
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "uranus_marker_a",
+          "kind": "sphere",
+          "parent": "uranus",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.07,
+          "orbit": {
+            "radius": 0.73,
+            "speed": 0.1,
+            "phase": 0
+          },
+          "color": [
+            0.7,
+            0.8,
+            0.8
+          ],
+          "lit": true,
+          "visible": false
+        },
+        {
+          "id": "uranus_marker_b",
+          "kind": "sphere",
+          "parent": "uranus",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.06,
+          "orbit": {
+            "radius": 0.73,
+            "speed": 0.1,
+            "phase": 3.14
+          },
+          "color": [
+            0.65,
+            0.7,
+            0.75
+          ],
+          "lit": true,
+          "visible": false
+        },
+        {
+          "id": "neptune",
+          "kind": "model",
+          "asset": "neptune",
+          "parent": "observatory_root",
+          "pos": [
+            3,
+            1.3,
+            0
+          ],
+          "scale": 0.43,
+          "lit": true,
+          "label": "Neptune: many moons",
+          "visible": false,
+          "model": "models/neptune.glb"
+        },
+        {
+          "id": "neptune_moon_ring",
+          "kind": "disc",
+          "parent": "neptune",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.73,
+          "inner": 0.985,
+          "color": [
+            0.6,
+            0.7,
+            0.9,
+            0.3
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "neptune_marker_a",
+          "kind": "sphere",
+          "parent": "neptune",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.07,
+          "orbit": {
+            "radius": 0.73,
+            "speed": 0.1,
+            "phase": 0
+          },
+          "color": [
+            0.7,
+            0.75,
+            0.85
+          ],
+          "lit": true,
+          "visible": false
+        },
+        {
+          "id": "neptune_marker_b",
+          "kind": "sphere",
+          "parent": "neptune",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.06,
+          "orbit": {
+            "radius": 0.73,
+            "speed": 0.1,
+            "phase": 3.14
+          },
+          "color": [
+            0.65,
+            0.7,
+            0.75
+          ],
+          "lit": true,
+          "visible": false
+        },
+        {
+          "id": "europa",
+          "kind": "model",
+          "asset": "europa",
+          "parent": "observatory_root",
+          "pos": [
+            -1.3,
+            0,
+            0
+          ],
+          "scale": 0.7,
+          "lit": true,
+          "label": "Europa: Jupiter's icy moon",
+          "visible": false,
+          "model": "models/europa.glb"
+        },
+        {
+          "id": "europa_ice_schematic",
+          "kind": "sphere",
+          "parent": "observatory_root",
+          "pos": [
+            1.5,
+            0,
+            0
+          ],
+          "scale": 0.63,
+          "color": [
+            0.85,
+            0.95,
+            1,
+            0.2
+          ],
+          "lit": false,
+          "label": "Europa schematic: outer ice",
+          "visible": false
+        },
+        {
+          "id": "europa_ocean_schematic",
+          "kind": "sphere",
+          "parent": "europa_ice_schematic",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.55,
+          "color": [
+            0.15,
+            0.5,
+            0.9,
+            0.55
+          ],
+          "lit": false,
+          "label": "Evidence for an ocean beneath the ice",
+          "visible": false
+        },
+        {
+          "id": "europa_rock_schematic",
+          "kind": "sphere",
+          "parent": "europa_ice_schematic",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.4,
+          "color": [
+            0.48,
+            0.4,
+            0.33
+          ],
+          "lit": true,
+          "visible": false
+        },
+        {
+          "id": "titan",
+          "kind": "model",
+          "asset": "titan",
+          "parent": "observatory_root",
+          "pos": [
+            -1.3,
+            0,
+            0
+          ],
+          "scale": 0.7,
+          "lit": true,
+          "label": "Titan: Saturn's hazy moon",
+          "visible": false,
+          "model": "models/titan.glb"
+        },
+        {
+          "id": "titan_lake_ground",
+          "kind": "disc",
+          "parent": "observatory_root",
+          "pos": [
+            1.5,
+            0,
+            0
+          ],
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "scale": 0.68,
+          "inner": 0,
+          "color": [
+            0.63,
+            0.39,
+            0.18
+          ],
+          "lit": false,
+          "label": "Titan surface schematic",
+          "visible": false
+        },
+        {
+          "id": "titan_lakes",
+          "kind": "disc",
+          "parent": "titan_lake_ground",
+          "pos": [
+            0.1,
+            0,
+            0.025
+          ],
+          "rot": [
+            1.5708,
+            0,
+            0
+          ],
+          "scale": 0.33,
+          "stretch": [
+            1.3,
+            1,
+            0.65
+          ],
+          "inner": 0,
+          "color": [
+            0.17,
+            0.24,
+            0.29
+          ],
+          "lit": false,
+          "label": "Methane and ethane lakes, not water",
+          "visible": false
+        },
+        {
+          "id": "forming_planet",
+          "kind": "sphere",
+          "parent": "observatory_root",
+          "pos": [
+            -2,
+            0,
+            0
+          ],
+          "scale": 0.48,
+          "color": [
+            0.7,
+            0.45,
+            0.23
+          ],
+          "lit": true,
+          "label": "Formation around a young planet",
+          "visible": false
+        },
+        {
+          "id": "forming_path",
+          "kind": "disc",
+          "parent": "forming_planet",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1.05,
+          "inner": 0.985,
+          "color": [
+            0.9,
+            0.7,
+            0.4,
+            0.3
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "clump_a",
+          "kind": "sphere",
+          "parent": "forming_planet",
+          "pos": [
+            1.05,
+            0,
+            0
+          ],
+          "scale": 0.13,
+          "color": [
+            0.7,
+            0.65,
+            0.55
+          ],
+          "lit": true,
+          "label": "Gathering material",
+          "visible": false
+        },
+        {
+          "id": "clump_b",
+          "kind": "sphere",
+          "parent": "forming_planet",
+          "pos": [
+            0.4,
+            0,
+            0.8
+          ],
+          "scale": 0.09,
+          "color": [
+            0.7,
+            0.65,
+            0.55
+          ],
+          "lit": true,
+          "visible": false
+        },
+        {
+          "id": "clump_c",
+          "kind": "sphere",
+          "parent": "forming_planet",
+          "pos": [
+            -0.3,
+            0,
+            -0.9
+          ],
+          "scale": 0.08,
+          "color": [
+            0.7,
+            0.65,
+            0.55
+          ],
+          "lit": true,
+          "visible": false
+        },
+        {
+          "id": "capture_planet",
+          "kind": "sphere",
+          "parent": "observatory_root",
+          "pos": [
+            2,
+            0,
+            0
+          ],
+          "scale": 0.48,
+          "color": [
+            0.27,
+            0.65,
+            0.75
+          ],
+          "lit": true,
+          "label": "Capture by gravity",
+          "visible": false
+        },
+        {
+          "id": "capture_path",
+          "kind": "disc",
+          "parent": "capture_planet",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1,
+          "inner": 0.985,
+          "color": [
+            0.5,
+            0.85,
+            0.95,
+            0.3
+          ],
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "incoming_marker",
+          "kind": "sphere",
+          "parent": "capture_planet",
+          "pos": [
+            1.6,
+            0,
+            -0.8
+          ],
+          "scale": 0.13,
+          "color": [
+            0.7,
+            0.7,
+            0.65
+          ],
+          "lit": true,
+          "label": "Passing object",
+          "visible": false
+        },
+        {
+          "id": "captured_moon",
+          "kind": "sphere",
+          "parent": "capture_planet",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "scale": 0.13,
+          "orbit": {
+            "radius": 1,
+            "speed": 0.16,
+            "phase": 0
+          },
+          "color": [
+            0.7,
+            0.7,
+            0.65
+          ],
+          "lit": true,
+          "label": "Captured moon",
+          "visible": false
+        },
+        {
+          "id": "cloud_choice",
+          "kind": "quad",
+          "parent": "observatory_root",
+          "pos": [
+            -1.8,
+            0.4,
+            0.5
+          ],
+          "scale": 0.4,
+          "label": "Cloud of gas and dust",
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "grown_choice",
+          "kind": "quad",
+          "parent": "observatory_root",
+          "pos": [
+            1.8,
+            0.4,
+            0.5
+          ],
+          "scale": 0.4,
+          "label": "Fully grown planets",
+          "lit": false,
+          "visible": false
+        },
+        {
+          "id": "earth_choice",
+          "kind": "model",
+          "asset": "earth",
+          "parent": "observatory_root",
+          "pos": [
+            -1.8,
+            0.2,
+            0
+          ],
+          "scale": 0.65,
+          "lit": true,
+          "label": "Earth",
+          "visible": false,
+          "model": "models/earth.glb"
+        }
+      ],
+      "steps": [
+        {
+          "text": "A moon is a natural satellite, a naturally formed object orbiting another body. Planets orbit the Sun; moons orbit them. Sizes and speeds are simplified.",
+          "highlight": "earth_moon",
+          "camera": {
+            "pos": [
+              0,
+              1.6,
+              0
+            ],
+            "focus": "earth",
+            "seconds": 3
+          },
+          "cues": [
+            {
+              "phrase": "Planets orbit the Sun",
+              "highlight": "solar_path",
+              "at": 4.06
+            },
+            {
+              "phrase": "moons orbit them",
+              "highlight": "moon_path",
+              "at": 5.5
+            }
+          ],
+          "audio": "audio/moons_and_review_00.wav",
+          "duration": 8.89
+        },
+        {
+          "text": "Earth has one Moon. Evidence suggests a large body struck young Earth. Orbiting debris gathered together to make the Moon. This shows time sped up.",
+          "highlight": "young_earth",
+          "camera": {
+            "focus": "young_earth",
+            "seconds": 3,
+            "pos": [
+              -2.17,
+              1.62,
+              -6.35
+            ]
+          },
+          "hide": [
+            "solar_sun",
+            "solar_path",
+            "traveling_earth",
+            "traveling_moon_path",
+            "traveling_moon",
+            "earth",
+            "moon_path",
+            "earth_moon"
+          ],
+          "show": [
+            "young_earth",
+            "striking_body"
+          ],
+          "cues": [
+            {
+              "phrase": "struck",
+              "highlight": "striking_body",
+              "set": [
+                {
+                  "node": "striking_body",
+                  "position": [
+                    -0.8,
+                    0,
+                    0
+                  ],
+                  "seconds": 3
+                }
+              ],
+              "at": 2.63
+            },
+            {
+              "phrase": "Orbiting debris",
+              "highlight": "debris_ring",
+              "hide": [
+                "striking_body"
+              ],
+              "show": [
+                "debris_ring"
+              ],
+              "at": 3.59
+            },
+            {
+              "phrase": "gathered together",
+              "highlight": "formed_moon",
+              "hide": [
+                "debris_ring"
+              ],
+              "show": [
+                "formed_moon"
+              ],
+              "at": 4.38
+            }
+          ],
+          "audio": "audio/moons_and_review_01.wav",
+          "duration": 7.74,
+          "sfx": {
+            "prompt": "deep muffled impact followed by brief debris rumble",
+            "audio": "audio/moons_and_review_sfx01.mp3",
+            "volume": 0.4,
+            "delay": 5.0
+          }
+        },
+        {
+          "text": "Mercury and Venus have no moons. Mars has two small moons, Phobos and Deimos. All four giant planets have many moons; these dots show just a few examples.",
+          "highlight": "mercury",
+          "camera": {
+            "focus": "mercury",
+            "seconds": 3,
+            "pos": [
+              -2.17,
+              1.62,
+              -6.35
+            ]
+          },
+          "hide": [
+            "young_earth",
+            "formed_moon",
+            "debris_ring",
+            "striking_body"
+          ],
+          "show": [
+            "mercury",
+            "venus"
+          ],
+          "cues": [
+            {
+              "phrase": "Venus",
+              "highlight": "venus",
+              "at": 0.63
+            },
+            {
+              "phrase": "Mars",
+              "highlight": "mars",
+              "show": [
+                "mars",
+                "phobos",
+                "deimos"
+              ],
+              "at": 1.76
+            },
+            {
+              "phrase": "Phobos and Deimos",
+              "highlight": "phobos",
+              "at": 3.36
+            },
+            {
+              "phrase": "four giant planets",
+              "highlight": "jupiter",
+              "show": [
+                "jupiter",
+                "jupiter_moon_ring",
+                "jupiter_marker_a",
+                "jupiter_marker_b",
+                "saturn",
+                "saturn_moon_ring",
+                "saturn_marker_a",
+                "saturn_marker_b",
+                "uranus",
+                "uranus_moon_ring",
+                "uranus_marker_a",
+                "uranus_marker_b",
+                "neptune",
+                "neptune_moon_ring",
+                "neptune_marker_a",
+                "neptune_marker_b"
+              ],
+              "at": 4.94
+            }
+          ],
+          "audio": "audio/moons_and_review_02.wav",
+          "duration": 9.29
+        },
+        {
+          "text": "Jupiter's icy Europa has strong evidence for an ocean beneath it. Saturn's Titan has thick air and lakes of liquid methane and ethane, not water.",
+          "highlight": "europa",
+          "camera": {
+            "focus": "europa",
+            "seconds": 3,
+            "pos": [
+              -2.17,
+              1.62,
+              -6.35
+            ]
+          },
+          "hide": [
+            "mercury",
+            "venus",
+            "mars",
+            "phobos",
+            "deimos",
+            "jupiter_moon_ring",
+            "jupiter_marker_a",
+            "jupiter_marker_b",
+            "saturn",
+            "saturn_moon_ring",
+            "saturn_marker_a",
+            "saturn_marker_b",
+            "uranus",
+            "uranus_moon_ring",
+            "uranus_marker_a",
+            "uranus_marker_b",
+            "neptune",
+            "neptune_moon_ring",
+            "neptune_marker_a",
+            "neptune_marker_b"
+          ],
+          "show": [
+            "europa"
+          ],
+          "set": [
+            {
+              "node": "jupiter",
+              "position": [
+                -3.1,
+                0.2,
+                0
+              ],
+              "scale": 0.36,
+              "seconds": 2.5
+            }
+          ],
+          "cues": [
+            {
+              "phrase": "ocean beneath it",
+              "highlight": "europa_ocean_schematic",
+              "show": [
+                "europa_ice_schematic",
+                "europa_ocean_schematic",
+                "europa_rock_schematic"
+              ],
+              "at": 2.28
+            },
+            {
+              "phrase": "Saturn's Titan",
+              "highlight": "titan",
+              "hide": [
+                "europa",
+                "europa_ice_schematic",
+                "europa_ocean_schematic",
+                "europa_rock_schematic",
+                "jupiter"
+              ],
+              "show": [
+                "titan",
+                "saturn"
+              ],
+              "set": [
+                {
+                  "node": "saturn",
+                  "position": [
+                    -3.1,
+                    0.2,
+                    0
+                  ],
+                  "scale": 0.48,
+                  "seconds": 2.5
+                }
+              ],
+              "at": 3.11
+            },
+            {
+              "phrase": "lakes",
+              "highlight": "titan_lakes",
+              "show": [
+                "titan_lake_ground",
+                "titan_lakes"
+              ],
+              "at": 4.69
+            }
+          ],
+          "audio": "audio/moons_and_review_03.wav",
+          "duration": 7.4
+        },
+        {
+          "text": "Some moons grew from material around young planets. Others were captured by gravity, with energy lost. Moons orbit planets as planets travel around the Sun.",
+          "highlight": "forming_planet",
+          "camera": {
+            "focus": "forming_planet",
+            "seconds": 3,
+            "pos": [
+              -3.01,
+              1.33,
+              -4.35
+            ]
+          },
+          "hide": [
+            "titan",
+            "saturn",
+            "titan_lake_ground",
+            "titan_lakes"
+          ],
+          "show": [
+            "forming_planet",
+            "forming_path",
+            "clump_a",
+            "clump_b",
+            "clump_c",
+            "capture_planet",
+            "incoming_marker"
+          ],
+          "set": [
+            {
+              "node": "clump_b",
+              "position": [
+                1.05,
+                0,
+                0
+              ],
+              "seconds": 4
+            },
+            {
+              "node": "clump_c",
+              "position": [
+                1.05,
+                0,
+                0
+              ],
+              "seconds": 4
+            },
+            {
+              "node": "clump_a",
+              "scale": 0.18,
+              "seconds": 4
+            }
+          ],
+          "cues": [
+            {
+              "phrase": "captured by gravity",
+              "highlight": "capture_planet",
+              "set": [
+                {
+                  "node": "incoming_marker",
+                  "position": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "seconds": 3
+                }
+              ],
+              "at": 3.07
+            },
+            {
+              "phrase": "energy lost",
+              "highlight": "captured_moon",
+              "hide": [
+                "incoming_marker"
+              ],
+              "show": [
+                "capture_path",
+                "captured_moon"
+              ],
+              "at": 4.5
+            },
+            {
+              "phrase": "Moons orbit planets",
+              "highlight": "traveling_moon",
+              "hide": [
+                "forming_planet",
+                "forming_path",
+                "clump_a",
+                "clump_b",
+                "clump_c",
+                "capture_planet",
+                "capture_path",
+                "captured_moon",
+                "incoming_marker"
+              ],
+              "show": [
+                "solar_sun",
+                "solar_path",
+                "traveling_earth",
+                "traveling_moon_path",
+                "traveling_moon"
+              ],
+              "at": 5.33
+            }
+          ],
+          "audio": "audio/moons_and_review_04.wav",
+          "duration": 8.49
+        },
+        {
+          "text": "What did our Solar System form from: a cloud of gas and dust, or fully grown planets? Think before answering. A cloud of gas and dust became our Solar System.",
+          "highlight": "observatory_root",
+          "camera": {
+            "focus": "observatory_root",
+            "seconds": 3,
+            "pos": [
+              -2.97,
+              1.0,
+              4.68
+            ]
+          },
+          "hide": [
+            "solar_sun",
+            "solar_path",
+            "traveling_earth",
+            "traveling_moon_path",
+            "traveling_moon",
+            "simplification_panel"
+          ],
+          "show": [
+            "cloud_choice",
+            "grown_choice"
+          ],
+          "cues": [
+            {
+              "phrase": "A cloud of",
+              "highlight": "cloud_choice",
+              "at": 1.83
+            }
+          ],
+          "audio": "audio/moons_and_review_05.wav",
+          "duration": 9.1
+        },
+        {
+          "text": "Which planet is hottest: Mercury or Venus? Think before answering. Venus is hottest because its thick atmosphere traps heat.",
+          "highlight": "observatory_root",
+          "camera": {
+            "focus": "observatory_root",
+            "seconds": 3,
+            "pos": [
+              -2.97,
+              1.0,
+              4.68
+            ]
+          },
+          "hide": [
+            "cloud_choice",
+            "grown_choice"
+          ],
+          "show": [
+            "mercury",
+            "venus"
+          ],
+          "set": [
+            {
+              "node": "mercury",
+              "position": [
+                -1.8,
+                0.2,
+                0
+              ],
+              "scale": 0.55,
+              "seconds": 2.5
+            },
+            {
+              "node": "venus",
+              "position": [
+                1.8,
+                0.2,
+                0
+              ],
+              "scale": 0.65,
+              "seconds": 2.5
+            }
+          ],
+          "cues": [
+            {
+              "phrase": "Venus is hottest",
+              "highlight": "venus",
+              "at": 3.8
+            }
+          ],
+          "audio": "audio/moons_and_review_06.wav",
+          "duration": 6.86
+        },
+        {
+          "text": "What does Earth's Moon orbit: Earth or Mars? Choose your answer. We have followed a journey from a cloud to a star and planets, then to worlds with moons.",
+          "highlight": "observatory_root",
+          "camera": {
+            "focus": "observatory_root",
+            "seconds": 3,
+            "pos": [
+              -2.97,
+              1.0,
+              4.68
+            ]
+          },
+          "hide": [
+            "mercury",
+            "venus"
+          ],
+          "show": [
+            "earth_choice",
+            "mars"
+          ],
+          "set": [
+            {
+              "node": "mars",
+              "position": [
+                1.8,
+                0.2,
+                0
+              ],
+              "scale": 0.55,
+              "seconds": 2.5
+            }
+          ],
+          "audio": "audio/moons_and_review_07.wav",
+          "duration": 7.96
+        }
+      ],
+      "quiz": {
+        "question": "What does Earth's Moon orbit?",
+        "options": [
+          {
+            "label": "Earth",
+            "correct": true
+          },
+          {
+            "label": "Mars"
+          }
+        ],
+        "correct": {
+          "text": "Correct! Earth's Moon orbits Earth, while Earth travels around the Sun.",
+          "audio": "audio/moons_and_review_correct.wav",
+          "duration": 3.7
+        },
+        "wrong": {
+          "text": "Not quite. Try again.",
+          "audio": "audio/moons_and_review_wrong.wav",
+          "duration": 1.68
+        },
+        "audio": "audio/moons_and_review_quiz.wav",
+        "duration": 1.64
+      },
+      "ambience": {
+        "prompt": "faint low cosmic rumble, steady and diffuse",
+        "audio": "audio/moons_and_review_ambience.mp3",
+        "volume": 0.08
+      }
+    }
+  ],
+  "tracks": [
+    {
+      "id": "formation_wonder",
+      "prompt": "gentle awe: space, nature, big ideas; good opener for young audiences",
+      "audio": "audio/music_formation_wonder.mp3",
+      "volume": 0.16
+    },
+    {
+      "id": "planet_discovery",
+      "prompt": "inquisitive, friendly learning: science, how-things-work, body, machines",
+      "audio": "audio/music_planet_discovery.mp3",
+      "volume": 0.15
+    }
+  ]
+}
